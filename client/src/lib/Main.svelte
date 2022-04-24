@@ -12,6 +12,6 @@
 
 <style>
     .marginTop {
-        margin-top: 60px;
+        margin-top: 30px;
     }
 </style>

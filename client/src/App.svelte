@@ -1,10 +1,16 @@
 <script>
-  import Header from "./lib/Header.svelte";
-  import Main from "./lib/Main.svelte";
-  import Footer from "./lib/Footer.svelte";
+  import Index from "./lib/Index.svelte";
+  import SignUp from "./lib/SignUp.svelte";
+  import LogIn from "./lib/LogIn.svelte";
+
+  import Router from "svelte-spa-router";
+
+  const routes = {
+      '/': Index,
+      '/signUp': SignUp,
+      '/logIn': LogIn
+  }
+
 </script>
 
-<Header/>
-<Main/>
-<Footer />
-
+<Router routes={routes} />
