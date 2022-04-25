@@ -1,16 +1,21 @@
 <script>
-  import Index from "./lib/Index.svelte";
-  import SignUp from "./lib/SignUp.svelte";
-  import LogIn from "./lib/LogIn.svelte";
-
   import Router from "svelte-spa-router";
 
-  const routes = {
-      '/': Index,
-      '/signUp': SignUp,
-      '/logIn': LogIn
-  }
+	import LogIn from './lib/LogIn.svelte';
+	import SignUp from './lib/SignUp.svelte';
+	import Index from './lib/Index.svelte';
+  import NotFound from './lib/NotFound.svelte';
 
+  const routes = {
+    "/": Index,
+    "/signUp": SignUp,
+    "/logIn": LogIn,
+
+    "*": NotFound
+  };
 </script>
 
-<Router routes={routes} />
+<main>
+  <Router {routes} />
+</main>
+

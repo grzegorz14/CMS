@@ -15,7 +15,7 @@
                 <div class="card bg-dark text-white" style="border-radius: 1rem;">
                     <div class="card-body p-5 text-center">
 
-                    <h2 class="fw-bold mb-2 text-uppercase mb-5">Sign up</h2>
+                    <h2 class="fw-bold mb-2 text-uppercase mb-5">Log in</h2>
 
                     <div class="form-outline form-white mb-4">
                     <input type="text" id="loginInput" class="form-control form-control-lg" />
@@ -27,12 +27,12 @@
                     <label class="form-label mt-1" for="passwordInput">Password</label>
                     </div>
 
-                    <button class="btn btn-outline-light btn-lg px-5 mb-4" type="submit">Sign up</button>
+                    <button class="btn btn-outline-light btn-lg px-5 mb-4" type="submit">Log in</button>
 
                     <div>
                         <p class="mb-0">
-                            Already have an account? 
-                            <a href="/#/logIn" class="link-secondary fw-bold">Log in</a>
+                            Don't have an account? 
+                            <a href="/#/signUp" class="text-white-50 fw-bold">Sign Up</a>
                         </p>
                     </div>
 

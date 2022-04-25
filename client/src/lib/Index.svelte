@@ -1,14 +1,20 @@
 <script>
+    import Header from "./Header.svelte";
     import Slider from "./Slider.svelte";
     import News from "./News.svelte";
     import Photos from "./Photos.svelte";
+    import Footer from "./Footer.svelte";
 </script>
-  
-<main class="marginTop">
+
+<Header/>
+
+<div class="marginTop">
     <Slider />
     <News />
     <Photos />
-</main>
+</div>
+
+<Footer />
 
 <style>
     .marginTop {

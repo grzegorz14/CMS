@@ -1,3 +1,7 @@
+<script>
+  
+</script>
+
 <nav class="navbar navbar-expand-md navbar-dark fixed-top background">
     <div class="container-fluid">
         <a class="navbar-brand ms-3" style="font-size: 150%;" href="/">CMS</a>
@@ -14,8 +18,8 @@
                 </li>
             </ul>
             <div class="text-end me-2">
-                <button type="button" class="btn btn-outline-light me-2">Login</button>
-                <button type="button" class="btn signUp">Sign up</button>
+                <a href="/#/logIn" type="button" class="btn btn-outline-light me-2">Log in</a>
+                <a href="/#/signUp" type="button" class="btn signUp">Sign up</a>
             </div>
         </div>
     </div>
