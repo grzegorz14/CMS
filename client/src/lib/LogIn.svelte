@@ -9,7 +9,7 @@
 <button on:click={goHome} class="goBack btn btn-outline-light position-absolute">HOME</button>
 
 <div class="gradient d-flex justify-content-center">
-    <div class="container">
+    <div class="container w-50">
         <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-12 col-md-8 col-lg-6 col-xl-5">
                 <div class="card bg-dark text-white" style="border-radius: 1rem;">

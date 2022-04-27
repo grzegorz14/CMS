@@ -6,7 +6,7 @@
     </div>
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="./../images/kurzgesagt.jpeg" alt="" width="100%" height="500" style="object-fit: cover;">
+            <img src="./../images/fullMoon.jpg" alt="" width="100%" height="500" style="object-fit: cover;">
 
             <div class="container">
                 <div class="carousel-caption text-center">
@@ -17,7 +17,7 @@
         </div>
 
         <div class="carousel-item">
-            <img src="./../images/kurzgesagt.jpeg" alt="" width="100%" height="500" style="object-fit: cover;">
+            <img src="./../images/airPollution.jpg" alt="" width="100%" height="500" style="object-fit: cover;">
 
             <div class="container">
                 <div class="carousel-caption text-center">

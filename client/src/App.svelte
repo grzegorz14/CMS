@@ -8,6 +8,7 @@
 
   const routes = {
     "/": Index,
+    "/subPage/:page": Index,
     "/signUp": SignUp,
     "/logIn": LogIn,
 
