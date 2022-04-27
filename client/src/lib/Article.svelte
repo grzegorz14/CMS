@@ -1,1 +1,16 @@
 <h1>Article</h1>
+<div class="d-flex justify-content-center border" style="margin-left: 20%; margin-right: 20%;">
+    <div>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id molestie urna, eu porta nibh. Nullam vestibulum odio eget quam vehicula, ac varius sem gravida. Curabitur non porta nisi. Sed imperdiet sed tortor vitae laoreet. Nunc ipsum dolor, congue scelerisque porta ut, fermentum ac felis. Ut euismod lobortis ante in iaculis. Donec non libero vulputate, congue elit nec, eleifend enim. Duis nisl magna, convallis id auctor suscipit, pellentesque vel urna. Vestibulum quis lectus id erat ultrices interdum. Maecenas tortor orci, bibendum sit amet ex nec, varius commodo massa. Maecenas condimentum tellus eget lectus tempus, in facilisis libero auctor. Vivamus euismod tellus erat, non consectetur magna aliquet id. Vestibulum bibendum, nisi a faucibus ultricies, est massa sagittis elit, vitae tincidunt diam ante eget arcu. Sed eleifend dui libero, at posuere velit ultrices id.
+
+        Curabitur tristique pharetra mollis. Pellentesque in dolor arcu. Etiam vestibulum aliquam tortor, vitae finibus nisi lobortis ut. Etiam vitae ultrices risus. Mauris in convallis purus, sit amet molestie ante. Suspendisse elit mi, maximus hendrerit eros eu, hendrerit sagittis elit. Sed rhoncus fringilla egestas. Donec fermentum ipsum et massa viverra laoreet. Vivamus ac facilisis mi. Maecenas vitae elit libero. Integer posuere tortor et justo tincidunt pretium. Ut accumsan sollicitudin sapien sed eleifend. Curabitur tempus, erat quis tempus tincidunt, diam nisl congue ipsum, a sollicitudin dolor libero in leo.
+
+        Nullam dictum dolor vel nunc suscipit hendrerit. Cras aliquet varius viverra. Nulla eget efficitur massa, eget viverra quam. Integer interdum enim ut nulla ornare, nec malesuada massa congue. Nam a nisi luctus, porta sem eget, porta sapien. In sed fermentum lacus, ac aliquam nulla. Etiam dignissim mattis mauris, sed interdum dui aliquet at.
+
+        Proin quis nulla et lectus ornare hendrerit sed id risus. Curabitur at nulla in ex aliquam lobortis. Morbi tempus, enim quis vehicula consequat, ipsum massa elementum ligula, venenatis bibendum nulla lorem nec eros. Ut quis nisi tellus. Vivamus porta neque ut libero aliquet, a accumsan ex convallis. Nam quis sollicitudin turpis. Nunc elementum condimentum urna, in gravida orci aliquam sit amet. In sit amet sagittis quam. Duis finibus nisl porttitor leo aliquam pulvinar. Sed vitae lacus quis dolor sollicitudin blandit. Fusce congue mauris at lacinia imperdiet. Quisque a pharetra libero, ut scelerisque erat. Sed quis ultrices orci, id laoreet lectus. Suspendisse potenti. Aliquam tristique laoreet nulla in fringilla. Nunc eget arcu mollis eros luctus aliquam ut ut lorem.
+
+        Pellentesque et pharetra odio. Curabitur luctus tortor lacus, in vestibulum nibh pharetra eu. Cras suscipit, dolor vitae condimentum placerat, nunc nulla pellentesque massa, nec placerat lorem ante at justo. Quisque a tincidunt dui. Duis tincidunt orci nisl. Nulla viverra vulputate rhoncus. Vivamus commodo tempor quam eget bibendum. Nulla venenatis sollicitudin neque in venenatis. Aliquam vulputate eros vel pretium molestie. Aenean feugiat pretium commodo.
+
+    </div>
+    
+</div>
