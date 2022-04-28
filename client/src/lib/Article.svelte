@@ -1,16 +1,88 @@
-<h1>Article</h1>
-<div class="d-flex justify-content-center border" style="margin-left: 20%; margin-right: 20%;">
-    <div>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id molestie urna, eu porta nibh. Nullam vestibulum odio eget quam vehicula, ac varius sem gravida. Curabitur non porta nisi. Sed imperdiet sed tortor vitae laoreet. Nunc ipsum dolor, congue scelerisque porta ut, fermentum ac felis. Ut euismod lobortis ante in iaculis. Donec non libero vulputate, congue elit nec, eleifend enim. Duis nisl magna, convallis id auctor suscipit, pellentesque vel urna. Vestibulum quis lectus id erat ultrices interdum. Maecenas tortor orci, bibendum sit amet ex nec, varius commodo massa. Maecenas condimentum tellus eget lectus tempus, in facilisis libero auctor. Vivamus euismod tellus erat, non consectetur magna aliquet id. Vestibulum bibendum, nisi a faucibus ultricies, est massa sagittis elit, vitae tincidunt diam ante eget arcu. Sed eleifend dui libero, at posuere velit ultrices id.
+<script>
+    import Comments from "./Comments.svelte";
+</script>
+<div class="d-flex flex-column justify-content-center " style="margin-left: 30%; margin-right: 30%; padding:1%;">
+    <p class="date">NEWS | November 10, 2021</p>
+    <p class="mainHeadline">An Almost Total Lunar Eclipse</p>
+    <p class="by">By Molly Wasser and Ernie Wright</p>
 
-        Curabitur tristique pharetra mollis. Pellentesque in dolor arcu. Etiam vestibulum aliquam tortor, vitae finibus nisi lobortis ut. Etiam vitae ultrices risus. Mauris in convallis purus, sit amet molestie ante. Suspendisse elit mi, maximus hendrerit eros eu, hendrerit sagittis elit. Sed rhoncus fringilla egestas. Donec fermentum ipsum et massa viverra laoreet. Vivamus ac facilisis mi. Maecenas vitae elit libero. Integer posuere tortor et justo tincidunt pretium. Ut accumsan sollicitudin sapien sed eleifend. Curabitur tempus, erat quis tempus tincidunt, diam nisl congue ipsum, a sollicitudin dolor libero in leo.
+    <p class="">On November 19, 2021 (late evening of the 18th in some time zones), the Moon passes into the shadow of the Earth, creating a partial lunar eclipse so deep that it can reasonably be called almost total. Credit: NASA's Scientific Visualization Studio</p>
+    <hr>
+    <p class="headline">What is an “almost total” lunar eclipse?</p>
+    <p class="">A lunar eclipse occurs when the Sun, Earth, and Moon align so that the Moon passes into Earth’s shadow. In a total lunar eclipse, the entire Moon falls within the darkest part of Earth’s shadow, called the umbra. In this eclipse, up to 99.1% of the Moon’s disk will be within Earth’s umbra.</p>
+    <hr>
+    <p class="headline">How can I observe the eclipse?</p>
+    <p class="">The best viewing will be right around the peak of the eclipse, on November 19th at 9:03 UTC/4:03 AM EST/1:03 AM PST. This part of the eclipse is visible in all of North America, as well as large parts of South America, Polynesia, eastern Australia, and northeastern Asia.</p>
 
-        Nullam dictum dolor vel nunc suscipit hendrerit. Cras aliquet varius viverra. Nulla eget efficitur massa, eget viverra quam. Integer interdum enim ut nulla ornare, nec malesuada massa congue. Nam a nisi luctus, porta sem eget, porta sapien. In sed fermentum lacus, ac aliquam nulla. Etiam dignissim mattis mauris, sed interdum dui aliquet at.
+    <p class="">
+        A world map showing where the eclipse is visible at the time of greatest eclipse. Earlier parts of the eclipse are visible farther east, while later times are visible farther west.
+        A world map showing where the eclipse is visible at the time of greatest eclipse. Earlier parts of the eclipse are visible farther east, while later times are visible farther west. Credit: NASA's Scientific Visualization Studio
+    </p>
+    <hr>
+    <p class="headline">Is this the longest lunar eclipse of the century?</p>
+    <p class="">
+        Kind of. It’s actually the longest partial lunar eclipse in a millennium, clocking in at 3 hours, 28 minutes and 23 seconds. There hasn’t been a longer partial lunar eclipse since February 18, 1440 (3 hours, 28 minutes, 46 seconds) and it will remain the longest partial lunar eclipse for 648 years until February 8, 2669 (3 hours, 30 minutes, and 2 seconds). There will be a longertotal lunar eclipse on November 8, 2022.
+    </p>
+        <p>- Partial lunar eclipse of February 18, 1440: 3:28:46</p> 
+        <p>- Partial lunar eclipse of November 18/19, 2021: 3:28:23</p>
+        <p>- Partial lunar eclipse of February 8, 2669, 3:30:02</p>
+    <hr>
+    <p class="headline">Why is this eclipse so long?</p>
+    <p class="">
+        This is a long eclipse for two main reasons: 1) The Moon’s orbital speed and 2) The near-totality of the eclipse.
 
-        Proin quis nulla et lectus ornare hendrerit sed id risus. Curabitur at nulla in ex aliquam lobortis. Morbi tempus, enim quis vehicula consequat, ipsum massa elementum ligula, venenatis bibendum nulla lorem nec eros. Ut quis nisi tellus. Vivamus porta neque ut libero aliquet, a accumsan ex convallis. Nam quis sollicitudin turpis. Nunc elementum condimentum urna, in gravida orci aliquam sit amet. In sit amet sagittis quam. Duis finibus nisl porttitor leo aliquam pulvinar. Sed vitae lacus quis dolor sollicitudin blandit. Fusce congue mauris at lacinia imperdiet. Quisque a pharetra libero, ut scelerisque erat. Sed quis ultrices orci, id laoreet lectus. Suspendisse potenti. Aliquam tristique laoreet nulla in fringilla. Nunc eget arcu mollis eros luctus aliquam ut ut lorem.
+        First, the Moon’s orbit around the Earth is not a perfect circle, and the Earth is off-center within the orbit so sometimes the Moon is closer to the Earth and sometimes it is farther away. This change in distance impacts the Moon’s orbital speed. Closer to the Earth, the Moon moves faster, while further away, it travels more slowly. Right now, the Moon is near its farthest point in its orbit around the Earth and thus, moves slowly through Earth’s shadow.
 
-        Pellentesque et pharetra odio. Curabitur luctus tortor lacus, in vestibulum nibh pharetra eu. Cras suscipit, dolor vitae condimentum placerat, nunc nulla pellentesque massa, nec placerat lorem ante at justo. Quisque a tincidunt dui. Duis tincidunt orci nisl. Nulla viverra vulputate rhoncus. Vivamus commodo tempor quam eget bibendum. Nulla venenatis sollicitudin neque in venenatis. Aliquam vulputate eros vel pretium molestie. Aenean feugiat pretium commodo.
-
-    </div>
+        Second, since this eclipse is almost-total, the Moon spends a longer amount of time in the Earth’s umbra than it would in a ‘more-partial’ eclipse.
+    </p>
+    <hr>
+    <p class="headline">What else can I see tonight?</p>
+    <p class="">
+        During the eclipse, the Moon moves through the western part of the constellation Taurus. The Pleiades star cluster is to the upper right, and the Hyades cluster ― including the bright star Aldebaran, eye of the bull ― is in the lower left. Here are some more skywatching tips for the month of November.
+    </p>
+    <hr>
+    
+    
     
 </div>
+<div class="commentSecton">
+    <h1>Comments:</h1>
+    <Comments />
+</div>
+
+<style>
+    .date{
+        padding-top: 20px;
+        font-size: 15px;
+        font-weight: bold;
+    }
+    .mainHeadline{
+        margin-top: -20px;
+        margin-bottom: -10px;
+        font-size: 50px;
+        font-weight: bolder;
+    }
+    .headline{
+        font-size: 30px;
+        font-weight: bold;
+    }
+    .by{
+        font-size: 20px;
+        font-weight: bolder;
+        text-align: center;
+        padding-bottom: 10px;
+    }
+    p{
+        font-size: 20px;
+    }
+    .commentSecton{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        background-color: rgb(219, 218, 255);
+        width: 100%;
+        padding:20px;
+    }
+   
+</style>
