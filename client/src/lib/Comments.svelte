@@ -1,24 +1,39 @@
+<script>
+    let comments = []
+    
+    function createNewComment() {
+        const text = document.getElementById("newComment").value
+        const username = "username"
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        var yyyy = today.getFullYear();
+        let time = mm + '.' + dd + '.' + yyyy;
+
+        let comment = {username:username,time:time,text:text}
+        
+        comments=[...comments, comment]
+        console.log(comments);
+    }
+</script>
 
 <div class="commentSection">
     
+    {#each comments as comment}
     <div class="comment">
-        <div class="username">Sylab  <span class="commentDate">Commented on: 20.4.2022</span></div>
-        <p>Nie no to przecież nieprawda</p>
+        <div class="username">{comment.username}  <span class="commentDate">Commented on {comment.time} </span></div>
+        <p>{comment.text} </p>
     </div>
-    <div class="comment">
-        <div class="username">???  <span class="commentDate">Commented on: 20.5.2022</span></div>
-        <p>Umm ok</p>
-    </div>
-    <div class="comment">
-        <div class="username">What? egg  <span class="commentDate">Commented on: 21.5.2022</span></div>
-        <p>Darmowe robuxy wejć na stronee frebuxforrel.com rzeby zobył nieskanczanosic rebuxów!!!!!!!</p>
-    </div>
+    {/each}
+    <div class="form-group">
+        <textarea class="form-control" id="newComment" rows="3"></textarea>
+        <button type="submit" class="btn btn-primary mb-2" on:click={createNewComment}>Comment</button>
+      </div>
+
+    
 </div>
 
 <style>
-.commentSection{
-
-}
 .comment{
     
     border-bottom: 1px solid gray;

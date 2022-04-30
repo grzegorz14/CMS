@@ -46,8 +46,12 @@
     
 </div>
 <div class="commentSecton">
-    <h1>Comments:</h1>
-    <Comments />
+    <div class="in">
+        <div class="c">Comments</div>
+        
+        <Comments />
+    </div>
+    
 </div>
 
 <style>
@@ -75,14 +79,31 @@
     p{
         font-size: 20px;
     }
+    
     .commentSecton{
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        background-color: rgb(219, 218, 255);
+        background-color: #e18ca8;
         width: 100%;
         padding:20px;
+        text-align: left;
+        
     }
-   
+    .in{
+        display: flex;
+        flex-direction: column;
+        
+        width: 40%;
+        
+    }
+    .c{
+        float: left;
+        text-align: left;
+        font-size: 30px;
+        font-weight: bold;
+        border-bottom: 1px solid gray;
+    }
+
 </style>
