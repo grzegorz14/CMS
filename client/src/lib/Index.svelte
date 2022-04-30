@@ -18,6 +18,8 @@
   };
 </script>
 
+<a name="top" href="/" style="visibility: collapse; position: absolute;">top</a>
+
 <Header/>
 
 <div class="marginTop">

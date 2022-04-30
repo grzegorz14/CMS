@@ -27,11 +27,11 @@
   }  
 
   .signUp {
-    background-color: pink;
+    background-color: #71bcd5;
     transition: 300ms;
   }
 
   .signUp:hover {
-    background-color: palevioletred;
+    background-color: #b5dbe8;
   }
 </style>
