@@ -53,6 +53,6 @@
 
     .gradient {
         height: 100vh;
-        background: linear-gradient(90deg, rgba(29,2,51,1) 0%, rgba(1,16,128,1) 30%, rgba(179,0,255,1) 100%);
+        background: linear-gradient(90deg, rgba(98,42,42,1) 0%, rgba(111,72,111,1) 29%, rgba(93,73,101,1) 55%, rgba(8,48,68,1) 100%);
     }
 </style>
