@@ -3,7 +3,7 @@
     let imagesLength = getImagesLength()
 
     async function getImagesLength() {
-        let response = await fetch("./getImagesLength")
+        let response = await fetch("./getImagesLength", { method: "POST" })
         response = await response.text()
         imagesLength = response
         await getImages()
@@ -11,7 +11,7 @@
 
     async function getImages() {
         for (let i = 0; i < imagesLength; i++) {
-            let response = await fetch("./getImage?id=" + i)
+            let response = await fetch("./getImage?id=" + i, { method: "POST" })
             response = await response.text()
             images = [...images, response.split("\\")[1]]
         }

@@ -4,6 +4,40 @@
     function goHome() {
         push("#/");
     }
+
+    let errorInfo = "Login and password are required."
+
+    async function signUp() {
+        let login = document.getElementById("loginInput").value
+        let password = document.getElementById("passwordInput").value
+        if (isEmptyOrWhiteSpace(login) || isEmptyOrWhiteSpace(password)){
+            document.getElementById("errorInfo").classList.remove("d-none")
+            document.getElementById("passwordBox").classList.remove("mb-4")
+        }
+        else {
+            let response = await fetch("./signUp", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams({
+                    "login": login,
+                    "password": password,
+                }),
+            })
+            response = await response.text()
+            if (response == "accountCreated") {
+                push("#/accountCreated")
+            }
+            else {
+                errorInfo = response
+            }
+        }
+    }
+
+    function isEmptyOrWhiteSpace(str){
+        return str === null || str.match(/^ *$/) !== null
+    }
 </script>
 
 <button on:click={goHome} class="goBack btn btn-outline-light position-absolute">HOME</button>
@@ -18,16 +52,17 @@
                     <h2 class="fw-bold mb-2 text-uppercase mb-5">Sign up</h2>
 
                     <div class="form-outline form-white mb-4">
-                    <input type="text" id="loginInput" class="form-control form-control-lg" />
-                    <label class="form-label mt-1" for="loginInput">Login</label>
+                        <input type="text" id="loginInput" class="form-control form-control-lg" />
+                        <label class="form-label mt-1" for="loginInput">Login</label>
                     </div>
 
-                    <div class="form-outline form-white mb-4">
-                    <input type="password" id="passwordInput" class="form-control form-control-lg" />
-                    <label class="form-label mt-1" for="passwordInput">Password</label>
+                    <div id="passwordBox" class="form-outline form-white mb-4">
+                        <input type="password" id="passwordInput" class="form-control form-control-lg" />
+                        <label class="form-label mt-1" for="passwordInput">Password</label>
                     </div>
 
-                    <button class="btn btn-outline-light btn-lg px-5 mb-4" type="submit">Sign up</button>
+                    <p id="errorInfo" class="form-label text-danger mb-4 d-none">{errorInfo}</p>
+                    <button on:click={signUp} class="btn btn-outline-light btn-lg px-5 mb-4">Sign up</button>
 
                     <div>
                         <p class="mb-0">

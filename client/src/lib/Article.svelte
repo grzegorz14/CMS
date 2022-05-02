@@ -1,6 +1,7 @@
 <script>
     import Comments from "./Comments.svelte";
 </script>
+
 <div class="d-flex flex-column justify-content-center " style="margin-left: 30%; margin-right: 30%; padding:1%;">
     <p class="date">NEWS | November 10, 2021</p>
     <p class="mainHeadline">An Almost Total Lunar Eclipse</p>
