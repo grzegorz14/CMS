@@ -236,3 +236,7 @@ a:focus {
     font-size: 20px;
 }
 
+.radioLabel {
+    font-size: 20px;
+    margin-left: 5px;
+}

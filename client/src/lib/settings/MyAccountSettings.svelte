@@ -12,8 +12,7 @@
     }
 
     function deleteAccount() {
-        let confirm = confirm("Delete your account?")
-        if (confirm) {
+        if (confirm("Delete your account?")) {
             //deletes account with unique login "Grzesiek"
         }
     }
@@ -50,6 +49,4 @@
         <p class="headline">Delete account</p>
         <button on:click={deleteAccount} class="btn btn-danger m-2 ms-3">Delete account</button>
     </div>
-
-
 </div>

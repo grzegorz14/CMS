@@ -1,3 +1,39 @@
-<h1>User settings - widoczne tylko dla admina</h1>
+<script>
+    function editUser(login) {
+        //go to page "edit user Grzesiek"
+    }
+</script>
 
-<p>lista userów, możliwość ich edycji (pewnie zrobimy osobną stronę podobną do MyAccountSettings)</p>
+<div class="d-flex flex-column justify-content-center">
+    <p class="mainHeadline">User settings</p>
+
+    <hr>
+
+    <p class="headline">Users</p>
+    <div class="table-responsive w-50 ms-3">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Login</th>
+                    <th>Password</th>
+                    <th>Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>0</th>
+                    <th>Grzesiek</th>
+                    <th>abcdgd</th>
+                    <th><button on:click={() => editUser("Grzesiek")} class="btn btn-primary btn-sm">Edit</button></th>
+                </tr>
+                <tr>
+                    <th>1</th>
+                    <th>Drater</th>
+                    <th>robieStonki</th>
+                    <th><button on:click={() => editUser("Grzesiek")} class="btn btn-primary btn-sm">Edit</button></th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
