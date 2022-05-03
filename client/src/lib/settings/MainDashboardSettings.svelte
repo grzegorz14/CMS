@@ -2,7 +2,7 @@
     
 </script>
 
-<div class="d-flex flex-column justify-content-center " style="">
+<div class="d-flex flex-column justify-content-center">
     <p class="mainHeadline">Main Dashboard Settings</p>
     <hr>
     <p class="headline">Site Theme</p>
@@ -77,7 +77,7 @@
             </div>
         </div>
         <div class="box">
-            <p >Nav Bar Color</p>
+            <p>Nav Bar Color</p>
             <div class="colorBox">
                 <button class="colorBtn" style="background-color: red;"></button>
                 <button class="colorBtn" style="background-color: blue;"></button>
@@ -103,8 +103,6 @@
 
 <style>
     .mainHeadline{
-        margin-top: -20px;
-        margin-bottom: -10px;
         font-size: 50px;
         font-weight: bolder;
     }

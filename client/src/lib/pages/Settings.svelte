@@ -30,7 +30,7 @@
             <h3>Settings</h3>
         </div>
 
-        <ul class="list-unstyled components">
+        <ul class="list-unstyled">
             <li>
                 <a href="#/subPage/settings/mainDashboard" >Main Dashboard</a>
             </li>
@@ -61,14 +61,6 @@
 </div>
 
 <style>
-    p {
-        font-family: 'Poppins', sans-serif;
-        font-size: 1.1em;
-        font-weight: 300;
-        line-height: 1.7em;
-        color: #999;
-    }
-
     a,
     a:hover,
     a:focus {
@@ -97,11 +89,6 @@
         background: #c27167;
     }
 
-    #sidebar ul.components {
-        padding: 25px 0;
-        border-bottom: 1px solid #47748b;
-    }
-
     #sidebar ul li a {
         padding: 20px;
         font-size: 1.1em;
@@ -113,15 +100,11 @@
         background: #fff;
     }
 
-    ul ul a {
-        font-size: 0.9em !important;
-        padding-left: 30px !important;
-        background: #00557c;
-    }
-
     #content {
         width: 100%;
-        padding: 30px;
+        padding: 40px;
+        padding-left: 70px;
+        padding-right: 70px;
         min-height: 100vh;
         transition: all 0.3s;
     }
