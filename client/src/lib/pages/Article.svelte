@@ -1,5 +1,5 @@
 <script>
-    import Comments from "./Comments.svelte";
+	import Comments from './../components/Comments.svelte';
 </script>
 
 <div class="d-flex flex-column justify-content-center " style="margin-left: 30%; margin-right: 30%; padding:1%;">

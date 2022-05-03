@@ -1,21 +1,24 @@
 <script>
 	import Router from 'svelte-spa-router';
 
-    import Header from "./Header.svelte";
-    import Footer from "./Footer.svelte";
+    import Header from "./components/Header.svelte";
+    import Footer from "./components/Footer.svelte";
 
-    import Home from './Home.svelte';
-    import Article from './Article.svelte';
-    import Gallery from './Gallery.svelte';
-    import NotFound from './NotFound.svelte';
+    import Home from './pages/Home.svelte';
+    import Article from './pages/Article.svelte';
+    import Gallery from './pages/Gallery.svelte';
+    import Settings from './pages/Settings.svelte';
+    import NotFound from './pages/NotFound.svelte';
 
     const routes = {
-    "/": Home,
-    "/subPage/article": Article,
-    "/subPage/gallery": Gallery,
+        "/subPage/settings/:page": Settings,
+        "/subPage/settings": Settings,
+        "/subPage/article": Article,
+        "/subPage/gallery": Gallery,
+        "/": Home,
 
-    "*": NotFound
-  };
+        "*": NotFound
+    };
 </script>
 
 <a name="top" href="/" style="visibility: collapse; position: absolute;">top</a>
@@ -30,6 +33,6 @@
 
 <style>
     .marginTop {
-        margin-top: 3%;
+        margin-top: 3.2%;
     }
 </style>
