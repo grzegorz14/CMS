@@ -6,6 +6,9 @@
     import GallerySettings from "../settings/GallerySettings.svelte";
     import UsersSettings from "../settings/UsersSettings.svelte";
     import NotFound from "./NotFound.svelte";   
+    import MyAccountSettings from "../settings/MyAccountSettings.svelte";
+    import MenuSettings from "../settings/MenuSettings.svelte";
+    import SliderSettings from "../settings/SliderSettings.svelte";
 
     const routes = {
         "/subPage/settings": MainDashboardSettings,
@@ -13,6 +16,9 @@
         "/subPage/settings/gallery": GallerySettings,
         "/subPage/settings/articles": ArticlesSettings,
         "/subPage/settings/users": UsersSettings,
+        "/subPage/settings/myAccount": MyAccountSettings,
+        "/subPage/settings/menu": MenuSettings,
+        "/subPage/settings/slider": SliderSettings,
 
         "*": NotFound
     };
@@ -28,16 +34,23 @@
             <li>
                 <a href="#/subPage/settings/mainDashboard" >Main Dashboard</a>
             </li>
-            
+            <li>
+                <a href="#/subPage/settings/menu" >Menu</a>            
+            </li>
+            <li>
+                <a href="#/subPage/settings/slider" >Slider</a>            
+            </li>
             <li>
                 <a href="#/subPage/settings/articles" >Articles</a>              
             </li>
             <li>
                 <a href="#/subPage/settings/gallery" >Gallery</a>            
             </li>
-            
             <li>
                 <a href="#/subPage/settings/users" >Users</a>            
+            </li>
+            <li>
+                <a href="#/subPage/settings/myAccount" >My Account</a>            
             </li>
         </ul>
     </nav>
@@ -73,23 +86,24 @@
     #sidebar {
         min-width: 250px;
         max-width: 250px;
-        background: #00557c;
+        background: #cf8c85;
         color: #fff;
         transition: all 0.3s;
     }
 
     #sidebar .sidebar-header {
         padding: 20px;
-        background: #004261;
+        padding-bottom: 15px;
+        background: #c27167;
     }
 
     #sidebar ul.components {
-        padding: 20px 0;
+        padding: 25px 0;
         border-bottom: 1px solid #47748b;
     }
 
     #sidebar ul li a {
-        padding: 10px;
+        padding: 20px;
         font-size: 1.1em;
         display: block;
     }
@@ -107,7 +121,7 @@
 
     #content {
         width: 100%;
-        padding: 20px;
+        padding: 30px;
         min-height: 100vh;
         transition: all 0.3s;
     }

@@ -87,8 +87,6 @@
         </div>
     </div>
     
-    
-    
     <hr>
     <p class="headline">Slider</p>
     <p>Zdjęcia nw ??</p>
@@ -100,16 +98,10 @@
     <p class="headline">To takie coś na dole</p>
     <p>dodawanie nowych i te gify obok</p>
     <hr>
-    
-    
-    
-    
-    
 </div>
 
 
 <style>
-    
     .mainHeadline{
         margin-top: -20px;
         margin-bottom: -10px;
@@ -128,11 +120,10 @@
         height: 25px;
         margin-right: 5px;
         margin-top: -10px;
-        /* nigdy nie usuwaj tych 2 linijek na dole niechcesz iwedzieć jak to działa :-)*/
+        /* xd, musiałem usunąć i zobaczyć */
         border: 0px;
         background-color: white;
         /* ----- */
-        
     }
     .subColorBtn{
         width: 25px;

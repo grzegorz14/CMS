@@ -42,17 +42,13 @@
         During the eclipse, the Moon moves through the western part of the constellation Taurus. The Pleiades star cluster is to the upper right, and the Hyades cluster ― including the bright star Aldebaran, eye of the bull ― is in the lower left. Here are some more skywatching tips for the month of November.
     </p>
     <hr>
-    
-    
-    
 </div>
+
 <div class="commentSecton">
     <div class="in">
         <div class="c">Comments</div>
-        
         <Comments />
     </div>
-    
 </div>
 
 <style>
@@ -86,7 +82,7 @@
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        background-color: #e18ca8;
+        background-color: #DEB1AC;
         width: 100%;
         padding:20px;
         text-align: left;

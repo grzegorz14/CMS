@@ -46,7 +46,7 @@
 
 <style>
   .background {
-    background: #011936;
+    background: #021D47;
   }  
 
   .signUp {
@@ -55,7 +55,7 @@
   }
 
   .signUp:hover {
-    background-color: #b5dbe8;
+    background-color: #618bba;
   }
 
   .hover:hover {

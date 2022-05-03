@@ -1,7 +1,7 @@
 <script>
 	import Router from 'svelte-spa-router';
 
-    import Header from "./components/Header.svelte";
+    import Menu from "./components/Menu.svelte";
     import Footer from "./components/Footer.svelte";
 
     import Home from './pages/Home.svelte';
@@ -23,7 +23,7 @@
 
 <a name="top" href="/" style="visibility: collapse; position: absolute;">top</a>
 
-<Header/>
+<Menu/>
 
 <div class="marginTop">
     <Router {routes} />

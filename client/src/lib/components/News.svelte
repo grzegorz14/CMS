@@ -37,11 +37,13 @@
 
 <style>
   .readArticle {
-    background-color: #b5dbe8;
+    color: white;
+    background-color: #40a3c4;
     transition: 300ms;
   }
 
   .readArticle:hover {
-    background-color: #71bcd5;
+    color: white;
+    background-color: #72bbd3;
   }
 </style>
