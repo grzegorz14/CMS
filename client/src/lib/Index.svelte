@@ -2,7 +2,6 @@
 	import Router from 'svelte-spa-router';
 
     import Menu from "./components/Menu.svelte";
-    import Footer from "./components/Footer.svelte";
 
     import Home from './pages/Home.svelte';
     import Article from './pages/Article.svelte';
@@ -28,5 +27,3 @@
 <div class="marginTop">
     <Router {routes} />
 </div>
-
-<Footer />

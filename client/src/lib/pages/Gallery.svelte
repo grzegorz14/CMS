@@ -1,4 +1,6 @@
 <script>
+    import Footer from "../components/Footer.svelte"
+
     let images = []
     let imagesLength = getImagesLength()
 
@@ -35,4 +37,7 @@
             {/each}
         </div>
     </div>
+
+    <hr>
+    <Footer />
 {/await}
