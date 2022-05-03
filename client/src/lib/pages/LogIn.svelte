@@ -77,16 +77,3 @@
     </div>
 </div>
 
-<style>
-    .goBack {
-        top: 50px;
-        left: 50px;
-        width: 80px;
-        height: 40px;
-    }
-
-    .gradient {
-        height: 100vh;
-        background: linear-gradient(90deg, rgba(98,42,42,1) 0%, rgba(111,72,111,1) 29%, rgba(93,73,101,1) 55%, rgba(8,48,68,1) 100%);
-    }
-</style>

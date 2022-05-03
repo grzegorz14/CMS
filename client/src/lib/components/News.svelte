@@ -34,16 +34,3 @@
     </div>
   </div>
 </div>
-
-<style>
-  .readArticle {
-    color: white;
-    background-color: #40a3c4;
-    transition: 300ms;
-  }
-
-  .readArticle:hover {
-    color: white;
-    background-color: #72bbd3;
-  }
-</style>

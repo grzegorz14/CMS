@@ -31,16 +31,3 @@
     </div>
 </div>
 
-<style>
-    .comment{
-        border-bottom: 1px solid gray;
-    }
-    .username{
-        font-size: 20px;
-        color: rgb(124, 0, 173);
-    }
-    .commentDate{
-        font-size: 10px;
-        color: gray;
-    }
-</style>

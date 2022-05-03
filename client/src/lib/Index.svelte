@@ -30,9 +30,3 @@
 </div>
 
 <Footer />
-
-<style>
-    .marginTop {
-        margin-top: 3.2%;
-    }
-</style>

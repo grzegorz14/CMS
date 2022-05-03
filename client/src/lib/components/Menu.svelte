@@ -43,32 +43,3 @@
         </div>
     </div>
 </nav>
-
-<style>
-  .background {
-    background: #021D47;
-  }  
-
-  .signUp {
-    background-color: #71bcd5;
-    transition: 300ms;
-  }
-
-  .signUp:hover {
-    background-color: #618bba;
-  }
-
-  .hover:hover {
-    animation: spin 0.8s ease-in-out infinite;
-    animation-iteration-count: 1;
-  }
-
-  @keyframes spin { 
-    0% {
-      transform:rotate(0deg); 
-    }
-    100% { 
-        transform:rotate(360deg); 
-    } 
-}
-</style>

@@ -53,19 +53,3 @@
 
 
 </div>
-
-<style>
-    .mainHeadline{
-        font-size: 50px;
-        font-weight: bolder;
-    }
-
-    .headline{
-        font-size: 30px;
-        font-weight: bold;
-    }
-
-    .text {
-        font-size: 20px;
-    }
-</style>

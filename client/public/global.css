@@ -61,3 +61,200 @@ button:focus {
 	border-color: #666;
 }
 */
+
+.comment{
+    border-bottom: 1px solid gray;
+}
+.username{
+    font-size: 20px;
+    color: rgb(124, 0, 173);
+}
+.commentDate{
+    font-size: 10px;
+    color: gray;
+}
+.background {
+    background: #021D47;
+}  
+.signUp {
+background-color: #71bcd5;
+transition: 300ms;
+}
+.signUp:hover {
+background-color: #618bba;
+}
+.hover:hover {
+animation: spin 0.8s ease-in-out infinite;
+animation-iteration-count: 1;
+}
+@keyframes spin { 
+0% {
+    transform:rotate(0deg); 
+}
+100% { 
+    transform:rotate(360deg); 
+} 
+}
+.readArticle {
+    color: white;
+    background-color: #40a3c4;
+    transition: 300ms;
+}
+.readArticle:hover {
+    color: white;
+    background-color: #72bbd3;
+}
+.gradient {
+    height: 100vh;
+    background: linear-gradient(90deg, rgba(98,42,42,1) 0%, rgba(111,72,111,1) 29%, rgba(93,73,101,1) 55%, rgba(8,48,68,1) 100%);
+}
+.date{
+    padding-top: 20px;
+    font-size: 15px;
+    font-weight: bold;
+}
+.mainHeadline{
+    margin-top: -20px;
+    margin-bottom: -10px;
+    font-size: 50px;
+    font-weight: bolder;
+}
+.headline{
+    font-size: 30px;
+    font-weight: bold;
+}
+.by{
+    font-size: 20px;
+    font-weight: bolder;
+    text-align: center;
+    padding-bottom: 10px;
+}
+p{
+    font-size: 20px;
+}
+.commentSecton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #DEB1AC;
+    width: 100%;
+    padding:20px;
+    text-align: left;
+    
+}
+.in{
+    display: flex;
+    flex-direction: column;
+    
+    width: 40%;
+    
+}
+.c{
+    float: left;
+    text-align: left;
+    font-size: 30px;
+    font-weight: bold;
+    border-bottom: 1px solid gray;
+}
+.goBack {
+    top: 50px;
+    left: 50px;
+    width: 80px;
+    height: 40px;
+}
+.gradient {
+    height: 100vh;
+    background: linear-gradient(90deg, rgba(98,42,42,1) 0%, rgba(111,72,111,1) 29%, rgba(93,73,101,1) 55%, rgba(8,48,68,1) 100%);
+}
+a,
+a:hover,
+a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    background: #cf8c85;
+    color: #fff;
+    transition: all 0.3s;
+}
+#sidebar .sidebar-header {
+    padding: 20px;
+    padding-bottom: 15px;
+    background: #c27167;
+}
+#sidebar ul li a {
+    padding: 20px;
+    font-size: 1.1em;
+    display: block;
+}
+#sidebar ul li a:hover {
+    color: #00557c;
+    background: #fff;
+}
+#content {
+    width: 100%;
+    padding: 40px;
+    padding-left: 70px;
+    padding-right: 70px;
+    min-height: 100vh;
+    transition: all 0.3s;
+}
+.goBack {
+    top: 50px;
+    left: 50px;
+    width: 80px;
+    height: 40px;
+}
+.gradient {
+    height: 100vh;
+    background: linear-gradient(90deg, rgba(98,42,42,1) 0%, rgba(111,72,111,1) 29%, rgba(93,73,101,1) 55%, rgba(8,48,68,1) 100%);
+}
+.preColorBtn{
+    height: 25px;
+    margin-right: 5px;
+    margin-top: -10px;
+    /* xd, musiałem usunąć i zobaczyć */
+    border: 0px;
+    background-color: white;
+    /* ----- */
+}
+.subColorBtn{
+    width: 25px;
+    height: 25px;
+}
+.colorBtn{
+    width: 25px;
+    height: 25px;
+    border: 1px solid black;
+    border-radius: 50%;
+    margin-right: 5px;
+    margin-top: -10px;
+}
+.colorBox{
+    display: flex;
+    flex-direction: row;
+}
+.box{
+    margin-right: 10px;
+    padding: 10px;
+    border: 1px solid black;
+}
+.fontBox{
+    width: 250px;
+    background-color:white ;
+}
+.text {
+    font-size: 20px;
+}
+.marginTop {
+    margin-top: 3.2%;
+}
