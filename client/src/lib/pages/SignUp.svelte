@@ -67,8 +67,8 @@
                     <div>
                         <p class="mb-0">
                             Already have an account? 
-                            <a href="/#/logIn" class="link-secondary fw-bold">Log in</a>
                         </p>
+                        <a href="/#/logIn" class="link-secondary fw-bold">Log in</a>
                     </div>
 
                     </div>
