@@ -32,25 +32,25 @@
 
         <ul class="list-unstyled">
             <li>
-                <a href="#/subPage/settings/mainDashboard" >Main Dashboard</a>
+                <a class="settingsNavText" href="#/subPage/settings/mainDashboard" >Main Dashboard</a>
             </li>
             <li>
-                <a href="#/subPage/settings/menu" >Menu</a>            
+                <a class="settingsNavText" href="#/subPage/settings/menu" >Menu</a>            
             </li>
             <li>
-                <a href="#/subPage/settings/slider" >Slider</a>            
+                <a class="settingsNavText" href="#/subPage/settings/slider" >Slider</a>            
             </li>
             <li>
-                <a href="#/subPage/settings/articles" >Articles</a>              
+                <a class="settingsNavText" href="#/subPage/settings/articles" >Articles</a>              
             </li>
             <li>
-                <a href="#/subPage/settings/gallery" >Gallery</a>            
+                <a class="settingsNavText" href="#/subPage/settings/gallery" >Gallery</a>            
             </li>
             <li>
-                <a href="#/subPage/settings/users" >Users</a>            
+                <a class="settingsNavText" href="#/subPage/settings/users" >Users</a>            
             </li>
             <li>
-                <a href="#/subPage/settings/myAccount" >My Account</a>            
+                <a class="settingsNavText" href="#/subPage/settings/myAccount" >My Account</a>            
             </li>
         </ul>
     </nav>

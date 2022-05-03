@@ -96,13 +96,13 @@ animation-iteration-count: 1;
 } 
 }
 .readArticle {
-    color: white;
-    background-color: #40a3c4;
-    transition: 300ms;
+    color: white !important;
+    background-color: #40a3c4 !important;
+    transition: 300ms !important;
 }
 .readArticle:hover {
-    color: white;
-    background-color: #72bbd3;
+    color: white !important;
+    background-color: #72bbd3 !important;
 }
 .gradient {
     height: 100vh;
@@ -170,9 +170,16 @@ p{
 a,
 a:hover,
 a:focus {
-    color: inherit;
-    text-decoration: none;
+    color: inherit ;
+    text-decoration: none !important;
     transition: all 0.3s;
+	
+}
+.settingsNavText{
+	color: inherit !important;
+}
+.settingsNavText:hover{
+	color: #cf8c85 !important;
 }
 .wrapper {
     display: flex;
