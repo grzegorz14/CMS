@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container photosColors">
   <hr class="featurette-divider" />
 
   <div class="row featurette">

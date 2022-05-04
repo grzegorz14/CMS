@@ -16,7 +16,7 @@
   }
 </script>
 
-<nav class="navbar navbar-expand-md navbar-dark navbar-background ">
+<nav class="navbar navbar-expand-md navbar-dark navbarColors ">
     <div class="container-fluid">
         <a class="navbar-brand ms-3" style="font-size: 150%;" href="/">CMS</a>
         <div class="collapse navbar-collapse" id="navbarCollapse">

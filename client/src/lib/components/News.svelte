@@ -2,7 +2,7 @@
     // fetch po listę artykułów
 </script>
 
-<div class="container mt-5 mb-5">
+<div class="container mt-5 mb-5 newsColors">
   <h1 class="text-justify mb-4 text-center">Articles</h1>
   <div class="row gap-4">
     <div class="col mb-5" style="max-width: 50%; max-height: 250px">

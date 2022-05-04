@@ -9,7 +9,7 @@
             <img src="./../images/fullMoon.jpg" alt="" width="100%" height="500" style="object-fit: cover;">
 
             <div class="container">
-                <div class="carousel-caption text-center">
+                <div class="carousel-caption text-center sliderColors">
                     <h2>How the full moon affects your sleep?</h2>
                     <p>Many people have trouble falling asleep during the full moon phase...</p>
                 </div>
@@ -20,7 +20,7 @@
             <img src="./../images/airPollution.jpg" alt="" width="100%" height="500" style="object-fit: cover;">
 
             <div class="container">
-                <div class="carousel-caption text-center">
+                <div class="carousel-caption text-center sliderColors">
                     <h2>How to fight with air pollution?</h2>
                     <p>High air pollution is one of the biggest problems of many...</p>
                 </div>
@@ -31,7 +31,7 @@
             <img src="./../images/shootingStars.jpg" alt="" width="100%" height="500" style="object-fit: cover;">
 
             <div class="container">
-                <div class="carousel-caption text-center">
+                <div class="carousel-caption text-center sliderColors">
                     <h2>What "falling stars" really are?</h2>
                     <p>"Shooting stars" and "falling stars" are both names that describe meteors...</p>
                 </div>

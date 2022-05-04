@@ -26,8 +26,8 @@
     {/each}
 
     <div class="form-group">
-        <textarea class="form-control" id="newComment" rows="3"></textarea>
-        <button type="submit" class="btn btn-primary mb-2" on:click={createNewComment}>Comment</button>
+        <textarea class="form-control commentTextarea" id="newComment" rows="3"></textarea>
+        <button type="submit" class="btn btn-primary mb-2 commentButton" on:click={createNewComment}>Comment</button>
     </div>
 </div>
 

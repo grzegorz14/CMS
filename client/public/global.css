@@ -19,6 +19,7 @@
     /* Article */
     --article-color:black;
     --article-background-color:white;
+    --article-background-background-color:white;
     /* Comments */
     --comments-color:black;
     --comments-background-color:#cf8c85;
@@ -26,6 +27,7 @@
     --comments-button-background-color:blue;
     --comments-textarea-color:black;
     --comments-textarea-background-color:white;
+    --comments-username-color:red;
     /* Gallery */
     --gallery-color:black;
     --gallery-background-color:white;
@@ -34,26 +36,113 @@
 
 }
 /* Navbar */
-.navbar-background {
-    background: #021D47;
+.navbarColors {
+    background:var(--navbar-background-color);
+    color:var(--navbar-color);
 }  
-/* ----- */
+/* Slider */
+.sliderColors{
+    color:var(--slider-color);
+}
+/* News */
+.newsColors{
+    background: var(--news-background-color);
+    color: var(--news-color);
+}
+.readArticle {
+    color: var(--news-button-color) !important;
+    background-color: var(--news-button-background-color) !important;
+    transition: 300ms !important;
+}
+.readArticle:hover {
+    color: var(--news-button-color) !important;
+    background-color: var(--news-button-background-color-hover) !important;
+}
+/* Photos */
+.photosColors{
+    background: var(--photos-background-color);
+    color: var(--photos-color);
+}
+/* Footer */
+.footerColors{
+    background: var(--footer-background-color);
+    color: var(--footer-color);
+}
+/* Article */
+.marginTop{
+    background: var(--article-background-background-color);
+}
+.article{
+    font-size: 20px;
+    background: var(--article-background-color);
+    color:var(--article-color) ;
+}
+.date{
+    padding-top: 20px;
+    font-size: 15px;
+    font-weight: bold;
+}
+.mainHeadline{
+    margin-top: -20px;
+    margin-bottom: -10px;
+    font-size: 50px;
+    font-weight: bolder;
+}
+.headline{
+    font-size: 30px;
+    font-weight: bold;
+}
+.by{
+    font-size: 20px;
+    font-weight: bolder;
+    text-align: center;
+    padding-bottom: 10px;
+}
+.commentSecton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: var(--comments-background-color);
+    color: var(--comments-color);
+    width: 100%;
+    padding:20px;
+    text-align: left;
+}
+.in{
+    display: flex;
+    flex-direction: column;
+    width: 40%;   
+}
+.c{
+    float: left;
+    text-align: left;
+    font-size: 30px;
+    font-weight: bold;
+}
+/* Comments */
+.commentTextarea{
+    background: var(--comments-textarea-background-color);
+    color: var(--comments-textarea-color);
+}
+.commentButton{
+    background: var(--comments-button-background-color);
+    color: var(--comments-button-color);
+}
 .comment{
     border-bottom: 1px solid gray;
 }
-
 .username{
     font-size: 20px;
-    color: rgb(124, 0, 173);
+    color: var(--comments-username-color);
 }
-
 .commentDate{
     font-size: 10px;
     color: gray;
 }
+/* Gallery */
 
-
-
+/* Login */
 .signUp {
     background-color: #71bcd5;
     transition: 300ms;
@@ -61,12 +150,10 @@
 .signUp:hover {
     background-color: #618bba;
 }
-
 .hover:hover {
     animation: spin 0.8s ease-in-out infinite;
     animation-iteration-count: 1;
 }
-
 @keyframes spin { 
     0% {
         transform:rotate(0deg); 
@@ -75,75 +162,16 @@
         transform:rotate(360deg); 
     } 
 }
-
-.readArticle {
-    color: white !important;
-    background-color: #40a3c4 !important;
-    transition: 300ms !important;
-}
-.readArticle:hover {
-    color: white !important;
-    background-color: #72bbd3 !important;
-}
-
 .gradient {
     height: 100vh;
     background: linear-gradient(90deg, rgba(98,42,42,1) 0%, rgba(111,72,111,1) 29%, rgba(93,73,101,1) 55%, rgba(8,48,68,1) 100%);
 }
 
-.date{
-    padding-top: 20px;
-    font-size: 15px;
-    font-weight: bold;
-}
 
-.mainHeadline{
-    margin-top: -20px;
-    margin-bottom: -10px;
-    font-size: 50px;
-    font-weight: bolder;
-}
 
-.headline{
-    font-size: 30px;
-    font-weight: bold;
-}
 
-.by{
-    font-size: 20px;
-    font-weight: bolder;
-    text-align: center;
-    padding-bottom: 10px;
-}
 
-p{
-    font-size: 20px;
-}
 
-.commentSecton{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    background-color: #DEB1AC;
-    width: 100%;
-    padding:20px;
-    text-align: left;
-}
-
-.in{
-    display: flex;
-    flex-direction: column;
-    width: 40%;   
-}
-
-.c{
-    float: left;
-    text-align: left;
-    font-size: 30px;
-    font-weight: bold;
-    border-bottom: 1px solid gray;
-}
 
 .goBack {
     top: 50px;
