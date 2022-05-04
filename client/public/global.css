@@ -1,7 +1,43 @@
+:root{
+    /* Navbar */
+    --navbar-color:white;
+    --navbar-background-color:#021D47;
+    /* Slider */
+    --slider-color:white;
+    /* News */
+    --news-color:black;
+    --news-background-color:white;
+    --news-button-color:white;
+    --news-button-background-color:#40a3c4;
+    --news-button-background-color-hover:#72bbd3;
+    /* Photos? */
+    --photos-color:black;
+    --photos-background-color:white;
+    /* Footer */
+    --footer-color:black;
+    --footer-background-color:white;
+    /* Article */
+    --article-color:black;
+    --article-background-color:white;
+    /* Comments */
+    --comments-color:black;
+    --comments-background-color:#cf8c85;
+    --comments-button-color:white;
+    --comments-button-background-color:blue;
+    --comments-textarea-color:black;
+    --comments-textarea-background-color:white;
+    /* Gallery */
+    --gallery-color:black;
+    --gallery-background-color:white;
+}
 * {
 
 }
-
+/* Navbar */
+.navbar-background {
+    background: #021D47;
+}  
+/* ----- */
 .comment{
     border-bottom: 1px solid gray;
 }
@@ -16,9 +52,7 @@
     color: gray;
 }
 
-.background {
-    background: #021D47;
-}  
+
 
 .signUp {
     background-color: #71bcd5;
