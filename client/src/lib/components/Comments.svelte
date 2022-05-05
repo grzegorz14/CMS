@@ -2,7 +2,8 @@
     let comments = []
     
     function createNewComment() {
-        const text = document.getElementById("newComment").value
+        let text = document.getElementById("newComment").value
+        text = text.replace(/\n\r?/g, '<br />')
         const username = "username"
         var today = new Date();
         var dd = String(today.getDate()).padStart(2, '0');

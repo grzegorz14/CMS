@@ -22,12 +22,12 @@
     --article-background-background-color:white;
     /* Comments */
     --comments-color:black;
-    --comments-background-color:#cf8c85;
+    --comments-background-color:#73858b;
     --comments-button-color:white;
-    --comments-button-background-color:blue;
+    --comments-button-background-color:#0084ff;
     --comments-textarea-color:black;
     --comments-textarea-background-color:white;
-    --comments-username-color:red;
+    --comments-username-color:#0084ff;
     /* Gallery */
     --gallery-color:black;
     --gallery-background-color:white;
@@ -126,11 +126,20 @@
     color: var(--comments-textarea-color);
 }
 .commentButton{
-    background: var(--comments-button-background-color);
-    color: var(--comments-button-color);
+    padding: 10px !important;
+    margin-top: 10px;
+    background: var(--comments-button-background-color) !important;
+    border: var(--comments-button-background-color) !important;
+    border-radius: 7px !important;
+    color: var(--comments-button-color) !important;
 }
 .comment{
-    border-bottom: 1px solid gray;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    padding-top: 0px;
+    background:var(--comments-textarea-background-color);
+    border-radius: 5px;
 }
 .username{
     font-size: 20px;
