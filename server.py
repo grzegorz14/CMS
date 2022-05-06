@@ -54,6 +54,7 @@ def logIn():
             return userType
         else:
             print("Wrong username or password!")
+            return "Wrong username or password!"
             
     # check if user exists in database with correct password => return type of user, else => return error info
     

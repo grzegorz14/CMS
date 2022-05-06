@@ -32,6 +32,8 @@
             }
             else {
                 errorInfo = response
+                document.getElementById("errorInfo").classList.remove("d-none")
+                document.getElementById("passwordBox").classList.remove("mb-4")
             }
         }
     }
