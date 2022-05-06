@@ -1,7 +1,5 @@
 <script>
-  
-
-  import Router from "svelte-spa-router";
+import Router from "svelte-spa-router";
 
 	import LogIn from './lib/pages/LogIn.svelte';
 	import SignUp from './lib/pages/SignUp.svelte';

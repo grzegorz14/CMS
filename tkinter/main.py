@@ -5,7 +5,7 @@ from tkinter import filedialog
 import sqlite3
 
 try:
-    myConnection = sqlite3.connect('usersList.sqlite')
+    myConnection = sqlite3.connect('database.sqlite')
     myCursor = myConnection.cursor()
     myCursor.execute("""CREATE TABLE users (
                        login text,
@@ -14,6 +14,38 @@ try:
                        )""")
     myCursor.execute(
         f"INSERT INTO users (login, password, permissions) VALUES ('admin', 'admin', 'admin')")
+    myCursor.execute("""CREATE TABLE settings (
+                       theme text,
+                       fontSize text,
+                       font text,
+                       navbarColor text,
+                       navbarBackgroundColor text,
+                       signUpBackgroundColor text,
+                       signUpBackgroundColorHover text,
+                       sliderColor text,
+                       newsColor text,
+                       newsBackgroundColor text,
+                       newsButtonColor text,
+                       newsButtonBackgroundColor text,
+                       newsButtonBackgroundColorHover text,
+                       photosColor text,
+                       photosBackgroundColor text,
+                       footerColor text,
+                       footerBackgroundColor text,
+                       articleColor text,
+                       articleBackgroundColor text,
+                       articleBackgroundBackgroundColor text,
+                       commentsColor text,
+                       commentsBackgroundColor text,
+                       commentsButtonColor text,
+                       commentsButtonBackgroundColor text,
+                       commentsTextareaColor text,
+                       commentsTextareaBackgroundColor text,
+                       commentsUsernameColor text,
+                       galleryColor text,
+                       galleryBackgroundColor text
+                       )""")
+    myCursor.execute(f"INSERT INTO settings (theme,fontSize,font,navbarColor,navbarBackgroundColor,signUpBackgroundColor,signUpBackgroundColorHover,sliderColor,newsColor,newsBackgroundColor,newsButtonColor,newsButtonBackgroundColor,newsButtonBackgroundColorHover,photosColor,photosBackgroundColor,footerColor,footerBackgroundColor,articleColor,articleBackgroundColor,articleBackgroundBackgroundColor,commentsColor,commentsBackgroundColor,commentsButtonColor,commentsButtonBackgroundColor,commentsTextareaColor,commentsTextareaBackgroundColor,commentsUsernameColor,galleryColor,galleryBackgroundColor) VALUES ('1','20','font','white','#021D47','#369dc5','#8cdeff','white','black','white','white','#40a3c4','#72bbd3','black','white','black','white','black','white','white','black','#73858b','white','#0084ff','black','white','#0084ff','black','white')")
     myConnection.commit()
 except:
     print("Database already exist")
@@ -27,7 +59,7 @@ def openRoot():
     root.title("Users List")
     root.geometry("300x300")
 
-    myConnection = sqlite3.connect('usersList.sqlite')
+    myConnection = sqlite3.connect('database.sqlite')
     myCursor = myConnection.cursor()
     myCursor.execute("SELECT * FROM users")
     users = myCursor.fetchall()
@@ -46,7 +78,7 @@ def openDeleteRoot():
     delete.title("Users List")
     delete.geometry("300x300")
 
-    myConnection = sqlite3.connect('usersList.sqlite')
+    myConnection = sqlite3.connect('database.sqlite')
     myCursor = myConnection.cursor()
     myCursor.execute("SELECT * FROM users")
     users = myCursor.fetchall()
@@ -63,7 +95,7 @@ def openDeleteRoot():
 def addUser(login,password,permissions):
     jest = False
     print(login,password,permissions)
-    myConnection = sqlite3.connect('usersList.sqlite')
+    myConnection = sqlite3.connect('database.sqlite')
     myCursor = myConnection.cursor()
     myCursor.execute("SELECT * FROM users")
     users = myCursor.fetchall()
@@ -102,7 +134,7 @@ def openAddUsersPage():
     Button(add, text="Edit Users", command=lambda: addUser(login.get(),password.get(),variable.get())).grid(row=0, column=1)
 
 def adminCheck(login,password):
-    myConnection = sqlite3.connect('usersList.sqlite')
+    myConnection = sqlite3.connect('database.sqlite')
     myCursor = myConnection.cursor()
     myCursor.execute("SELECT * FROM users")
     users = myCursor.fetchall()
@@ -124,7 +156,7 @@ def openDialog():
 
 def editUserData(login,password,permissions):
     print(login)
-    myConnection = sqlite3.connect('usersList.sqlite')
+    myConnection = sqlite3.connect('database.sqlite')
     myCursor = myConnection.cursor()
     myCursor.execute("SELECT * FROM users")
     users = myCursor.fetchall()
@@ -152,7 +184,7 @@ def editUserData(login,password,permissions):
 
 def deleteUserData(login,password,permissions):
     print(login)
-    myConnection = sqlite3.connect('usersList.sqlite')
+    myConnection = sqlite3.connect('database.sqlite')
     myCursor = myConnection.cursor()
     myCursor.execute("SELECT * FROM users")
     users = myCursor.fetchall()
@@ -164,7 +196,7 @@ def deleteUserData(login,password,permissions):
 
 def saveData(newLogin,newPassword,newPermissions,oldLogin):
 
-    myConnection = sqlite3.connect('usersList.sqlite')
+    myConnection = sqlite3.connect('database.sqlite')
     myCursor = myConnection.cursor()
     myCursor.execute("SELECT * FROM users")
     users = myCursor.fetchall()

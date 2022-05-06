@@ -2,6 +2,8 @@
     /* Navbar */
     --navbar-color:white;
     --navbar-background-color:#021D47;
+    --navbar-signUp-background-color:#369dc5;
+    --navbar-signUp-background-color-hover:#8cdeff;
     /* Slider */
     --slider-color:white;
     /* News */
@@ -40,6 +42,13 @@
     background:var(--navbar-background-color);
     color:var(--navbar-color);
 }  
+.signUp {
+    background-color: var(--navbar-signUp-background-color) !important;
+    transition: 300ms;
+}
+.signUp:hover {
+    background-color: var(--navbar-signUp-background-color-hover) !important;
+}
 /* Slider */
 .sliderColors{
     color:var(--slider-color);
@@ -152,13 +161,6 @@
 /* Gallery */
 
 /* Login */
-.signUp {
-    background-color: #71bcd5;
-    transition: 300ms;
-}
-.signUp:hover {
-    background-color: #618bba;
-}
 .hover:hover {
     animation: spin 0.8s ease-in-out infinite;
     animation-iteration-count: 1;
