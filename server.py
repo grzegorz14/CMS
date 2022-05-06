@@ -39,6 +39,7 @@ def getImage():
 
 @app.route("/logIn", methods=["POST"])
 def logIn():
+    ok = False
     login = request.form["login"]
     password = request.form["password"]
     print(f"User '{login}' is trying to log in.")
@@ -48,13 +49,16 @@ def logIn():
     users = myCursor.fetchall()
     print(users)
     for user in users:
+        print(user)
         if login == user[0] and password == user[1]:
             global userType
             userType = user[2]
+            ok = True
             return userType
-        else:
-            print("Wrong username or password!")
-            return "Wrong username or password!"
+    if ok == False:
+        print("Wrong username or password!")
+        return "Wrong username or password!"
+             
             
     # check if user exists in database with correct password => return type of user, else => return error info
     
