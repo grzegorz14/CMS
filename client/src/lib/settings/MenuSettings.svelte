@@ -2,7 +2,13 @@
     let pageName = "CMS" //get from db
 
     function changePageName() {
+        let newPageName = document.getElementById("newPageNameInput").value
+        console.log(newPageName)
+    }   
 
+    function changeMenuVariant() {
+        let variant = document.getElementById("displayVariant").value
+        console.log(variant)
     }
 
     function addLink() {
@@ -44,7 +50,16 @@
                 <button on:click={changePageName} class="btn btn-primary">Change page name</button>
             </div>
         </div>
-        <p>checkbox or select how to display menu</p>
+        <div class="row align-items-center m-2">
+            <div class="col-3 text">Menu variant</div>
+            <select id="displayVariant" class="form-select form-select-lg col">
+                <option value="1" selected>Variant 1 (default)</option>
+                <option value="2">Variant 2 (content center)</option>
+            </select>
+            <div class="col">
+                <button on:click={changeMenuVariant} class="btn btn-primary">Change menu variant</button>
+            </div>
+        </div>
     </div>
 
     <hr>
