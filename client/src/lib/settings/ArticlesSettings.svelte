@@ -58,7 +58,7 @@
     <div class="w-50">
         <div class="row align-items-center m-2">
             <div class="col-2 text">Header</div>
-            <select id="articleToDelete" class="form-select col" aria-label="Default select example">
+            <select id="articleToDelete" class="form-select form-select-lg col">
                 <option selected>Air pollution</option>
                 <option>Phases of the moon</option>
                 <option>People on Mars in 2029</option>
