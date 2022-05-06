@@ -3,6 +3,7 @@ from flask import Flask, redirect, send_from_directory, request
 import random
 import glob
 import json
+import sqlite3
 
 app = Flask(__name__)
 
@@ -41,18 +42,43 @@ def logIn():
     login = request.form["login"]
     password = request.form["password"]
     print(f"User '{login}' is trying to log in.")
+    myConnection = sqlite3.connect('tkinter/usersList.sqlite')
+    myCursor = myConnection.cursor()
+    myCursor.execute("SELECT * FROM users")
+    users = myCursor.fetchall()
+    print(users)
+    for user in users:
+        if login == user[0] and password == user[1]:
+            global userType
+            userType = user[2]
+            return userType
+        else:
+            print("Wrong username or password!")
+            
     # check if user exists in database with correct password => return type of user, else => return error info
-    global userType
-    userType = "admin"
-    return "admin"
+    
 
 @app.route("/signUp", methods=["POST"])
 def signUp():
+    contains = False
+    myConnection = sqlite3.connect('tkinter/usersList.sqlite')
+    myCursor = myConnection.cursor()
+    myCursor.execute("SELECT * FROM users")
+    users = myCursor.fetchall()
+    print(users)
     login = request.form["login"]
     password = request.form["password"]
-    print(f"Account created for user - '{login}'.")
-    # add record to database, if no problems => return accountCreated, else => return error info
-    return "accountCreated"
+    for user in users:
+        if user[0] == login:
+            contains = True
+            return "loginAlreadyInUse"
+    if contains == False:   
+        print(f"Account created for user - '{login}'.")
+        myCursor.execute(
+            f"INSERT INTO users (login, password, permissions) VALUES ('{login}', '{password}', 'user')")
+        myConnection.commit()
+        # add record to database, if no problems => return accountCreated, else => return error info
+        return "accountCreated"
 
 @app.route("/getUserType", methods=["POST"])
 def getUserType():
