@@ -3,6 +3,8 @@
         let image = document.getElementById("slideImage").files[0]
         let header = document.getElementById("slideHeader").value
         let content = document.getElementById("slideContent").value
+        let transition = document.getElementById("transitionTime").value
+        console.log(transition)
         if (image == undefined) {
             alert("Select the slide image!")
             return
@@ -44,8 +46,7 @@
             <div class="col">
                 <input class="form-control form-control-lg" type="file" id="slideImage" accept="image/png, image/gif, image/jpeg, image/jpg, image/webp" >
             </div>
-            
-          </div>
+        </div>
         <div class="row align-items-center m-2">
             <div class="col-2 text">Slide header</div>
             <div class="col">
@@ -58,10 +59,16 @@
                 <textarea id="slideContent" class="form-control form-control-lg" rows="1"></textarea>
             </div>
         </div>
+        <div class="row align-items-center m-2">
+            <div class="col-2 text">Transition time </div>
+            <div class="col d-flex flex-row align-items-center">
+                <input id="imageTransitionTime" type="number" min="1000" max="10000" value="80000" class="form-control form-control-lg" style="width: 120px;"/>
+                <p class="ms-1 mb-0 text">ms</p>
+            </div>
+        </div>
         <div class="row justify-content-end mt-3">
             <button on:click={addSlide} class="btn btn-success me-5" style="width:fit-content;">Add new slide</button>
         </div>
-        
     </div>
 
     <hr>

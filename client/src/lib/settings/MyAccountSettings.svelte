@@ -26,7 +26,7 @@
     <p class="headline">Profile data</p>
     <div style="width: 40%;">
         <div class="row align-items-center m-2">
-            <div class="col text">Login: </div>
+            <div class="col text">Login</div>
             <div class="col">
                 <input id="newLoginInput" type="text" placeholder={login} class="form-control form-control-lg"/>
             </div>
@@ -35,7 +35,7 @@
             </div>
         </div>
         <div class="row align-items-center m-2">
-            <div class="col text">New password: </div>
+            <div class="col text">New password</div>
             <div class="col">
                 <input id="newPasswordInput" type="password" class="form-control form-control-lg"/>
             </div>

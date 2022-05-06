@@ -25,10 +25,10 @@
             </div>
         </div>
         <div class="row align-items-center m-2 mt-4">
-            <div class="col-2 text">Images width: </div>
+            <div class="col-2 text">Images width</div>
             <div class="col d-flex flex-row align-items-center">
                 <input id="imagesWidthInput" type="number" min="100" max="500" value="300" class="form-control form-control-lg" style="width: 100px;"/>
-                <p class="ms-1 mb-0">px</p>
+                <p class="ms-1 mb-0 text">px</p>
             </div>
         </div>
     </div>
