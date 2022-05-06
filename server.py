@@ -13,6 +13,11 @@ userType = "none"
 # Path for our main Svelte page
 @app.route("/")
 def base():
+    myConnection = sqlite3.connect('tkinter/database.sqlite')
+    myCursor = myConnection.cursor()
+    myCursor.execute("SELECT * FROM settings")
+    settings = myCursor.fetchall()
+    print(settings)
     return send_from_directory('client/public', 'index.html')
 
 # Path for all the static files (compiled JS/CSS, etc.)
@@ -43,7 +48,7 @@ def logIn():
     login = request.form["login"]
     password = request.form["password"]
     print(f"User '{login}' is trying to log in.")
-    myConnection = sqlite3.connect('tkinter/usersList.sqlite')
+    myConnection = sqlite3.connect('tkinter/database.sqlite')
     myCursor = myConnection.cursor()
     myCursor.execute("SELECT * FROM users")
     users = myCursor.fetchall()
@@ -66,7 +71,7 @@ def logIn():
 @app.route("/signUp", methods=["POST"])
 def signUp():
     contains = False
-    myConnection = sqlite3.connect('tkinter/usersList.sqlite')
+    myConnection = sqlite3.connect('tkinter/database.sqlite')
     myCursor = myConnection.cursor()
     myCursor.execute("SELECT * FROM users")
     users = myCursor.fetchall()
