@@ -18,6 +18,19 @@
 
         "*": NotFound
     };
+
+    //imports settings from json in local storage
+    import json from "./Settings.json"
+    import SettingsController from './SettingsController';
+
+    let settings = new SettingsController()
+    let settingsJson = settings.getJson()
+    
+    if (settingsJson != null) {
+        //do that for each setting
+        json.fontSize = settingsJson.fontSize
+        settings.setFontAttributes(settingsJson.fontSize, "")
+    }
 </script>
 
 <a name="top" href="/" style="visibility: collapse; position: absolute;">top</a>

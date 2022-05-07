@@ -1,4 +1,7 @@
 :root{
+    /* Main */ 
+    --font-size: 17px;
+
     /* Navbar */
     --navbar-color:white;
     --navbar-background-color:#021D47;
@@ -34,9 +37,11 @@
     --gallery-color:black;
     --gallery-background-color:white;
 }
-* {
 
+* {
+    font-size: var(--font-size);
 }
+
 /* Navbar */
 .navbarColors {
     background:var(--navbar-background-color);

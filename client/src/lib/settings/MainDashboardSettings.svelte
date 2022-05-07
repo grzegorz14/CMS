@@ -1,8 +1,13 @@
 <script>
+    import SettingsController from "./../SettingsController";
+
+    let settings = new SettingsController()
+
     function applyFontSettings() {
         let fontSize = document.getElementById("fontSize").value
         let fontFamily = document.getElementById("fontFamily").value
         //set font size and font family
+        settings.setFontAttributes(fontSize, fontFamily)
     }
 
     function setThemes() {
@@ -97,7 +102,7 @@
         <div class="row align-items-center m-2">
             <div class="col-3 text">Font size</div>
             <div class="col d-flex flex-row align-items-center ms-1">
-                <input id="fontSize" type="number" min="10" max="30" value="20" class="form-control form-control-lg" style="width: 80px;"/>
+                <input id="fontSize" type="number" min="10" max="30" value="20" class="form-control form-control-lg" style="width: 100px;"/>
                 <p class="ms-1 mb-0 text">px</p>
             </div>
         </div>
