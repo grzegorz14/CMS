@@ -1,4 +1,16 @@
 <script>
+    function applyFontSettings() {
+        let fontSize = document.getElementById("fontSize").value
+        let fontFamily = document.getElementById("fontFamily").value
+        //set font size and font family
+    }
+
+    function setThemes() {
+        let pageLayout = document.getElementById("pageLayout").value
+        let colorTheme = document.getElementById("colorTheme").value
+        //set page theme and color theme
+    }
+    
     function defaultSettings() {
         //set all settings in this page by default
     }
@@ -12,19 +24,26 @@
     <p class="headline">Site themes</p>
     <div class="w-50">
         <div class="row align-items-center m-2">
-            <div class="col-3 text">Page theme</div>
-            <select id="theme" class="form-select form-select-lg col">
-                <option selected>Mango</option>
-                <option>Govan</option>
+            <div class="col-3 text">Page layout</div>
+            <select id="pageLayout" class="form-select form-select-lg col">
+                <option value="classic" selected>Classic - (slider, articles, GIFs)</option>
+                <option value="imageLover">Image lover -  (slider, GIFs, articles)</option>
+                <option value="newsFirst">News First - (articles, GIFs, slider)</option>
+                <option value="middleSlider">Middle Slider -  (articles, slider, GIFs)</option>
+                <option value="gifsFan">GIFs Fan - (GIFs, slider, articles)</option>
+                <option value="reverse">Reverse - (GIFs, articles, slider)</option>
             </select>
         </div>
         <div class="row align-items-center m-2">
             <div class="col-3 text">Color theme</div>
-            <select id="theme" class="form-select form-select-lg col">
+            <select id="colorTheme" class="form-select form-select-lg col">
                 <option selected>Light</option>
                 <option>Dark</option>
                 <option>High Contrast</option>
             </select>
+        </div>
+        <div class="row justify-content-end mt-3">
+            <button on:click={setThemes} class="btn btn-primary me-5" style="width:fit-content;">Set themes</button>
         </div>
         <!-- <div class="colorBox">
             <div class="box">
@@ -83,8 +102,8 @@
             </div>
         </div>
         <div class="row align-items-center m-2">
-            <div class="col-3 text">Font style</div>
-            <select id="theme" class="form-select form-select-lg col ms-3">
+            <div class="col-3 text">Font family</div>
+            <select id="fontFamily" class="form-select form-select-lg col ms-3">
                 <option style="font-family: 'Courier New', Courier, monospace;" selected>Courier New, Courier, monospace</option>
                 <option style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Franklin Gothic Medium, Arial Narrow, Arial, sans-serif</option>
                 <option style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Lucida Sans, Lucida Sans Regular, Lucida Grande, Lucida Sans Unicode, Geneva, Verdana, sans-serife</option>
@@ -92,11 +111,14 @@
                 <option>Default font family</option>
             </select>
         </div>
+        <div class="row justify-content-end mt-3">
+            <button on:click={applyFontSettings} class="btn btn-primary me-5" style="width:fit-content;">Apply changes</button>
+        </div>
 
         <hr>
 
         <p class="headline">Set by default</p>
-        <button on:click={defaultSettings} class="btn btn-danger m-2 ms-3">Reset main settings</button>
+        <button on:click={defaultSettings} class="btn btn-danger m-2 ms-3" >Reset main settings</button>
     </div>
 </div>
 

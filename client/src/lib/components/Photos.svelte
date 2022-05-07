@@ -1,9 +1,11 @@
 <div class="container photosColors">
-  <hr class="featurette-divider" />
+  <h1 class="text-justify m-4 mb-4 text-center">GIF News</h1>
 
-  <div class="row featurette">
+  <hr>
+
+  <div class="row">
     <div class="col-md-7 p-5">
-      <h2 class="featurette-heading">The Rise of Donuts</h2>
+      <h2>The Rise of Donuts</h2>
       <p class="lead">
         Glazed, powdered and jelly-filled donuts are timeless, but the
         industry’s come a long way from offering just the classics. Today,
@@ -31,9 +33,9 @@
     </div>
   </div>
 
-  <hr class="featurette-divider" />
+  <hr>
 
-  <div class="row featurette">
+  <div class="row">
     <div class="col-md-5">
       <img
         src="./../images/plant.webp"
@@ -44,7 +46,7 @@
       />
     </div>
     <div class="col-md-7 p-5">
-      <h2 class="featurette-heading">Protect the Trees we have!</h2>
+      <h2>Protect the Trees we have!</h2>
       <p class="lead">
         Between a death and a burial was hardly the best time to show up in a
         remote village in Madagascar to make a pitch for forest protection. Bad
@@ -63,11 +65,11 @@
     </div>
   </div>
 
-  <hr class="featurette-divider" />
+  <hr>
 
-  <div class="row featurette">
+  <div class="row">
     <div class="col-md-7 p-5">
-      <h2 class="featurette-heading">The Influence of Loud Music on Health</h2>
+      <h2>The Influence of Loud Music on Health</h2>
       <p class="lead">
         Music and noise can be considered as a collection of vibrational events
         which may impinge upon the body and the mind. As such they can induce
@@ -94,5 +96,5 @@
     </div>
   </div>
 
-  <hr class="featurette-divider" />
+  <hr>
 </div>
