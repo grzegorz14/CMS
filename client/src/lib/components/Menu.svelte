@@ -34,7 +34,7 @@
             <div class="text-end me-2 d-flex align-items-center">
               {#if userType == "none"}
                   <a href="#/logIn" type="button" class="btn btn-outline-light me-2">Log in</a>
-                  <a href="#/signUp" type="button" class="btn signUp">Sign up</a>
+                  <a href="#/signUp" type="button" class="btn signUp text-light">Sign up</a>
               {:else}
                   <a href="#/subPage/settings" type="button" class="text-light me-4 hover d-flex align-content-center" style="font-size: 30px;"><i class="fa-solid fa-gear"></i></a> 
                   <button on:click={logOut} class="btn btn-outline-light me-2">Log out</button>

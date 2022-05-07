@@ -1,4 +1,7 @@
 <script>
+    function defaultSettings() {
+        //set all settings in this page by default
+    }
 </script>
 
 <div class="d-flex flex-column justify-content-center">
@@ -9,10 +12,18 @@
     <p class="headline">Site themes</p>
     <div class="w-50">
         <div class="row align-items-center m-2">
-            <div class="col text">Page theme</div>
+            <div class="col-3 text">Page theme</div>
             <select id="theme" class="form-select form-select-lg col">
                 <option selected>Mango</option>
                 <option>Govan</option>
+            </select>
+        </div>
+        <div class="row align-items-center m-2">
+            <div class="col-3 text">Color theme</div>
+            <select id="theme" class="form-select form-select-lg col">
+                <option selected>Light</option>
+                <option>Dark</option>
+                <option>High Contrast</option>
             </select>
         </div>
         <!-- <div class="colorBox">
@@ -66,21 +77,26 @@
         <p class="headline">Font settings</p>
         <div class="row align-items-center m-2">
             <div class="col-3 text">Font size</div>
-            <div class="col d-flex flex-row align-items-center">
+            <div class="col d-flex flex-row align-items-center ms-1">
                 <input id="fontSize" type="number" min="10" max="30" value="20" class="form-control form-control-lg" style="width: 80px;"/>
                 <p class="ms-1 mb-0 text">px</p>
             </div>
         </div>
         <div class="row align-items-center m-2">
             <div class="col-3 text">Font style</div>
-            <select id="theme" class="form-select form-select-lg col">
+            <select id="theme" class="form-select form-select-lg col ms-3">
                 <option style="font-family: 'Courier New', Courier, monospace;" selected>Courier New, Courier, monospace</option>
                 <option style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Franklin Gothic Medium, Arial Narrow, Arial, sans-serif</option>
                 <option style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Lucida Sans, Lucida Sans Regular, Lucida Grande, Lucida Sans Unicode, Geneva, Verdana, sans-serife</option>
                 <option style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Trebuchet MS, Lucida Sans Unicode, Lucida Grande, Lucida Sans, Arial, sans-serife</option>
-                <option>Default font-family</option>
+                <option>Default font family</option>
             </select>
         </div>
+
+        <hr>
+
+        <p class="headline">Set by default</p>
+        <button on:click={defaultSettings} class="btn btn-danger m-2 ms-3">Reset main settings</button>
     </div>
 </div>
 

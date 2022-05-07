@@ -43,7 +43,7 @@
     <div class="w-50">
         <div class="row align-items-center m-2">
             <div class="col-3 text">Page name </div>
-            <div class="col">
+            <div class="col ms-1">
                 <input id="newPageNameInput" type="text" placeholder={pageName} class="form-control form-control-lg"/>
             </div>
             <div class="col">
@@ -52,7 +52,7 @@
         </div>
         <div class="row align-items-center m-2">
             <div class="col-3 text">Menu variant</div>
-            <select id="displayVariant" class="form-select form-select-lg col">
+            <select id="displayVariant" class="form-select form-select-lg col ms-3">
                 <option value="1" selected>Variant 1 (default)</option>
                 <option value="2">Variant 2 (content center)</option>
             </select>
@@ -68,14 +68,14 @@
     <div class="w-50">
         <div class="row align-items-center m-2">
             <div class="col-3 text">Add link</div>
-            <div class="col">
+            <div class="col ms-1">
                 <input id="linkText" type="text" class="form-control form-control-lg"/>
             </div>
             <button on:click={addLink} class="btn btn-success me-5" style="width:fit-content;">Add new link</button>
         </div>
         <div class="row align-items-center m-2 mt-4">
             <div class="col-3 text">Delete link</div>
-            <select id="linkToDelete" class="form-select form-select-lg col">
+            <select id="linkToDelete" class="form-select form-select-lg col ms-3">
                 <option selected>Home</option>
                 <option>Article</option>
                 <option>Gallery</option>
