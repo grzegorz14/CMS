@@ -1,18 +1,36 @@
-<script>
-    let pageName = "CMS" //get from db
+<script>    
+    import SettingsController from "./../SettingsController";
+
+    let settings = new SettingsController()
+    let json = settings.getJson()
+
+    //selects options
+    let variants = [
+        { value: "1", content: "Variant 1 (default)" },
+        { value: "2", content: "Variant 2 (contentCenter)" }
+    ]
+
+    //inputs
+    let pageNameInput = json.pageName
+    let menuVariantInput = json.menuVariant
 
     function changePageName() {
-        let newPageName = document.getElementById("newPageNameInput").value
-        console.log(newPageName)
+        let newPageName = document.getElementById("pageName").value
+        if (isEmptyOrWhiteSpace(newPageName)) {
+            alert("New page name is empty!")
+            return
+        }
+        settings.setPageName(newPageName)
+        window.location.reload()
     }   
 
     function changeMenuVariant() {
-        let variant = document.getElementById("displayVariant").value
-        console.log(variant)
+        settings.setMenuVariant(document.getElementById("menuVariant").value)
+        window.location.reload()
     }
 
     function addLink() {
-        let link = document.getElementById("linkText").value
+        let link = document.getElementById("menuVariant").value
         if (isEmptyOrWhiteSpace(link)){
             alert("Your link is empty!")
             return
@@ -42,9 +60,9 @@
     <p class="headline">Main</p>
     <div class="w-50">
         <div class="row align-items-center m-2">
-            <div class="col-3 text">Page name </div>
+            <div class="col-3 text">Page name</div>
             <div class="col ms-1">
-                <input id="newPageNameInput" type="text" placeholder={pageName} class="form-control form-control-lg"/>
+                <input id="pageName" type="text" placeholder={pageNameInput} class="form-control form-control-lg"/>
             </div>
             <div class="col">
                 <button on:click={changePageName} class="btn btn-primary">Change page name</button>
@@ -52,9 +70,14 @@
         </div>
         <div class="row align-items-center m-2">
             <div class="col-3 text">Menu variant</div>
-            <select id="displayVariant" class="form-select form-select-lg col ms-3">
-                <option value="1" selected>Variant 1 (default)</option>
-                <option value="2">Variant 2 (content center)</option>
+            <select id="menuVariant" class="form-select form-select-lg col ms-3">
+                {#each variants as variant}
+                    {#if variant.value == menuVariantInput} 
+                        <option selected value={variant.value}>{variant.content}</option>
+                    {:else}
+                        <option value={variant.value}>{variant.content}</option>
+                    {/if}
+                {/each}
             </select>
             <div class="col">
                 <button on:click={changeMenuVariant} class="btn btn-primary">Change menu variant</button>

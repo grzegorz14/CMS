@@ -12,12 +12,29 @@ class Settings {
     }
 
     //Main settings
+    setPageThemes(layout, theme) {
+        json.pageLayout = layout
+        json.colorTheme = theme
+        //this.setStyle("--font-family", family) set somehow color theme
+        this.saveJson()
+    }  
     setFontAttributes(size, family) {
         json.fontSize = size
         json.fontFamily = family
         this.setStyle("--font-size", size + "px")
+        this.setStyle("--font-family", family)
         this.saveJson()
     }  
+
+    //Menu settings
+    setPageName(name) {
+        json.pageName = name
+        this.saveJson()
+    } 
+    setMenuVariant(variant) {
+        json.menuVariant = variant
+        this.saveJson()
+    } 
 
     //saves settings in local storage
     saveJson() {
@@ -28,8 +45,8 @@ class Settings {
     getJson() {
         let settingsJson = localStorage.getItem("settingsJson")
         settingsJson = JSON.parse(settingsJson)
-        console.log("Settings JSON:")
-        console.log(settingsJson)
+        // console.log("Settings JSON:")
+        // console.log(settingsJson)
         return settingsJson
     }
 }

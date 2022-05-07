@@ -25,11 +25,19 @@
 
     let settings = new SettingsController()
     let settingsJson = settings.getJson()
-    
+
     if (settingsJson != null) {
-        //do that for each setting
+        //set all of the fields
+        json.pageName = settingsJson.pageName
+        settings.setPageName(settingsJson.pageName)
+        json.pageLayout = settingsJson.pageLayout
+        json.colorTheme = settingsJson.colorTheme
+        settings.setPageThemes(settingsJson.pageLayout, settingsJson.colorTheme)
         json.fontSize = settingsJson.fontSize
-        settings.setFontAttributes(settingsJson.fontSize, "")
+        json.fontFamily = settingsJson.fontFamily
+        settings.setFontAttributes(settingsJson.fontSize, settingsJson.fontFamily)
+        json.menuVariant = settingsJson.menuVariant
+        settings.setMenuVariant(settingsJson.menuVariant)
     }
 </script>
 

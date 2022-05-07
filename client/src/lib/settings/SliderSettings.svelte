@@ -62,8 +62,8 @@
         <div class="row align-items-center m-2">
             <div class="col-2 text">Transition time </div>
             <div class="col d-flex flex-row align-items-center">
-                <input id="imageTransitionTime" type="number" min="1000" max="10000" value="80000" class="form-control form-control-lg" style="width: 140px;"/>
-                <p class="ms-1 mb-0 text">ms</p>
+                <input id="imageTransitionTime" type="number" onKeyDown="return false" min="2" max="9" value="7" class="form-control form-control-lg" style="width: 90px;"/>
+                <p class="ms-1 mb-0 text">s</p>
             </div>
         </div>
         <div class="row justify-content-end mt-3">

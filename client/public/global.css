@@ -1,6 +1,7 @@
 :root{
     /* Main */ 
     --font-size: 17px;
+    --font-family: Arial, Helvetica, sans-serif;
 
     /* Navbar */
     --navbar-color:white;
@@ -40,6 +41,7 @@
 
 * {
     font-size: var(--font-size);
+    font-family: var(--font-family);
 }
 
 /* Navbar */

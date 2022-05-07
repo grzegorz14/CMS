@@ -2,27 +2,62 @@
     import SettingsController from "./../SettingsController";
 
     let settings = new SettingsController()
+    let json = settings.getJson()
 
-    function applyFontSettings() {
-        let fontSize = document.getElementById("fontSize").value
-        let fontFamily = document.getElementById("fontFamily").value
-        //set font size and font family
-        settings.setFontAttributes(fontSize, fontFamily)
-    }
+    //selects options
+    let layouts = [
+        { value: "classic", content: "Classic - (slider, articles, GIFs)" },
+        { value: "imageLover", content: "Image lover -  (slider, GIFs, articles)" },
+        { value: "newsFirst", content: "News First - (articles, GIFs, slider)" },
+        { value: "middleSlider", content: "Middle Slider -  (articles, slider, GIFs)" },
+        { value: "gifsFan", content: "GIFs Fan - (GIFs, slider, articles)" },
+        { value: "reverse", content: "Reverse - (GIFs, articles, slider)" }
+    ]
+    let colorThemes = [
+        "Light",
+        "Dark",
+        "High Contrast"
+    ]
+    let fonts = [
+        "Arial, Helvetica, sans-serif",
+        "'Courier New', Courier, monospace",
+        "'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif",
+        "'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif",
+        "'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif"
+    ]
+
+
+    //inputs
+    let pageLayoutInput = json.pageLayout
+    let colorThemeInput = json.colorTheme
+    let fontSizeInput = json.fontSize
+    let fontFamilyInput = json.fontFamily
 
     function setThemes() {
         let pageLayout = document.getElementById("pageLayout").value
         let colorTheme = document.getElementById("colorTheme").value
-        //set page theme and color theme
+        settings.setPageThemes(pageLayout, colorTheme)
+        window.location.reload()
+    }
+
+    function applyFontSettings() {
+        let fontSize = document.getElementById("fontSize").value
+        let fontFamily = document.getElementById("fontFamily").value
+        settings.setFontAttributes(fontSize, fontFamily)
     }
     
     function defaultSettings() {
-        //set all settings in this page by default
+        document.getElementById("pageLayout").value = "classic"
+        document.getElementById("colorTheme").value = "Light"
+        document.getElementById("fontSize").value = "17"
+        document.getElementById("fontFamily").value = "Arial, Helvetica, sans-serif"
+        settings.setPageThemes("classic", "Light")
+        settings.setFontAttributes("17", "Arial, Helvetica, sans-serif")
     }
 </script>
 
 <div class="d-flex flex-column justify-content-center">
-    <p class="mainHeadline">Main settings</p>
+    <p class="mainHeadline">Page settings</p>
 
     <hr>
 
@@ -31,20 +66,25 @@
         <div class="row align-items-center m-2">
             <div class="col-3 text">Page layout</div>
             <select id="pageLayout" class="form-select form-select-lg col">
-                <option value="classic" selected>Classic - (slider, articles, GIFs)</option>
-                <option value="imageLover">Image lover -  (slider, GIFs, articles)</option>
-                <option value="newsFirst">News First - (articles, GIFs, slider)</option>
-                <option value="middleSlider">Middle Slider -  (articles, slider, GIFs)</option>
-                <option value="gifsFan">GIFs Fan - (GIFs, slider, articles)</option>
-                <option value="reverse">Reverse - (GIFs, articles, slider)</option>
+                {#each layouts as layout}
+                    {#if layout.value == pageLayoutInput} 
+                        <option selected value={layout.value}>{layout.content}</option>
+                    {:else}
+                        <option value={layout.value}>{layout.content}</option>
+                    {/if}
+                {/each}
             </select>
         </div>
         <div class="row align-items-center m-2">
             <div class="col-3 text">Color theme</div>
             <select id="colorTheme" class="form-select form-select-lg col">
-                <option selected>Light</option>
-                <option>Dark</option>
-                <option>High Contrast</option>
+                {#each colorThemes as theme}
+                    {#if theme == colorThemeInput} 
+                        <option selected>{theme}</option>
+                    {:else}
+                        <option>{theme}</option>
+                    {/if}
+                {/each}
             </select>
         </div>
         <div class="row justify-content-end mt-3">
@@ -102,18 +142,20 @@
         <div class="row align-items-center m-2">
             <div class="col-3 text">Font size</div>
             <div class="col d-flex flex-row align-items-center ms-1">
-                <input id="fontSize" type="number" min="10" max="30" value="20" class="form-control form-control-lg" style="width: 100px;"/>
+                <input id="fontSize" type="number" onKeyDown="return false" min="15" max="25" value={fontSizeInput} class="form-control form-control-lg" style="width: 100px;"/>
                 <p class="ms-1 mb-0 text">px</p>
             </div>
         </div>
         <div class="row align-items-center m-2">
             <div class="col-3 text">Font family</div>
             <select id="fontFamily" class="form-select form-select-lg col ms-3">
-                <option style="font-family: 'Courier New', Courier, monospace;" selected>Courier New, Courier, monospace</option>
-                <option style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Franklin Gothic Medium, Arial Narrow, Arial, sans-serif</option>
-                <option style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Lucida Sans, Lucida Sans Regular, Lucida Grande, Lucida Sans Unicode, Geneva, Verdana, sans-serife</option>
-                <option style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Trebuchet MS, Lucida Sans Unicode, Lucida Grande, Lucida Sans, Arial, sans-serife</option>
-                <option>Default font family</option>
+                {#each fonts as font}
+                    {#if font == fontFamilyInput} 
+                        <option selected style={"font-family: " + font}>{font}</option>
+                    {:else}
+                        <option style={"font-family: " + font}>{font}</option>
+                    {/if}
+                {/each}
             </select>
         </div>
         <div class="row justify-content-end mt-3">

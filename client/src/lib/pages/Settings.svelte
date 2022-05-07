@@ -1,7 +1,7 @@
 <script>
     import Router from "svelte-spa-router";
     
-    import MainDashboardSettings from "../settings/MainDashboardSettings.svelte";
+    import HomeSettings from "../settings/HomeSettings.svelte";
     import ArticlesSettings from "../settings/ArticlesSettings.svelte";
     import GallerySettings from "../settings/GallerySettings.svelte";
     import UsersSettings from "../settings/UsersSettings.svelte";
@@ -11,8 +11,8 @@
     import SliderSettings from "../settings/SliderSettings.svelte";
 
     const routes = {
-        "/subPage/settings": MainDashboardSettings,
-        "/subPage/settings/mainDashboard": MainDashboardSettings,
+        "/subPage/settings": HomeSettings,
+        "/subPage/settings/home": HomeSettings,
         "/subPage/settings/gallery": GallerySettings,
         "/subPage/settings/articles": ArticlesSettings,
         "/subPage/settings/users": UsersSettings,
@@ -22,6 +22,14 @@
 
         "*": NotFound
     };
+
+    let userType = getUserType()
+
+    async function getUserType() {
+        let response = await fetch("./getUserType", { method: "POST" })
+        response = await response.text()
+        userType = response
+    }
 </script>
 
 <div class="wrapper">
@@ -32,7 +40,7 @@
 
         <ul class="list-unstyled">
             <li>
-                <a class="settingsNavText" href="#/subPage/settings/mainDashboard" >Main Dashboard</a>
+                <a class="settingsNavText" href="#/subPage/settings/home" >Home</a>
             </li>
             <li>
                 <a class="settingsNavText" href="#/subPage/settings/menu" >Menu</a>            
@@ -46,9 +54,11 @@
             <li>
                 <a class="settingsNavText" href="#/subPage/settings/gallery" >Gallery</a>            
             </li>
-            <li>
-                <a class="settingsNavText" href="#/subPage/settings/users" >Users</a>            
-            </li>
+            {#if userType == "admin"}
+                <li>
+                    <a class="settingsNavText" href="#/subPage/settings/users" >Users</a>            
+                </li>
+            {/if}
             <li>
                 <a class="settingsNavText" href="#/subPage/settings/myAccount" >My Account</a>            
             </li>

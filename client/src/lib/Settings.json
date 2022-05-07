@@ -1,4 +1,8 @@
 {
+    "pageName": "CMS",
+    "pageLayout": "classic",
+    "colorTheme": "Light",
     "fontSize": 17,
-    "fontFamily": ""
+    "fontFamily": " Arial, Helvetica, sans-serif",
+    "menuVariant": "1"
 }
