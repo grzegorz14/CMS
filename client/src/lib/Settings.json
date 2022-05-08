@@ -4,5 +4,7 @@
     "colorTheme": "Light",
     "fontSize": 17,
     "fontFamily": " Arial, Helvetica, sans-serif",
-    "menuVariant": "1"
+    "menuVariant": "1",
+    "galleryDisplay": "Row",
+    "imagesSize": 300
 }

@@ -36,6 +36,13 @@ class Settings {
         this.saveJson()
     } 
 
+    //Gallery settings
+    setGalleryParameters(display, size) {
+        json.galleryDisplay = display
+        json.imagesSize = size
+        this.saveJson()
+    }
+
     //saves settings in local storage
     saveJson() {
         localStorage.setItem("settingsJson", JSON.stringify(json))

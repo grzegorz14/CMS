@@ -1,6 +1,28 @@
 <script>
+    import SettingsController from "./../SettingsController";
+
+    let settings = new SettingsController()
+    let json = settings.getJson()
+
+    //selects options
+    let displays = [
+        "Row", 
+        "Column"
+    ]
+
+    //inputs
+    let imagesSizeInput = json.imagesSize
+    let displayTypeInput = json.galleryDisplay
+
     function save() {
-        //saves settings
+        let displayType = document.getElementById("displayType").value
+        let imagesSize = document.getElementById("imagesSize").value
+        if (imagesSize > 800) {
+            alert("Maximum images size is 800!")
+            return
+        }
+        settings.setGalleryParameters(displayType, imagesSize)
+        window.location.reload()
     }
 </script>
 
@@ -14,14 +36,19 @@
         <div class="row align-items-center m-2">
             <div class="col-6 text">Display</div>
             <select id="displayType" class="form-select form-select-lg col ms-3">
-                <option selected>Row</option>
-                <option>Column</option>
+                {#each displays as display}
+                    {#if display == displayTypeInput} 
+                        <option selected>{display}</option>
+                    {:else}
+                        <option>{display}</option>
+                    {/if}
+                {/each}
             </select>
         </div>
         <div class="row align-items-center m-2 mt-4">
-            <div class="col-6 text">Images width</div>
+            <div class="col-6 text">Images size</div>
             <div class="col d-flex flex-row align-items-center ms-1">
-                <input id="imagesWidthInput" type="number" onKeyDown="return false" min="100" max="500" value="300" class="form-control form-control-lg" style="width: 100px;"/>
+                <input id="imagesSize" type="number" min="100" max="800" value={imagesSizeInput} class="form-control form-control-lg" style="width: 100px;"/>
                 <p class="ms-1 mb-0 text">px</p>
             </div>
         </div>

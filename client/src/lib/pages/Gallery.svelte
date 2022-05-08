@@ -1,5 +1,10 @@
 <script>
     import Footer from "../components/Footer.svelte"
+    import SettingsController from "./../SettingsController"  
+
+    let settings = new SettingsController()
+    let imagesSize = settings.getJson().imagesSize
+    let displayType = settings.getJson().galleryDisplay
 
     let images = []
     let imagesLength = getImagesLength()
@@ -25,17 +30,31 @@
 {:then}
     <div class="p-5">
         <h1 class="text-center">Images</h1>
-        <div class="d-flex flex-row flex-wrap m-5 mb-0 justify-content-center">
-            {#each images as image}
-                <img
-                src={"./../images/" + image}
-                alt="An image"
-                height="300px"
-                class="rounded-3 m-3"
-                style="object-fit: cover;"
-                />
-            {/each}
-        </div>
+        {#if displayType == "Row"}
+            <div class="d-flex flex-row flex-wrap m-5 mb-0 justify-content-center">
+                {#each images as image}
+                    <img
+                    src={"./../images/" + image}
+                    alt="An image"
+                    height={imagesSize + "px"}
+                    class="rounded-3 m-3"
+                    style="object-fit: cover;"
+                    />
+                {/each}
+            </div>
+        {:else}
+            <div class="d-flex flex-column m-5 mb-0 align-items-center">
+                {#each images as image}
+                    <img
+                    src={"./../images/" + image}
+                    alt="An image"
+                    width={imagesSize + "px"}
+                    class="rounded-3 m-3"
+                    style="object-fit: cover;"
+                    />
+                {/each}
+            </div>
+        {/if}
     </div>
 
     <hr>

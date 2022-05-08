@@ -38,6 +38,9 @@
         settings.setFontAttributes(settingsJson.fontSize, settingsJson.fontFamily)
         json.menuVariant = settingsJson.menuVariant
         settings.setMenuVariant(settingsJson.menuVariant)
+        json.imagesSize = settingsJson.imagesSize
+        json.galleryDisplay = settingsJson.galleryDisplay
+        settings.setGalleryParameters(settingsJson.galleryDisplay, settingsJson.imagesSize)
     }
 </script>
 
