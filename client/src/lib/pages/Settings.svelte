@@ -5,6 +5,7 @@
     import ArticlesSettings from "../settings/ArticlesSettings.svelte";
     import GallerySettings from "../settings/GallerySettings.svelte";
     import UsersSettings from "../settings/UsersSettings.svelte";
+    import EditUser from "../settings/EditUser.svelte";
     import NotFound from "./NotFound.svelte";   
     import MyAccountSettings from "../settings/MyAccountSettings.svelte";
     import MenuSettings from "../settings/MenuSettings.svelte";
@@ -16,6 +17,7 @@
         "/subPage/settings/gallery": GallerySettings,
         "/subPage/settings/articles": ArticlesSettings,
         "/subPage/settings/users": UsersSettings,
+        "/subPage/settings/editUser/:user": EditUser,
         "/subPage/settings/myAccount": MyAccountSettings,
         "/subPage/settings/menu": MenuSettings,
         "/subPage/settings/slider": SliderSettings,

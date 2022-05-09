@@ -1,6 +1,6 @@
 <script>
     function editUser(login) {
-        //go to page "edit user Grzesiek"
+        window.location.href =  "#/subPage/settings/editUser/" +  login; 
     }
 </script>
 

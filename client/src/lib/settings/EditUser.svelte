@@ -1,0 +1,52 @@
+<script>
+    let login = window.location.href.split("/")[window.location.href.split("/").length - 1]
+
+    function saveLogin() {
+        let newLogin = document.getElementById("newLoginInput").value
+        //update login
+    }
+
+    function savePassword() {
+        let newPassword = document.getElementById("newPasswordInput").value
+        //update password
+    }
+
+    function deleteAccount() {
+        if (confirm("Delete your account?")) {
+            //deletes account with unique login "Grzesiek"
+        }
+    }
+</script>
+
+<div class="d-flex flex-column justify-content-center">
+    <p class="mainHeadline">Edit user - {login}</p>
+
+    <hr>
+
+    <p class="headline">Profile data</p>
+    <div style="width: 40%;">
+        <div class="row align-items-center m-2">
+            <div class="col text">Login</div>
+            <div class="col">
+                <input id="newLoginInput" type="text" placeholder={login} class="form-control form-control-lg"/>
+            </div>
+            <div class="col">
+                <button on:click={saveLogin} class="btn btn-primary">Save</button>
+            </div>
+        </div>
+        <div class="row align-items-center m-2">
+            <div class="col text">New password</div>
+            <div class="col">
+                <input id="newPasswordInput" type="password" class="form-control form-control-lg"/>
+            </div>
+            <div class="col">
+                <button on:click={savePassword} class="btn btn-primary">Save</button>
+            </div>
+        </div>
+
+        <hr>
+
+        <p class="headline">Delete account</p>
+        <button on:click={deleteAccount} class="btn btn-danger m-2 ms-3">Delete account</button>
+    </div>
+</div>

@@ -9,6 +9,7 @@
     import NotFound from './pages/NotFound.svelte';
 
     const routes = {
+        "/subPage/settings/:page/:parameter": Settings,
         "/subPage/settings/:page": Settings,
         "/subPage/settings": Settings,
         "/subPage/article": Article,

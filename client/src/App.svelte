@@ -8,6 +8,7 @@ import Router from "svelte-spa-router";
   import AccountCreated from "./lib/pages/AccountCreated.svelte";
 
   const routes = {
+    "/subPage/:page/:page/:parameter": Index,
     "/subPage/:page/:page": Index,
     "/subPage/:page": Index,
     "/signUp": SignUp,

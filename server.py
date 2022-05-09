@@ -1,8 +1,7 @@
 from email.mime import image
 from flask import Flask, redirect, send_from_directory, request
-import random
+#from PIL import Image for saving slider images in directory
 import glob
-import json
 import sqlite3
 
 app = Flask(__name__)
