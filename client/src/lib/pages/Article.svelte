@@ -3,7 +3,7 @@
     let colorTheme = "Dark"
 </script>
 
-<div class="d-flex flex-column justify-content-center {$colorTheme == "Light" ? 'bg-neutral-100 text-black' :  ($colorTheme == "Dark" ? 'bg-neutral-400 text-white' : "bg-neutral-900 text-yellow-500")}" style="margin-left: 30%; margin-right: 30%; padding:1%; font-size:120%;">
+<div class="d-flex flex-column justify-content-center {colorTheme == "Light" ? 'bg-neutral-100 text-black' :  (colorTheme == "Dark" ? 'bg-neutral-400 text-white' : "bg-neutral-900 text-yellow-500")}" style="margin-left: 30%; margin-right: 30%; padding:1%; font-size:120%;">
     <p class="date">NEWS | November 10, 2021</p>
     <p class="mainHeadline">An Almost Total Lunar Eclipse</p>
     <p class="by">By Molly Wasser and Ernie Wright</p>

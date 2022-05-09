@@ -8,7 +8,7 @@
   <hr>
 
   <div class="row">
-    <div class="col-md-7 p-5 {$colorTheme == "Light" ? 'bg-neutral-100 text-black' :  ($colorTheme == "Dark" ? 'bg-neutral-400 text-white' : "bg-neutral-900 text-yellow-500")}">
+    <div class="col-md-7 p-5 {colorTheme == "Light" ? 'bg-neutral-100 text-black' :  (colorTheme == "Dark" ? 'bg-neutral-400 text-white' : "bg-neutral-900 text-yellow-500")}">
       <h2>The Rise of Donuts</h2>
       <p class="lead">
         Glazed, powdered and jelly-filled donuts are timeless, but the
