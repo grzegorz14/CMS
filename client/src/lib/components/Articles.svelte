@@ -1,10 +1,8 @@
 <script>
-    // fetch po listę artykułów
-    // await articles
-    // if articles.length == 0 => render some sad message :(
+    let colorTheme = "Dark"
 </script>
 
-<div class="container mt-5 mb-5 newsColors">
+<div class="container mt-5 mb-5 {$colorTheme == "Light" ? 'bg-neutral-100' :  ($colorTheme == "Dark" ? 'bg-neutral-400' : "bg-neutral-800")}">
   <h1 class="text-justify mb-4 text-center">Articles</h1>
   <div class="row gap-4">
     <div class="col mb-5" style="max-width: 50%; max-height: 250px">

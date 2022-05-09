@@ -48,6 +48,7 @@
 .navbarColors {
     background:var(--navbar-background-color);
     color:var(--navbar-color);
+    
 }  
 .signUp {
     background-color: var(--navbar-signUp-background-color) !important;
@@ -59,6 +60,7 @@
 /* Slider */
 .sliderColors{
     color:var(--slider-color);
+    
 }
 /* News */
 .newsColors{
