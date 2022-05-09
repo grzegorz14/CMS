@@ -4,6 +4,8 @@
     function createNewComment() {
         let text = document.getElementById("newComment").value
         text = text.replace(/\n\r?/g, '<br />')
+        let textHtml = document.createElement('div');
+        textHtml.innerHTML = text
         const username = "username"
         var today = new Date();
         var dd = String(today.getDate()).padStart(2, '0');
@@ -11,7 +13,7 @@
         var yyyy = today.getFullYear();
         let time = mm + '.' + dd + '.' + yyyy;
 
-        let comment = {username:username,time:time,text:text}
+        let comment = {username:username,time:time,text:textHtml}
         
         comments = [...comments, comment]
         console.log(comments);
@@ -22,7 +24,7 @@
     {#each comments as comment}
         <div class="comment">
             <div class="username">{comment.username}  <span class="commentDate">Commented on {comment.time} </span></div>
-            <p>{comment.text} </p>
+            <p>{comment.textHtml} </p>
         </div>
     {/each}
 
