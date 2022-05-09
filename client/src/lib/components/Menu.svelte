@@ -31,7 +31,7 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav ms-1 me-auto mb-2 mb-md-0">
                     <li class="nav-item me-1">
-                        <a class="nav-link active" style="font-size: 120%;" aria-current="page" href="#/">AAAAAAAA</a>
+                        <a class="nav-link active" style="font-size: 120%;" aria-current="page" href="#/">BBBBB</a>
                     </li>
                     <li class="nav-item me-1">
                         <a class="nav-link" style="font-size: 120%;" href="#/subPage/article">Article</a>

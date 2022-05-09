@@ -26,9 +26,12 @@
     let settings = new SettingsController()
     let settingsJson = settings.getJson()
 
-    if (settingsJson != null) {
+    if (settingsJson == null) {
+        localStorage.setItem("settingsJson", JSON.stringify(json))
+    }
+    else {
         //set all of the fields
-        json.pageName = settingsJson.pageName
+         json.pageName = settingsJson.pageName
         settings.setPageName(settingsJson.pageName)
         json.pageLayout = settingsJson.pageLayout
         json.colorTheme = settingsJson.colorTheme
@@ -40,7 +43,7 @@
         settings.setMenuVariant(settingsJson.menuVariant)
         json.imagesSize = settingsJson.imagesSize
         json.galleryDisplay = settingsJson.galleryDisplay
-        settings.setGalleryParameters(settingsJson.galleryDisplay, settingsJson.imagesSize)
+        settings.setGalleryParameters(settingsJson.galleryDisplay, settingsJson.imagesSize)  
     }
 </script>
 
