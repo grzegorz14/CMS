@@ -45,7 +45,7 @@
     <hr>
 </div>
 
-<div class="commentSecton {$colorTheme == "Light" ? 'bg-gray-500 text-black' :  ($colorTheme == "Dark" ? 'bg-gray-700 text-white' : "bg-neutral-900 text-yellow-500")}">
+<div class="commentSecton {colorTheme == "Light" ? 'bg-gray-500 text-black' :  (colorTheme == "Dark" ? 'bg-gray-700 text-white' : "bg-neutral-900 text-yellow-500")}">
     <div class="in">
         <div class="c">Comments</div>
         <Comments />
