@@ -1,6 +1,9 @@
 <script>
 	import Comments from './../components/Comments.svelte';
-    let colorTheme = "Dark"
+    import SettingsController from "./../SettingsController"  
+    
+    let settings = new SettingsController()
+    let colorTheme = settings.getJson().colorTheme
 </script>
 
 <div class="d-flex flex-column justify-content-center {colorTheme == "Light" ? 'bg-white t-black' :  (colorTheme == "Dark" ? 'bg-dark t-white' : "bg-black text-yellow")}" style="margin-left: 30%; margin-right: 30%; padding:1%; font-size:120%;">

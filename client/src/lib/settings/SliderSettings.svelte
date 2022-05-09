@@ -1,9 +1,14 @@
 <script>
+    import SettingsController from "./../SettingsController"  
+
+    let settings = new SettingsController()
+    let slides =  settings.getJson().slides
+
     function addSlide() {
         let image = document.getElementById("slideImage").files[0]
         let header = document.getElementById("slideHeader").value
         let content = document.getElementById("slideContent").value
-        let transition = document.getElementById("transitionTime").value
+        let transition = document.getElementById("imageTransitionTime").value
         console.log(transition)
         if (image == undefined) {
             alert("Select the slide image!")
@@ -18,14 +23,18 @@
             return
         }
         else {
-            //add slide and empty input fields
+            console.log(image)
+            //fetch uploadImage
+            settings.addSlide(image, header, content, transition)
+            window.location.reload()
         }
     }
 
     function deleteSlide() {
         let slide = document.getElementById("slideToDelete").value
         if (confirm("Do you want to delete slide \"" + slide + "\"?")) {
-            //delete slide
+            settings.deleteSlide(slide)
+            window.location.reload()
         }
     }
 
@@ -62,7 +71,7 @@
         <div class="row align-items-center m-2">
             <div class="col-2 text">Transition time </div>
             <div class="col d-flex flex-row align-items-center">
-                <input id="imageTransitionTime" type="number" onKeyDown="return false" min="2" max="9" value="7" class="form-control form-control-lg" style="width: 90px;"/>
+                <input id="imageTransitionTime" type="number" onKeyDown="return false" min="2" max="9" value="6" class="form-control form-control-lg" style="width: 90px;"/>
                 <p class="ms-1 mb-0 text">s</p>
             </div>
         </div>
@@ -78,9 +87,9 @@
         <div class="row align-items-center m-2">
             <div class="col-2 text">Slide header</div>
             <select id="slideToDelete" class="form-select form-select-lg col">
-                <option selected>Air pollution</option>
-                <option>Phases of the moon</option>
-                <option>People on Mars in 2029</option>
+                {#each slides as slide}
+                    <option>{slide.header}</option>
+                {/each}
             </select>
             <button on:click={deleteSlide} class="btn btn-danger ms-4" style="width:fit-content;">Delete selected</button>
         </div>

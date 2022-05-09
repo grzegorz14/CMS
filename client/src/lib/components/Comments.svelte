@@ -1,4 +1,9 @@
 <script>
+    import SettingsController from "./../SettingsController"  
+    
+    let settings = new SettingsController()
+    let colorTheme = settings.getJson().colorTheme
+
     let comments = []
     
     function createNewComment() {

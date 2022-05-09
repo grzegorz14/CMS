@@ -53,6 +53,7 @@
         document.getElementById("fontFamily").value = "Arial, Helvetica, sans-serif"
         settings.setPageThemes("classic", "Light")
         settings.setFontAttributes("17", "Arial, Helvetica, sans-serif")
+        window.location.reload()
     }
 </script>
 

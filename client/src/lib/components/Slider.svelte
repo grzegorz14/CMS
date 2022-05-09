@@ -1,11 +1,21 @@
-<div id="myCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="9000">
+<script>
+    import SettingsController from "./../SettingsController"  
+
+    let settings = new SettingsController()
+    let slides =  settings.getJson().slides
+</script>
+
+<div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
         <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-label="Slide 1" aria-current="true"></button>
         <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
         <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3" class=""></button>
+        {#each slides as slide, i}
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to={3 + i} aria-label={"Slide " + (3 + i)} class=""></button>
+        {/each}
     </div>
     <div class="carousel-inner">
-        <div class="carousel-item active">
+        <div class="carousel-item active" data-bs-interval="6000">
             <img src="./../images/fullMoon.jpg" alt="" width="100%" height="500" style="object-fit: cover;">
 
             <div class="container">
@@ -16,7 +26,7 @@
             </div>
         </div>
 
-        <div class="carousel-item">
+        <div class="carousel-item" data-bs-interval="6000">
             <img src="./../images/airPollution.jpg" alt="" width="100%" height="500" style="object-fit: cover;">
 
             <div class="container">
@@ -27,7 +37,7 @@
             </div>
         </div>
 
-        <div class="carousel-item">
+        <div class="carousel-item" data-bs-interval="6000">
             <img src="./../images/shootingStars.jpg" alt="" width="100%" height="500" style="object-fit: cover;">
 
             <div class="container">
@@ -37,6 +47,19 @@
                 </div>
             </div>
         </div>
+
+        {#each slides as slide}
+            <div class="carousel-item" data-bs-interval={slide.transition * 1000}>
+                <img src="./../images/shootingStars.jpg" alt="" width="100%" height="500" style="object-fit: cover;">
+
+                <div class="container">
+                    <div class="carousel-caption text-center sliderColors">
+                        <h2>{slide.header}</h2>
+                        <p>{slide.content}</p>
+                    </div>
+                </div>
+            </div>
+        {/each}
     </div>
 
     <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">

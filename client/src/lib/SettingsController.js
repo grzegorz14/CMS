@@ -35,6 +35,31 @@ class Settings {
         json.menuVariant = variant
         this.saveJson()
     } 
+    addLink(link){
+        json.links.push(link)
+        this.saveJson()
+    }
+    deleteLink(link){
+        const indexToRemove = json.links.indexOf(link);
+        if (indexToRemove > -1) {
+            json.links.splice(indexToRemove, 1);
+        }
+        this.saveJson()
+    }
+
+    //Slider settings
+    addSlide(image, header, content, transition) {
+        json.slides.push({ header, content, transition })
+        this.saveJson()
+    }
+    deleteSlide(header){
+        for (let i = 0; i < json.slides.length; i++) {
+            if (json.slides[i].header == header) {
+                json.slides.splice(i, 1)
+            }
+        }
+        this.saveJson()
+    }
 
     //Gallery settings
     setGalleryParameters(display, size) {

@@ -9,6 +9,7 @@
         { value: "1", content: "Variant 1 (default)" },
         { value: "2", content: "Variant 2 (contentCenter)" }
     ]
+    let links = json.links
 
     //inputs
     let pageNameInput = json.pageName
@@ -30,20 +31,22 @@
     }
 
     function addLink() {
-        let link = document.getElementById("menuVariant").value
+        let link = document.getElementById("linkText").value
         if (isEmptyOrWhiteSpace(link)){
             alert("Your link is empty!")
             return
         }
         else {
-            //add link and empty input fields
+            settings.addLink(link)
+            window.location.reload()
         }
     }
 
     function deleteLink() {
         let link = document.getElementById("linkToDelete").value
         if (confirm("Do you want to delete link \"" + link + "\"?")) {
-            //delete link
+            settings.deleteLink(link)
+            window.location.reload()
         }
     }
 
@@ -99,9 +102,9 @@
         <div class="row align-items-center m-2 mt-4">
             <div class="col-3 text">Delete link</div>
             <select id="linkToDelete" class="form-select form-select-lg col ms-3">
-                <option selected>Home</option>
-                <option>Article</option>
-                <option>Gallery</option>
+                {#each links as link}
+                    <option>{link}</option>
+                {/each}
             </select>
             <button on:click={deleteLink} class="btn btn-danger ms-4" style="width:fit-content;">Delete link</button>
         </div>

@@ -3,8 +3,11 @@
     import SettingsController from "./../SettingsController"  
 
     let settings = new SettingsController()
-    let imagesSize = settings.getJson().imagesSize
-    let displayType = settings.getJson().galleryDisplay
+    let json = settings.getJson()
+    let imagesSize = json.imagesSize
+    let displayType = json.galleryDisplay
+    let colorTheme = json.colorTheme
+
 
     let images = []
     let imagesLength = getImagesLength()

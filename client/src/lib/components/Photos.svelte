@@ -1,5 +1,8 @@
 <script>
-  let colorTheme = "Dark"
+  import SettingsController from "./../SettingsController"  
+
+  let settings = new SettingsController()
+  let colorTheme = settings.getJson().colorTheme
 </script>
 
 <div class="container {colorTheme == "Light" ? 'bg-white t-black' :  (colorTheme == "Dark" ? 'bg-dark t-white' : "bg-black text-yellow")}">

@@ -2,7 +2,6 @@
 	import Router from 'svelte-spa-router';
 
     import Menu from "./components/Menu.svelte";
-
     import Home from './pages/Home.svelte';
     import Article from './pages/Article.svelte';
     import Gallery from './pages/Gallery.svelte';
@@ -31,7 +30,7 @@
     }
     else {
         //set all of the fields
-         json.pageName = settingsJson.pageName
+        json.pageName = settingsJson.pageName
         settings.setPageName(settingsJson.pageName)
         json.pageLayout = settingsJson.pageLayout
         json.colorTheme = settingsJson.colorTheme
@@ -44,6 +43,9 @@
         json.imagesSize = settingsJson.imagesSize
         json.galleryDisplay = settingsJson.galleryDisplay
         settings.setGalleryParameters(settingsJson.galleryDisplay, settingsJson.imagesSize)  
+        json.links = settingsJson.links
+        json.slides = settingsJson.slides
+        settings.saveJson()
     }
 let colorTheme = "Dark"
 </script>
@@ -52,6 +54,6 @@ let colorTheme = "Dark"
 
 <Menu/>
 
-<div class="marginTop {colorTheme == "Light" ? 'bg-white t-black' :  (colorTheme == "Dark" ? 'bg-dark t-white' : "bg-black text-yellow")}">
+<div class="{colorTheme == "Light" ? 'bg-white t-black' :  (colorTheme == "Dark" ? 'bg-dark t-white' : "bg-black text-yellow")}">
     <Router {routes} />
 </div>

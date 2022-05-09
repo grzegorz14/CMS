@@ -6,5 +6,8 @@
     "fontFamily": " Arial, Helvetica, sans-serif",
     "menuVariant": "1",
     "galleryDisplay": "Row",
-    "imagesSize": 300
+    "imagesSize": 300,
+    "links": [],
+    "slides": [],
+    "articles": []
 }
