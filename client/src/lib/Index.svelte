@@ -45,12 +45,13 @@
         json.galleryDisplay = settingsJson.galleryDisplay
         settings.setGalleryParameters(settingsJson.galleryDisplay, settingsJson.imagesSize)  
     }
+let colorTheme = "Dark"
 </script>
 
 <a name="top" href="/" style="visibility: collapse; position: absolute;">top</a>
 
 <Menu/>
 
-<div class="marginTop">
+<div class="marginTop {colorTheme == "Light" ? 'bg-white t-black' :  (colorTheme == "Dark" ? 'bg-dark t-white' : "bg-black text-yellow")}">
     <Router {routes} />
 </div>

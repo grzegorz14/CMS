@@ -25,7 +25,7 @@
 </script>
 
 {#if menuVariant == "1"}
-    <nav class="navbar navbar-expand-md navbar-dark {colorTheme == "Light" ? 'bg-blue-800 text-white':  (colorTheme == "Dark" ? 'bg-blue-900 text-white' : "bg-black text-yellow-500")}">
+    <nav class="navbar navbar-expand-md {colorTheme == "Light" ? 'bg-lightBlue t-white':  (colorTheme == "Dark" ? 'bg-darkBlue t-white' : "bg-black t-yellow")} ">
         <div class="container-fluid">
             <a class="navbar-brand ms-3" style="font-size: 150%;" href="#/">{pageName}</a>
             <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -43,7 +43,7 @@
                 <div class="text-end me-2 d-flex align-items-center">
                 {#if userType == "none"}
                     <a href="#/logIn" type="button" class="btn btn-outline-light me-2">Log in</a>
-                    <a href="#/signUp" type="button" class="btn signUp text-light  {colorTheme == "Light" ? 'bg-cyan-500 text-black':  (colorTheme == "Dark" ? 'bg-cyan-900 text-white' : "bg-yellow-500 color-black")}">Sign up</a>
+                    <a href="#/signUp" type="button" class="btn signUp text-light  {colorTheme == "Light" ? 'bg-lightCyan t-black':  (colorTheme == "Dark" ? 'bg-darkCyan t-white' : "bg-yellow t-black")}">Sign up</a>
                 {:else}
                     <a href="#/subPage/settings" type="button" class="text-light me-4 hover d-flex align-content-center"><i style="font-size: 160%;" class="fa-solid fa-gear"></i></a> 
                     <button on:click={logOut} class="btn btn-outline-light me-2">Log out</button>
