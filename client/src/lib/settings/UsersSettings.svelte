@@ -1,8 +1,12 @@
 <script>
+    import SettingsController from "./../SettingsController"  
+    
+    let settings = new SettingsController()
+    let colorTheme = settings.getJson().colorTheme
+
     function editUser(login) {
         window.location.href =  "#/subPage/settings/editUser/" +  login; 
     }
-    let colorTheme = settings.getJson().colorTheme
 </script>
 
 <div class="d-flex flex-column justify-content-center {colorTheme == "Light" ? 'bg-white t-black':  (colorTheme == "Dark" ? 'bg-dark t-white' : "bg-black t-yellow")}">
