@@ -1,4 +1,5 @@
 <script>
+    import { push } from "svelte-spa-router";
     import SettingsController from "./../SettingsController"  
     
     let settings = new SettingsController()
@@ -21,8 +22,6 @@
             }),
         })
         response = await response.text()
-        console.log("User type: " + response)
-        console.log("Login: " + localStorage.getItem("login"))
         logged = response
     }
 
@@ -37,6 +36,7 @@
             }),
         })
         logged = "false"
+        push("#/")
     }
 </script>
 

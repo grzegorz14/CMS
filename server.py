@@ -3,6 +3,7 @@ from flask import Flask, redirect, send_from_directory, request
 #from PIL import Image for saving slider images in directory
 import glob
 import sqlite3
+import json
 
 app = Flask(__name__)
 
@@ -176,6 +177,15 @@ def logOut():
     login = request.form["login"]
     loggedUsers.remove(login)
     return "loggedOut"
+
+@app.route("/getUsers", methods=["POST"])
+def getUsers():
+    myConnection = sqlite3.connect('tkinter/database.sqlite')
+    myCursor = myConnection.cursor()
+    myCursor.execute("SELECT * FROM users")
+    users = myCursor.fetchall()
+    myConnection.close()
+    return json.dumps(users, separators=(',', ':')) 
 
 if __name__ == "__main__":
     app.run(debug=True)
