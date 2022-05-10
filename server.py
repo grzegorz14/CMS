@@ -95,7 +95,7 @@ def updateLogin():
     login = request.form["login"]
     newLogin = request.form["newLogin"]
     print(login)
-    myConnection = sqlite3.connect('database.sqlite')
+    myConnection = sqlite3.connect('tkinter/database.sqlite')
     myCursor = myConnection.cursor()
     myCursor.execute("SELECT * FROM users")
     users = myCursor.fetchall()
@@ -104,15 +104,18 @@ def updateLogin():
         if user[0] == login:
             myCursor.execute(f"UPDATE users SET login = '{newLogin}', password = '{user[1]}', permissions = '{user[2]}' WHERE login = '{login}'")
             myConnection.commit()
-            myConnection.close()
-            return 'Updated'
+            
+    myCursor.execute("SELECT * FROM users")
+    users = myCursor.fetchall()
+    print(users)
+    myConnection.close()
+    return 'Updated'
         
 @app.route("/updatePassword", methods=["POST"])
 def updatePassword():
     login = request.form["login"]
     newPassword = request.form["newPassword"]
-    print(login)
-    myConnection = sqlite3.connect('database.sqlite')
+    myConnection = sqlite3.connect('tkinter/database.sqlite')
     myCursor = myConnection.cursor()
     myCursor.execute("SELECT * FROM users")
     users = myCursor.fetchall()
@@ -128,8 +131,7 @@ def updatePassword():
 def updatePermissions():
     login = request.form["login"]
     newPermissions = request.form["newPermissions"]
-    print(login)
-    myConnection = sqlite3.connect('database.sqlite')
+    myConnection = sqlite3.connect('tkinter/database.sqlite')
     myCursor = myConnection.cursor()
     myCursor.execute("SELECT * FROM users")
     users = myCursor.fetchall()
@@ -139,17 +141,21 @@ def updatePermissions():
             myCursor.execute(f"UPDATE users SET login = '{login}', password = '{user[1]}', permissions = '{newPermissions}' WHERE login = '{login}'")
             myConnection.commit()
             myConnection.close()
+            global userType
+            userType = newPermissions
             return 'Updated'
 
 @app.route("/deleteUser", methods=["POST"])
 def deleteUser():
     login = request.form["login"]
     print(login)
-    myConnection = sqlite3.connect('database.sqlite')
+    myConnection = sqlite3.connect('tkinter/database.sqlite')
     myCursor = myConnection.cursor()
     myCursor.execute(f"DELETE FROM users WHERE login = '{login}'")
     myConnection.commit()
-    return f"User ''{login}'' deleted."
+    global userType
+    userType = "none"
+    return "Deleted"
 
 @app.route("/logOut", methods=["POST"])
 def logOut():
