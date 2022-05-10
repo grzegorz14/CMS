@@ -32,9 +32,10 @@
         response = await response.text()
         userType = response
     }
+    
 </script>
 
-<div class="wrapper">
+<div class="wrapper ">
     <nav id="sidebar">
         <div class="sidebar-header">
             <h3>Settings</h3>

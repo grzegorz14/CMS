@@ -1,6 +1,6 @@
 <script>
     import SettingsController from "./../SettingsController"  
-
+    
     let settings = new SettingsController()
     let json =  settings.getJson()
     let pageName = json.pageName
@@ -28,21 +28,21 @@
 {#if menuVariant == "1"}
     <nav class="navbar navbar-expand-md {colorTheme == "Light" ? 'bg-lightBlue t-white':  (colorTheme == "Dark" ? 'bg-darkBlue t-white' : "bg-black t-yellow")} ">
         <div class="container-fluid">
-            <a class="navbar-brand ms-3" style="font-size: 150%;" href="#/">{pageName}</a>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <ul class="navbar-nav ms-1 me-auto mb-2 mb-md-0">
+            <a class="navbar-brand ms-3 {colorTheme == "Light" ? ' t-white':  (colorTheme == "Dark" ? ' t-white' : " t-yellow")} " style="font-size: 150%;" href="#/">{pageName}</a>
+            <div class="collapse navbar-collapse " id="navbarCollapse">
+                <ul class="navbar-nav ms-1 me-auto mb-2 mb-md-0 ">
                     <li class="nav-item me-1">
-                        <a class="nav-link active" style="font-size: 120%;" aria-current="page" href="#/">Home</a>
+                        <a class="nav-link active {colorTheme == "Light" ? ' t-white':  (colorTheme == "Dark" ? ' t-white' : " t-yellow")} " style="font-size: 120%;" aria-current="page" href="#/">Home</a>
+                    </li>
+                    <li class="nav-item me-1 ">
+                        <a class="nav-link {colorTheme == "Light" ? ' t-white':  (colorTheme == "Dark" ? ' t-white' : " t-yellow")} " style="font-size: 120%;" href="#/subPage/article">Article</a>
                     </li>
                     <li class="nav-item me-1">
-                        <a class="nav-link" style="font-size: 120%;" href="#/subPage/article">Article</a>
-                    </li>
-                    <li class="nav-item me-1">
-                        <a class="nav-link" style="font-size: 120%;" href="#/subPage/gallery">Gallery</a>
+                        <a class="nav-link {colorTheme == "Light" ? ' t-white':  (colorTheme == "Dark" ? ' t-white' : " t-yellow")} " style="font-size: 120%;" href="#/subPage/gallery">Gallery</a>
                     </li>
                     {#each links as link}
                         <li class="nav-item me-1">
-                            <a class="nav-link" style="font-size: 120%;" href="#/subPage/gallery">{link}</a>
+                            <a class="nav-link {colorTheme == "Light" ? ' t-white':  (colorTheme == "Dark" ? ' t-white' : " t-yellow")} "  style="font-size: 120%;" href="#/subPage/gallery">{link}</a>
                         </li>
                     {/each}
                 </ul>

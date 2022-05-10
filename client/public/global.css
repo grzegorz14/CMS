@@ -56,7 +56,11 @@
     background-color: #333333;
 }
 .bg-yellow{
-    background-color: #fbff00;
+    background-color: #fbff00 !important;
+    transition: 300ms;
+}
+.bg-yellow:hover{
+    background-color: #fdff8f;
 }
 .bg-lightCyan{
     background-color: #8cdeff;
@@ -243,7 +247,14 @@
 }
 
 
-
+a,
+a:hover,
+a:focus {
+    color: inherit ;
+    text-decoration: none !important;
+    transition: all 0.3s;
+	
+}
 
 
 

@@ -5,7 +5,7 @@
   let colorTheme = settings.getJson().colorTheme
 </script>
 
-<div class="container {colorTheme == "Light" ? 'bg-white t-black' :  (colorTheme == "Dark" ? 'bg-dark t-white' : "bg-black text-yellow")}">
+<div class="container {colorTheme == "Light" ? 'bg-white t-black' :  (colorTheme == "Dark" ? 'bg-dark t-white' : "bg-black t-yellow")}">
   <h1 class="text-justify m-4 mb-4 text-center">GIF News</h1>
 
   <hr>

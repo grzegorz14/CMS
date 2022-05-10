@@ -6,7 +6,7 @@
     let colorTheme = settings.getJson().colorTheme
 </script>
 
-<div class="d-flex flex-column justify-content-center {colorTheme == "Light" ? 'bg-white t-black' :  (colorTheme == "Dark" ? 'bg-dark t-white' : "bg-black text-yellow")}" style="margin-left: 30%; margin-right: 30%; padding:1%; font-size:120%;">
+<div class="d-flex flex-column justify-content-center {colorTheme == "Light" ? 'bg-white t-black' :  (colorTheme == "Dark" ? 'bg-dark t-white' : "bg-black t-yellow")}" style="margin-left: 30%; margin-right: 30%; padding:1%; font-size:120%;">
     <p class="date">NEWS | November 10, 2021</p>
     <p class="mainHeadline">An Almost Total Lunar Eclipse</p>
     <p class="by">By Molly Wasser and Ernie Wright</p>
@@ -48,7 +48,7 @@
     <hr>
 </div>
 
-<div class="commentSecton {colorTheme == "Light" ? 'bg-lightGray t-black' :  (colorTheme == "Dark" ? 'bg-darkerGray t-white' : "bg-dark t-yellow")}">
+<div class="commentSecton {colorTheme == "Light" ? 'bg-lightGray t-black' :  (colorTheme == "Dark" ? 'bg-darkerGray t-white' : "bg-black t-yellow")}">
     <div class="in">
         <div class="c">Comments</div>
         <Comments />

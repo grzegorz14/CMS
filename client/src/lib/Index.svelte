@@ -48,7 +48,7 @@
         json.slides = settingsJson.slides
         settings.saveJson()
     }
-let colorTheme = "Dark"
+    let colorTheme = settings.getJson().colorTheme
 </script>
 
 <a name="top" href="/" style="visibility: collapse; position: absolute;">top</a>

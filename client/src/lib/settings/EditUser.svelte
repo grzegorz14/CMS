@@ -16,9 +16,10 @@
             //deletes account with unique login "Grzesiek"
         }
     }
+    let colorTheme = settings.getJson().colorTheme
 </script>
 
-<div class="d-flex flex-column justify-content-center">
+<div class="d-flex flex-column justify-content-center {colorTheme == "Light" ? 'bg-white t-black':  (colorTheme == "Dark" ? 'bg-dark t-white' : "bg-black t-yellow")}">
     <p class="mainHeadline">Edit user - {login}</p>
 
     <hr>

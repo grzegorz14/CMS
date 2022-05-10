@@ -3,9 +3,10 @@
 
     let settings = new SettingsController()
     let slides =  settings.getJson().slides
+    let colorTheme = settings.getJson().colorTheme
 </script>
 
-<div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+<div id="myCarousel" class="carousel slide  " data-bs-ride="carousel">
     <div class="carousel-indicators">
         <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-label="Slide 1" aria-current="true"></button>
         <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
@@ -19,7 +20,7 @@
             <img src="./../images/fullMoon.jpg" alt="" width="100%" height="500" style="object-fit: cover;">
 
             <div class="container">
-                <div class="carousel-caption text-center sliderColors">
+                <div class="carousel-caption text-center sliderColors {colorTheme == "Light" ? 't-white':  (colorTheme == "Dark" ? 't-white' : "t-yellow")}">
                     <h2>How the full moon affects your sleep?</h2>
                     <p>Many people have trouble falling asleep during the full moon phase...</p>
                 </div>
@@ -30,7 +31,7 @@
             <img src="./../images/airPollution.jpg" alt="" width="100%" height="500" style="object-fit: cover;">
 
             <div class="container">
-                <div class="carousel-caption text-center sliderColors">
+                <div class="carousel-caption text-center sliderColors {colorTheme == "Light" ? 't-white':  (colorTheme == "Dark" ? 't-white' : "t-yellow")}">
                     <h2>How to fight with air pollution?</h2>
                     <p>High air pollution is one of the biggest problems of many...</p>
                 </div>
@@ -41,7 +42,7 @@
             <img src="./../images/shootingStars.jpg" alt="" width="100%" height="500" style="object-fit: cover;">
 
             <div class="container">
-                <div class="carousel-caption text-center sliderColors">
+                <div class="carousel-caption text-center sliderColors {colorTheme == "Light" ? 't-white':  (colorTheme == "Dark" ? 't-white' : "t-yellow")}">
                     <h2>What "falling stars" really are?</h2>
                     <p>"Shooting stars" and "falling stars" are both names that describe meteors...</p>
                 </div>
@@ -53,7 +54,7 @@
                 <img src="./../images/shootingStars.jpg" alt="" width="100%" height="500" style="object-fit: cover;">
 
                 <div class="container">
-                    <div class="carousel-caption text-center sliderColors">
+                    <div class="carousel-caption text-center sliderColors {colorTheme == "Light" ? 't-white':  (colorTheme == "Dark" ? 't-white' : "t-yellow")}">
                         <h2>{slide.header}</h2>
                         <p>{slide.content}</p>
                     </div>

@@ -29,12 +29,12 @@
 </script>
 
 {#await images}
-    <h1 class="text-center">Looking for photos...</h1>
+    <h1 class="text-center ">Looking for photos...</h1>
 {:then}
-    <div class="p-5">
+    <div class="p-5 {colorTheme == "Light" ? 't-white':  (colorTheme == "Dark" ? 't-white' : "t-yellow")}">
         <h1 class="text-center">Images</h1>
         {#if displayType == "Row"}
-            <div class="d-flex flex-row flex-wrap m-5 mb-0 justify-content-center">
+            <div class="d-flex flex-row flex-wrap m-5 mb-0 justify-content-center ">
                 {#each images as image}
                     <img
                     src={"./../images/" + image}
