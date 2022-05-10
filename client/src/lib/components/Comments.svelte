@@ -1,6 +1,4 @@
 <script>
-import LogIn from "../pages/LogIn.svelte";
-
     import SettingsController from "./../SettingsController"  
     
     let settings = new SettingsController()

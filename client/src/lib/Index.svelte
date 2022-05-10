@@ -48,6 +48,7 @@
         json.slides = settingsJson.slides
         settings.saveJson()
     }
+
     let colorTheme = settings.getJson().colorTheme
 </script>
 

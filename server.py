@@ -7,7 +7,7 @@ import sqlite3
 app = Flask(__name__)
 
 #admin, user or none
-userType = "none"
+loggedUsers = []
 
 # Path for our main Svelte page
 @app.route("/")
@@ -29,14 +29,12 @@ def home(path):
 @app.route("/getImagesLength", methods=["POST"])
 def getImagesLength():
     images = [f for f in glob.glob("./client/public/images/*")]
-    print(len(images))
     return str(len(images))
 
 @app.route("/getImage", methods=["POST"])
 def getImage():
     id = request.args.get('id')
     images = [f for f in glob.glob("./client/public/images/*")]
-    print(len(images))
     if int(id) < len(images):
         return str(images[int(id)])
     return "wrongId"
@@ -55,10 +53,8 @@ def logIn():
     for user in users:
         print(user)
         if login == user[0] and password == user[1]:
-            global userType
-            userType = user[2]
-            ok = True
-            return userType
+            loggedUsers.append(login)
+            return "logged"
     if ok == False:
         print("Wrong username or password!")
         return "Wrong username or password!"
@@ -87,14 +83,31 @@ def signUp():
 
 @app.route("/getUserType", methods=["POST"])
 def getUserType():
-    # return admin, user or none
-    return userType
+    login = request.form["login"]
+    print(login)
+    myConnection = sqlite3.connect('tkinter/database.sqlite')
+    myCursor = myConnection.cursor()
+    myCursor.execute("SELECT * FROM users")
+    users = myCursor.fetchall()
+    myConnection.close()
+    for user in users:
+        if user[0] == login:
+            print(user)
+            return user[2]  
+    return "none"  
+
+@app.route("/isLogged", methods=["POST"])
+def isLogged():
+    login = request.form["login"]
+    for user in loggedUsers:
+        if user == login:
+            return "true" 
+    return "false" 
 
 @app.route("/updateLogin", methods=["POST"])
 def updateLogin():
     login = request.form["login"]
     newLogin = request.form["newLogin"]
-    print(login)
     myConnection = sqlite3.connect('tkinter/database.sqlite')
     myCursor = myConnection.cursor()
     myCursor.execute("SELECT * FROM users")
@@ -104,12 +117,13 @@ def updateLogin():
         if user[0] == login:
             myCursor.execute(f"UPDATE users SET login = '{newLogin}', password = '{user[1]}', permissions = '{user[2]}' WHERE login = '{login}'")
             myConnection.commit()
-            
-    myCursor.execute("SELECT * FROM users")
-    users = myCursor.fetchall()
-    print(users)
-    myConnection.close()
-    return 'Updated'
+            myConnection.close()
+            for logged in loggedUsers:
+                if login == logged:
+                    loggedUsers.remove(login)
+                    loggedUsers.append(newLogin)
+            return 'updated'
+    return "error"    
         
 @app.route("/updatePassword", methods=["POST"])
 def updatePassword():
@@ -125,7 +139,8 @@ def updatePassword():
             myCursor.execute(f"UPDATE users SET login = '{login}', password = '{newPassword}', permissions = '{user[2]}' WHERE login = '{login}'")
             myConnection.commit()
             myConnection.close()
-            return 'Updated'       
+            return 'updated'     
+    return "error"   
 
 @app.route("/updatePermissions", methods=["POST"])
 def updatePermissions():
@@ -141,27 +156,26 @@ def updatePermissions():
             myCursor.execute(f"UPDATE users SET login = '{login}', password = '{user[1]}', permissions = '{newPermissions}' WHERE login = '{login}'")
             myConnection.commit()
             myConnection.close()
-            global userType
-            userType = newPermissions
-            return 'Updated'
+            return 'updated'
+    return "error" 
 
 @app.route("/deleteUser", methods=["POST"])
 def deleteUser():
     login = request.form["login"]
-    print(login)
     myConnection = sqlite3.connect('tkinter/database.sqlite')
     myCursor = myConnection.cursor()
     myCursor.execute(f"DELETE FROM users WHERE login = '{login}'")
     myConnection.commit()
-    global userType
-    userType = "none"
-    return "Deleted"
+    for user in loggedUsers:
+        if user == login:
+            loggedUsers.remove(login)
+    return "deleted"
 
 @app.route("/logOut", methods=["POST"])
 def logOut():
-    global userType
-    userType = "none"
-    return userType
+    login = request.form["login"]
+    loggedUsers.remove(login)
+    return "loggedOut"
 
 if __name__ == "__main__":
     app.run(debug=True)

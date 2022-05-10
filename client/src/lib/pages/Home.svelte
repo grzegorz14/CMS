@@ -7,7 +7,7 @@
     import SettingsController from "./../SettingsController"
     let settings = new SettingsController()
     let layout = settings.getJson().pageLayout
-    console.log(layout)
+    
     if (layout == undefined) {
         layout == "classic"
     }

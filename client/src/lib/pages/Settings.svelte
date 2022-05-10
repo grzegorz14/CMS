@@ -28,7 +28,15 @@
     let userType = getUserType()
 
     async function getUserType() {
-        let response = await fetch("./getUserType", { method: "POST" })
+        let response = await fetch("./getUserType", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({
+                "login": localStorage.getItem("login")
+            }),
+        })
         response = await response.text()
         userType = response
     }

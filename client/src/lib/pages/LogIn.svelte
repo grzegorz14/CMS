@@ -26,9 +26,8 @@
                 }),
             })
             response = await response.text()
-            if (response == "admin" || response == "user") {
+            if (response == "logged") {
                 localStorage.setItem("login", login)
-                localStorage.setItem("userType", response)
                 push("#/")
             }
             else {

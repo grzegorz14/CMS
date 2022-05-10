@@ -4,16 +4,24 @@
     let login = localStorage.getItem("login")
     let userType = getUserType()
 
-    async function getUserType() {
-        let response = await fetch("./getUserType", { method: "POST" })
-        response = await response.text()
-        userType = response
-    }
-
     let userTypes = [
         "admin", 
         "user"
     ]
+
+    async function getUserType() {
+        let response = await fetch("./getUserType", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({
+                "login": localStorage.getItem("login")
+            }),
+        })
+        response = await response.text()
+        userType = response
+    }
 
     async function updateLogin() {
         let newLogin = document.getElementById("newLogin").value

@@ -1,4 +1,9 @@
 <script>
+    import SettingsController from "./../SettingsController"  
+    
+    let settings = new SettingsController()
+    let colorTheme = settings.getJson().colorTheme
+
     function addArticle() {
         let header = document.getElementById("articleHeader").value
         let content = document.getElementById("articleContent").value
@@ -25,7 +30,6 @@
     function isEmptyOrWhiteSpace(str){
         return str === null || str.match(/^ *$/) !== null
     }
-    let colorTheme = settings.getJson().colorTheme
 </script>
 
 <div class="d-flex flex-column justify-content-center ">

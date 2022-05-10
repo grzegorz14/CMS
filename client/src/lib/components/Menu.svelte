@@ -8,20 +8,35 @@
     let colorTheme = json.colorTheme
     let links = json.links
 
-    let userType = getUserType()
+    let logged = isLogged()
 
-    async function getUserType() {
-        let response = await fetch("./getUserType", { method: "POST" })
+    async function isLogged() {
+        let response = await fetch("./isLogged", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({
+                "login": localStorage.getItem("login")
+            }),
+        })
         response = await response.text()
         console.log("User type: " + response)
-        userType = response
+        console.log("Login: " + localStorage.getItem("login"))
+        logged = response
     }
 
     async function logOut() {
-        let response = await fetch("./logOut", { method: "POST" })
-        response = await response.text()
-        console.log("User type: " + response)
-        userType = response
+        let response = await fetch("./logOut", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({
+                "login": localStorage.getItem("login")
+            }),
+        })
+        logged = "false"
     }
 </script>
 
@@ -47,7 +62,7 @@
                     {/each}
                 </ul>
                 <div class="text-end me-2 d-flex align-items-center">
-                {#if userType == "none"}
+                {#if logged == "false"}
                     <a href="#/logIn" type="button" class="btn btn-outline-light me-2">Log in</a>
                     <a href="#/signUp" type="button" class="btn signUp text-light  {colorTheme == "Light" ? 'bg-lightCyan t-black':  (colorTheme == "Dark" ? 'bg-darkCyan t-white' : "bg-yellow t-black")}">Sign up</a>
                 {:else}
@@ -82,7 +97,7 @@
                 </ul>
         
                 <div class="col-md-2 text-end d-flex align-items-center">
-                    {#if userType == "none"}
+                    {#if logged == "false"}
                         <a href="#/logIn" type="button" class="btn btn-outline-dark me-2">Log in</a>
                         <a href="#/signUp" type="button" class="btn signUp text-light">Sign up</a>
                     {:else}
