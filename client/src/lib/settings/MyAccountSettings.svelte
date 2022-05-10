@@ -1,20 +1,47 @@
 <script>
-    let login = "Grzesiek" //saved in local storage
+    let login = localStorage.getItem("login")
 
-    function saveLogin() {
-        let newLogin = document.getElementById("newLoginInput").value
-        //update login
+    async function updateLogin() {
+        let newLogin = document.getElementById("newLogin").value
+        if (isEmptyOrWhiteSpace(newLogin)) {
+            alert("Your new login is empty!")
+            return
+        }
+        let response = await fetch("./updateLogin", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({
+                "login": login,
+                "newLogin": newLogin
+            }),
+        })
+        response = await response.text()
+        console.log(response)
+        if (response = "updated") {
+            localStorage.setItem("login", newLogin)
+        }
+        window.location.reload()
     }
 
-    function savePassword() {
-        let newPassword = document.getElementById("newPasswordInput").value
-        //update password
+    async function updatePassword() {
+        let newPassword = document.getElementById("newPassword").value
+        if (isEmptyOrWhiteSpace(newPassword)) {
+            alert("Your new password is empty!")
+            return
+        }
+        //update
     }
 
-    function deleteAccount() {
+    async function deleteAccount() {
         if (confirm("Delete your account?")) {
             //deletes account with unique login "Grzesiek"
-        }
+        }        
+    }
+
+    function isEmptyOrWhiteSpace(str){
+        return str === null || str.match(/^ *$/) !== null
     }
 </script>
 
@@ -24,23 +51,23 @@
     <hr>
 
     <p class="headline">Profile data</p>
-    <div style="width: 40%;">
+    <div class="w-50">
         <div class="row align-items-center m-2">
             <div class="col text">Login</div>
             <div class="col">
-                <input id="newLoginInput" type="text" placeholder={login} class="form-control form-control-lg"/>
+                <input id="newLogin" type="text" placeholder={login} class="form-control form-control-lg"/>
             </div>
             <div class="col">
-                <button on:click={saveLogin} class="btn btn-primary">Save</button>
+                <button on:click={updateLogin} class="btn btn-primary">Save</button>
             </div>
         </div>
         <div class="row align-items-center m-2">
             <div class="col text">New password</div>
             <div class="col">
-                <input id="newPasswordInput" type="password" class="form-control form-control-lg"/>
+                <input id="newPassword" type="password" class="form-control form-control-lg"/>
             </div>
             <div class="col">
-                <button on:click={savePassword} class="btn btn-primary">Save</button>
+                <button on:click={updatePassword} class="btn btn-primary">Save</button>
             </div>
         </div>
 

@@ -62,10 +62,6 @@ def logIn():
     if ok == False:
         print("Wrong username or password!")
         return "Wrong username or password!"
-             
-            
-    # check if user exists in database with correct password => return type of user, else => return error info
-    
 
 @app.route("/signUp", methods=["POST"])
 def signUp():
@@ -93,6 +89,67 @@ def signUp():
 def getUserType():
     # return admin, user or none
     return userType
+
+@app.route("/updateLogin", methods=["POST"])
+def updateLogin():
+    login = request.form["login"]
+    newLogin = request.form["newLogin"]
+    print(login)
+    myConnection = sqlite3.connect('database.sqlite')
+    myCursor = myConnection.cursor()
+    myCursor.execute("SELECT * FROM users")
+    users = myCursor.fetchall()
+
+    for user in users:
+        if user[0] == login:
+            myCursor.execute(f"UPDATE users SET login = '{newLogin}', password = '{user[1]}', permissions = '{user[2]}' WHERE login = '{login}'")
+            myConnection.commit()
+            myConnection.close()
+            return 'Updated'
+        
+@app.route("/updatePassword", methods=["POST"])
+def updatePassword():
+    login = request.form["login"]
+    newPassword = request.form["newPassword"]
+    print(login)
+    myConnection = sqlite3.connect('database.sqlite')
+    myCursor = myConnection.cursor()
+    myCursor.execute("SELECT * FROM users")
+    users = myCursor.fetchall()
+
+    for user in users:
+        if user[0] == login:
+            myCursor.execute(f"UPDATE users SET login = '{login}', password = '{newPassword}', permissions = '{user[2]}' WHERE login = '{login}'")
+            myConnection.commit()
+            myConnection.close()
+            return 'Updated'       
+
+@app.route("/updatePermissions", methods=["POST"])
+def updatePermissions():
+    login = request.form["login"]
+    newPermissions = request.form["newPermissions"]
+    print(login)
+    myConnection = sqlite3.connect('database.sqlite')
+    myCursor = myConnection.cursor()
+    myCursor.execute("SELECT * FROM users")
+    users = myCursor.fetchall()
+
+    for user in users:
+        if user[0] == login:
+            myCursor.execute(f"UPDATE users SET login = '{login}', password = '{user[1]}', permissions = '{newPermissions}' WHERE login = '{login}'")
+            myConnection.commit()
+            myConnection.close()
+            return 'Updated'
+
+@app.route("/deleteUser", methods=["POST"])
+def deleteUser():
+    login = request.form["login"]
+    print(login)
+    myConnection = sqlite3.connect('database.sqlite')
+    myCursor = myConnection.cursor()
+    myCursor.execute(f"DELETE FROM users WHERE login = '{login}'")
+    myConnection.commit()
+    return f"User ''{login}'' deleted."
 
 @app.route("/logOut", methods=["POST"])
 def logOut():
