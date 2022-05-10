@@ -1,4 +1,6 @@
 <script>
+import LogIn from "../pages/LogIn.svelte";
+
     import SettingsController from "./../SettingsController"  
     
     let settings = new SettingsController()
@@ -8,17 +10,18 @@
     
     function createNewComment() {
         let text = document.getElementById("newComment").value
-        text = text.replace(/\n\r?/g, '<br />')
+        // text = text.replace(/\n\r?/g, '<br />')
         let textHtml = document.createElement('div');
         textHtml.innerHTML = text
-        const username = "username"
+        console.log(textHtml);
+        const username = localStorage.getItem('login')
         var today = new Date();
         var dd = String(today.getDate()).padStart(2, '0');
         var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
         var yyyy = today.getFullYear();
         let time = mm + '.' + dd + '.' + yyyy;
 
-        let comment = {username:username,time:time,text:textHtml}
+        let comment = {username:username,time:time,text:text}
         
         comments = [...comments, comment]
         console.log(comments);
@@ -27,9 +30,9 @@
 
 <div class="commentSection">
     {#each comments as comment}
-        <div class="comment">
+        <div class="comment t-black">
             <div class="username">{comment.username}  <span class="commentDate">Commented on {comment.time} </span></div>
-            <p>{comment.textHtml} </p>
+            <p>{comment.text}</p>
         </div>
     {/each}
 

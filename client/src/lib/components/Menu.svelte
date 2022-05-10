@@ -59,24 +59,24 @@
         </div>
     </nav>
 {:else}
-    <nav class="border-bottom">
+    <nav class="border-bottom {colorTheme == "Light" ? 'bg-lightBlue t-white':  (colorTheme == "Dark" ? 'bg-darkBlue t-white' : "bg-black t-yellow")}">
         <div class="container">
-            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-2">
-                <a class="d-flex align-items-center col-md-2 mb-2 mb-md-0 text-dark" style="font-size: 150%;" href="#/">{pageName}</a>
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-2 ">
+                <a class="d-flex align-items-center col-md-2 mb-2 mb-md-0  {colorTheme == "Light" ? ' t-white':  (colorTheme == "Dark" ? ' t-white' : " t-yellow")} " style="font-size: 150%;" href="#/">{pageName}</a>
         
                 <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
                     <li class="nav-item me-1">
-                        <a class="nav-link active" style="font-size: 120%;" aria-current="page" href="#/">Home</a>
+                        <a class="nav-link active {colorTheme == "Light" ? ' t-white':  (colorTheme == "Dark" ? ' t-white' : " t-yellow")} " style="font-size: 120%;" aria-current="page" href="#/">Home</a>
                     </li>
                     <li class="nav-item me-1">
-                        <a class="nav-link" style="font-size: 120%;" href="#/subPage/article">Article</a>
+                        <a class="nav-link {colorTheme == "Light" ? ' t-white':  (colorTheme == "Dark" ? ' t-white' : " t-yellow")} " style="font-size: 120%;" href="#/subPage/article">Article</a>
                     </li>
                     <li class="nav-item me-1">
-                        <a class="nav-link" style="font-size: 120%;" href="#/subPage/gallery">Gallery</a>
+                        <a class="nav-link {colorTheme == "Light" ? ' t-white':  (colorTheme == "Dark" ? ' t-white' : " t-yellow")} " style="font-size: 120%;" href="#/subPage/gallery">Gallery</a>
                     </li>  
                     {#each links as link}
                         <li class="nav-item me-1">
-                            <a class="nav-link" style="font-size: 120%;" href="#/subPage/gallery">{link}</a>
+                            <a class="nav-link {colorTheme == "Light" ? ' t-white':  (colorTheme == "Dark" ? ' t-white' : " t-yellow")} " style="font-size: 120%;" href="#/subPage/gallery">{link}</a>
                         </li>
                     {/each}
                 </ul>
