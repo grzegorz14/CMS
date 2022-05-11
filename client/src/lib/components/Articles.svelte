@@ -10,7 +10,7 @@ import SettingsController from "./../SettingsController"
   for (let i = 1; i <= (articles.length / 3) + 1; i++) {
     let trio = [] //one article row
     for (let j = 1; j <= 3 && (i * 3 + j - 4) < articles.length; j++) {
-      trio.push(articles[i * 3 + j - 4])
+      trio.push({ header: articles[i * 3 + j - 4].header, content: articles[i * 3 + j - 4].content.substring(0, 250) + "..." })
     }
     trios.push(trio)
   }
