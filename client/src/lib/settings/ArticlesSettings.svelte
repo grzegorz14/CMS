@@ -3,6 +3,7 @@
     
     let settings = new SettingsController()
     let colorTheme = settings.getJson().colorTheme
+    let articles = settings.getJson().articles
 
     function addArticle() {
         let header = document.getElementById("articleHeader").value
@@ -16,14 +17,19 @@
             return
         }
         else {
-            //add article
+            settings.addArticle(header, content)
+            window.location.reload()
         }
     }
 
     function deleteArticle() {
         let article = document.getElementById("articleToDelete").value
+        if (isEmptyOrWhiteSpace(article)) {
+            return
+        }
         if (confirm("Do you want to delete article \"" + article + "\"?")) {
-            //delete article
+            settings.deleteArticle(article)
+            window.location.reload()
         }
     }
 
@@ -64,9 +70,9 @@
         <div class="row align-items-center m-2">
             <div class="col-2 text">Header</div>
             <select id="articleToDelete" class="form-select form-select-lg col">
-                <option selected>Air pollution</option>
-                <option>Phases of the moon</option>
-                <option>People on Mars in 2029</option>
+                {#each articles as article}
+                    <option>{article.header}</option>
+                {/each}
             </select>
             <button on:click={deleteArticle} class="btn btn-danger ms-4" style="width:fit-content;">Delete selected</button>
         </div>

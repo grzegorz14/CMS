@@ -33,6 +33,9 @@
 
     function deleteSlide() {
         let slide = document.getElementById("slideToDelete").value
+        if (isEmptyOrWhiteSpace(slide)) {
+            return
+        }
         if (confirm("Do you want to delete slide \"" + slide + "\"?")) {
             settings.deleteSlide(slide)
             window.location.reload()

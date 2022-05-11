@@ -1,8 +1,19 @@
 <script>
-  import SettingsController from "./../SettingsController"  
+  import Article from "../pages/Article.svelte"
+import SettingsController from "./../SettingsController"  
   
   let settings = new SettingsController()
   let colorTheme = settings.getJson().colorTheme
+  let articles = settings.getJson().articles
+
+  let trios = [] //all articles
+  for (let i = 1; i <= (articles.length / 3) + 1; i++) {
+    let trio = [] //one article row
+    for (let j = 1; j <= 3 && (i * 3 + j - 4) < articles.length; j++) {
+      trio.push(articles[i * 3 + j - 4])
+    }
+    trios.push(trio)
+  }
 </script>
 
 <div class="container mt-5 mb-5 {colorTheme == "Light" ? 'bg-white t-black' :  (colorTheme == "Dark" ? 'bg-dark t-white' : "bg-black t-yellow")}">
@@ -36,4 +47,18 @@
       <p><a class="btn {colorTheme == "Light" ? 'bg-cyan t-black':  (colorTheme == "Dark" ? 'bg-indygo t-white' : "bg-yellow t-black")}" href="/#/subPage/article" role="button">Read article »</a></p>
     </div>
   </div>
+  {#if articles.length > 0}
+    <h1 class="text-justify mb-4 text-center">Your Articles</h1>
+    {#each trios as trio}
+    <div class="row gap-4">
+      {#each trio as article}
+        <div class="col mb-5" style="max-width: 50%; max-height: 250px">
+          <h3 class="mb-3">{article.header}</h3>
+          <p>{article.content}</p>
+          <p><a class="btn {colorTheme == "Light" ? 'bg-cyan t-black':  (colorTheme == "Dark" ? 'bg-indygo t-white' : "bg-yellow t-black")}" href="/#/subPage/article" role="button">Read article »</a></p>
+        </div>
+      {/each}
+    </div>
+  {/each}
+  {/if}
 </div>

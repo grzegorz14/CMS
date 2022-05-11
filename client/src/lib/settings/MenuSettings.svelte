@@ -44,6 +44,9 @@
 
     function deleteLink() {
         let link = document.getElementById("linkToDelete").value
+        if (isEmptyOrWhiteSpace(link)) {
+            return
+        }
         if (confirm("Do you want to delete link \"" + link + "\"?")) {
             settings.deleteLink(link)
             window.location.reload()

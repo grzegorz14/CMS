@@ -23,6 +23,8 @@
     import json from "./Settings.json"
     import SettingsController from './SettingsController';
 
+    //localStorage.setItem("settingsJson", null)
+
     let settings = new SettingsController()
     let settingsJson = settings.getJson()
 
@@ -46,6 +48,7 @@
         settings.setGalleryParameters(settingsJson.galleryDisplay, settingsJson.imagesSize)  
         json.links = settingsJson.links
         json.slides = settingsJson.slides
+        json.articles = settingsJson.articles
         settings.saveJson()
     }
 

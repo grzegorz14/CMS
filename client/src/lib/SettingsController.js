@@ -61,6 +61,20 @@ class Settings {
         this.saveJson()
     }
 
+    //Slider settings
+    addArticle(header, content) {
+        json.articles.push({ header, content })
+        this.saveJson()
+    }
+    deleteArticle(header){
+        for (let i = 0; i < json.articles.length; i++) {
+            if (json.articles[i].header == header) {
+                json.articles.splice(i, 1)
+            }
+        }
+        this.saveJson()
+    }
+
     //Gallery settings
     setGalleryParameters(display, size) {
         json.galleryDisplay = display
