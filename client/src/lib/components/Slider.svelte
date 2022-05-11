@@ -51,7 +51,7 @@
 
         {#each slides as slide}
             <div class="carousel-item" data-bs-interval={slide.transition * 1000}>
-                <img src="./../images/shootingStars.jpg" alt="" width="100%" height="500" style="object-fit: cover;">
+                <img src={slide.image} alt="" width="100%" height="500" style="object-fit: cover;">
 
                 <div class="container">
                     <div class="carousel-caption text-center sliderColors {colorTheme == "Light" ? 't-white':  (colorTheme == "Dark" ? 't-white' : "t-yellow")}">

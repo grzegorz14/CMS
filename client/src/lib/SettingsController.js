@@ -49,7 +49,7 @@ class Settings {
 
     //Slider settings
     addSlide(image, header, content, transition) {
-        json.slides.push({ header, content, transition })
+        json.slides.push({ image, header, content, transition })
         this.saveJson()
     }
     deleteSlide(header){
@@ -61,7 +61,7 @@ class Settings {
         this.saveJson()
     }
 
-    //Slider settings
+    //Article settings
     addArticle(header, content) {
         json.articles.push({ header, content })
         this.saveJson()

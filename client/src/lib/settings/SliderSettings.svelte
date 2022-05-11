@@ -6,13 +6,17 @@
     let colorTheme = settings.getJson().colorTheme
 
     function addSlide() {
-        let image = document.getElementById("slideImage").files[0]
+        //let image = document.getElementById("slideImage").files[0]
+        let image = document.getElementById("image").value
         let header = document.getElementById("slideHeader").value
         let content = document.getElementById("slideContent").value
         let transition = document.getElementById("imageTransitionTime").value
-        console.log(transition)
-        if (image == undefined) {
-            alert("Select the slide image!")
+        // if (image == undefined) {
+        //     alert("Select the slide image!")
+        //     return
+        // }
+        if (isEmptyOrWhiteSpace(image)){
+            alert("Your image url is empty!")
             return
         }
         else if (isEmptyOrWhiteSpace(header)){
@@ -24,8 +28,6 @@
             return
         }
         else {
-            console.log(image)
-            //fetch uploadImage
             settings.addSlide(image, header, content, transition)
             window.location.reload()
         }
@@ -57,8 +59,11 @@
         <div class="row align-items-center m-2">
             <div class="col-2 text">Image</div>
             <div class="col">
-                <input class="form-control form-control-lg" type="file" id="slideImage" accept="image/png, image/gif, image/jpeg, image/jpg, image/webp" >
+                <input id="image" placeholder="Paste here an url to image (with high resolution)" type="text" class="form-control form-control-lg"/>
             </div>
+            <!-- <div class="col">
+                <input class="form-control form-control-lg" type="file" id="slideImage" accept="image/png, image/gif, image/jpeg, image/jpg, image/webp" >
+            </div> -->
         </div>
         <div class="row align-items-center m-2">
             <div class="col-2 text">Slide header</div>
