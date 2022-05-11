@@ -7,7 +7,12 @@
     let imagesSize = json.imagesSize
     let displayType = json.galleryDisplay
     let colorTheme = json.colorTheme
+    let slides = json.slides
 
+    let sliderImages = []
+    slides.forEach(slide => {
+        sliderImages.push(slide.image)
+    })
 
     let images = []
     let imagesLength = getImagesLength()
@@ -44,12 +49,30 @@
                     style="object-fit: cover;"
                     />
                 {/each}
+                {#each sliderImages as image}
+                    <img
+                    src={image}
+                    alt="An image"
+                    height={imagesSize + "px"}
+                    class="rounded-3 m-3"
+                    style="object-fit: cover;"
+                    />
+                {/each}
             </div>
         {:else}
             <div class="d-flex flex-column m-5 mb-0 align-items-center">
                 {#each images as image}
                     <img
                     src={"./../images/" + image}
+                    alt="An image"
+                    width={imagesSize + "px"}
+                    class="rounded-3 m-3"
+                    style="object-fit: cover;"
+                    />
+                {/each}
+                {#each sliderImages as image}
+                    <img
+                    src={image}
                     alt="An image"
                     width={imagesSize + "px"}
                     class="rounded-3 m-3"
