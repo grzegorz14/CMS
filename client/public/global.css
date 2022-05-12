@@ -80,11 +80,11 @@
     
 }
 .bg-cyan{
-    background-color: #369dc5;
+    background-color: #369dc5 !important;
     transition: 300ms;
 }
 .bg-cyan:hover{
-    background-color: #97ddf5;
+    background-color: #97ddf5 !important;
 }
 .bg-lightGray{
     background-color: #5f5f5f !important;
