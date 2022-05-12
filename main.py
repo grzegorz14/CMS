@@ -127,8 +127,8 @@ def adminCheck(login,password):
         else:
             Label(main, text="Wrong username or password!").grid(row=5, column=1)
             print("-_-")
+        
 def setSetting(settingType,change):
-
     myConnection = sqlite3.connect('database.sqlite')
     myCursor = myConnection.cursor()
     myCursor.execute("SELECT * FROM settings")
@@ -137,7 +137,6 @@ def setSetting(settingType,change):
     myCursor.execute(f"UPDATE settings SET {settingType} = '{change}'")
     settings = myCursor.fetchall()
     print(settings)
-    
 
 def openDialog():
     dialog = Tk()
