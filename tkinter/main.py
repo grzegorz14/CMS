@@ -15,37 +15,19 @@ try:
     myCursor.execute(
         f"INSERT INTO users (login, password, permissions) VALUES ('admin', 'admin', 'admin')")
     myCursor.execute("""CREATE TABLE settings (
-                       theme text,
-                       fontSize text,
-                       font text,
-                       navbarColor text,
-                       navbarBackgroundColor text,
-                       signUpBackgroundColor text,
-                       signUpBackgroundColorHover text,
-                       sliderColor text,
-                       newsColor text,
-                       newsBackgroundColor text,
-                       newsButtonColor text,
-                       newsButtonBackgroundColor text,
-                       newsButtonBackgroundColorHover text,
-                       photosColor text,
-                       photosBackgroundColor text,
-                       footerColor text,
-                       footerBackgroundColor text,
-                       articleColor text,
-                       articleBackgroundColor text,
-                       articleBackgroundBackgroundColor text,
-                       commentsColor text,
-                       commentsBackgroundColor text,
-                       commentsButtonColor text,
-                       commentsButtonBackgroundColor text,
-                       commentsTextareaColor text,
-                       commentsTextareaBackgroundColor text,
-                       commentsUsernameColor text,
-                       galleryColor text,
-                       galleryBackgroundColor text
+                       pageName text,
+                       pageLayout text,
+                       colorTheme text,
+                       fontSize int,
+                       fontFamily text,
+                       menuVariant text,
+                       galleryDisplay text,
+                       imagesSize int,
+                       links text,
+                       slides text,
+                       articles text
                        )""")
-    myCursor.execute(f"INSERT INTO settings (theme,fontSize,font,navbarColor,navbarBackgroundColor,signUpBackgroundColor,signUpBackgroundColorHover,sliderColor,newsColor,newsBackgroundColor,newsButtonColor,newsButtonBackgroundColor,newsButtonBackgroundColorHover,photosColor,photosBackgroundColor,footerColor,footerBackgroundColor,articleColor,articleBackgroundColor,articleBackgroundBackgroundColor,commentsColor,commentsBackgroundColor,commentsButtonColor,commentsButtonBackgroundColor,commentsTextareaColor,commentsTextareaBackgroundColor,commentsUsernameColor,galleryColor,galleryBackgroundColor) VALUES ('1','20','font','white','#021D47','#369dc5','#8cdeff','white','black','white','white','#40a3c4','#72bbd3','black','white','black','white','black','white','white','black','#73858b','white','#0084ff','black','white','#0084ff','black','white')")
+    myCursor.execute(f"INSERT INTO settings (pageName,pageLayout,colorTheme,fontSize,fontFamily,menuVariant,galleryDisplay,imagesSize,links,slides,articles) VALUES ('CMS', 'classic', 'Light','17','Arial, Helvetica, sans-serif','1','Row','300','','','')")
     myConnection.commit()
 except:
     print("Database already exist")
@@ -144,6 +126,17 @@ def adminCheck(login,password):
         else:
             Label(main, text="Wrong username or password!").grid(row=5, column=1)
             print("-_-")
+def setSetting(settingType,change):
+
+    myConnection = sqlite3.connect('database.sqlite')
+    myCursor = myConnection.cursor()
+    myCursor.execute("SELECT * FROM settings")
+    print(settingType)
+    print(change)
+    myCursor.execute(f"UPDATE settings SET {settingType} = '{change}'")
+    settings = myCursor.fetchall()
+    print(settings)
+    
 
 def openDialog():
     dialog = Tk()
@@ -153,6 +146,51 @@ def openDialog():
     Button(dialog, text="Edit Users", command=openRoot).grid(row=0, column=1)
     Button(dialog, text="Delete Users", command=openDeleteRoot).grid(row=0, column=2)
     Button(dialog, text="Add Users", command=openAddUsersPage).grid(row=0, column=3)
+
+    Label(dialog, text="Page Name: ").grid(row=1, column=0)
+    entry1 = Entry(dialog)
+    entry1.grid(row=1, column=1)
+    Button(dialog, text="Set", command= lambda:setSetting("pageName",entry1.get())).grid(row=1, column=2)
+
+    Label(dialog, text="Page Layout: ").grid(row=2, column=0)
+    variable1 = StringVar(dialog)
+    variable1.set("classic")
+    OptionMenu(dialog, variable1, "classic", "2").grid(row=2, column=1)
+    Button(dialog, text="Set", command= lambda:setSetting("pageLayout",variable1.get())).grid(row=2, column=2)
+
+    Label(dialog, text="Color Theme: ").grid(row=3, column=0)
+    variable2 = StringVar(dialog)
+    variable2.set("Light")
+    OptionMenu(dialog, variable2, "Light", "Dark", "High Contrast").grid(row=3, column=1)
+    Button(dialog, text="Set", command= lambda:setSetting("colorTheme",variable2.get())).grid(row=3, column=2)
+
+    Label(dialog, text="Font Size: ").grid(row=4, column=0)
+    entry2 = Entry(dialog)
+    entry2.grid(row=4, column=1)
+    Button(dialog, text="Set", command= lambda:setSetting("fontSize",entry2.get())).grid(row=4, column=2)
+
+    Label(dialog, text="Font Family: ").grid(row=5, column=0)
+    entry3 = Entry(dialog)
+    entry3.grid(row=5, column=1)
+    Button(dialog, text="Set", command= lambda:setSetting("fontFamily",entry3.get())).grid(row=5, column=2)
+
+    Label(dialog, text="Menu Variant: ").grid(row=6, column=0)
+    variable3 = StringVar(dialog)
+    variable3.set("1")
+    OptionMenu(dialog, variable3, "1", "2").grid(row=6, column=1)
+    Button(dialog, text="Set", command= lambda:setSetting("menuVariant",variable3.get())).grid(row=6, column=2)
+
+    Label(dialog, text="Gallery Display: ").grid(row=7, column=0)
+    variable4 = StringVar(dialog)
+    variable4.set("Row")
+    OptionMenu(dialog, variable4, "Row", "2").grid(row=7, column=1)
+    Button(dialog, text="Set", command= lambda:setSetting("galleryDisplay",variable4.get())).grid(row=7, column=2)
+
+    Label(dialog, text="Images Size: ").grid(row=8, column=0)
+    entry4 = Entry(dialog)
+    entry4.grid(row=8, column=1)
+    Button(dialog, text="Set", command= lambda:setSetting("imagesSize",entry4.get())).grid(row=8, column=2)
+
 
 def editUserData(login,password,permissions):
     print(login)
