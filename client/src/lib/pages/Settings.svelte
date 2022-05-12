@@ -56,29 +56,36 @@
         </div>
 
         <ul class="list-unstyled">
-            <li>
-                <a class="settingsNavText" href="#/subPage/settings/home" >Home</a>
-            </li>
-            <li>
-                <a class="settingsNavText" href="#/subPage/settings/menu" >Menu</a>            
-            </li>
-            <li>
-                <a class="settingsNavText" href="#/subPage/settings/slider" >Slider</a>            
-            </li>
-            <li>
-                <a class="settingsNavText" href="#/subPage/settings/articles" >Articles</a>              
-            </li>
-            <li>
-                <a class="settingsNavText" href="#/subPage/settings/gallery" >Gallery</a>            
-            </li>
             {#if userType == "admin"}
+                <li>
+                    <a class="settingsNavText" href="#/subPage/settings/home" >Home</a>
+                </li>
+                <li>
+                    <a class="settingsNavText" href="#/subPage/settings/menu" >Menu</a>            
+                </li>
+                <li>
+                    <a class="settingsNavText" href="#/subPage/settings/slider" >Slider</a>            
+                </li>
+                <li>
+                    <a class="settingsNavText" href="#/subPage/settings/articles" >Articles</a>              
+                </li>
+                <li>
+                    <a class="settingsNavText" href="#/subPage/settings/gallery" >Gallery</a>            
+                </li>
                 <li>
                     <a class="settingsNavText" href="#/subPage/settings/users" >Users</a>            
                 </li>
+                <li>
+                    <a class="settingsNavText" href="#/subPage/settings/myAccount" >My Account</a>            
+                </li>
+            {:else}
+                <li>
+                    <a class="settingsNavText" href="#/subPage/settings/myAccount" >My Account</a>            
+                </li>
+                <li>
+                    <a class="settingsNavText" href="#/subPage/settings/articles" >Articles</a>              
+                </li>
             {/if}
-            <li>
-                <a class="settingsNavText" href="#/subPage/settings/myAccount" >My Account</a>            
-            </li>
         </ul>
     </nav>
 

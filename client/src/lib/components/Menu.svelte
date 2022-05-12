@@ -38,6 +38,22 @@
         logged = "false"
         push("#/")
     }
+
+    let userType = getUserType()
+
+    async function getUserType() {
+        let response = await fetch("./getUserType", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({
+                "login": localStorage.getItem("login")
+            }),
+        })
+        response = await response.text()
+        userType = response
+    }
 </script>
 
 {#if menuVariant == "1"}
@@ -66,7 +82,11 @@
                     <a href="#/logIn" type="button" class="btn btn-outline-light me-2">Log in</a>
                     <a href="#/signUp" type="button" class="btn signUp text-light  {colorTheme == "Light" ? 'bg-lightCyan t-black':  (colorTheme == "Dark" ? 'bg-darkCyan t-white' : "bg-yellow t-black")}">Sign up</a>
                 {:else}
-                    <a href="#/subPage/settings" type="button" class="text-light me-4 hover d-flex align-content-center"><i style="font-size: 160%;" class="fa-solid fa-gear"></i></a> 
+                    {#if userType =="admin"}
+                        <a href="#/subPage/settings" type="button" class="text-light me-4 hover d-flex align-content-center"><i style="font-size: 160%;" class="fa-solid fa-gear"></i></a> 
+                    {:else}
+                        <a href="#/subPage/settings/myAccount" type="button" class="text-light me-4 hover d-flex align-content-center"><i style="font-size: 160%;" class="fa-solid fa-gear"></i></a> 
+                    {/if}
                     <button on:click={logOut} class="btn btn-outline-light me-2">Log out</button>
                 {/if}
                 </div>

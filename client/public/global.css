@@ -80,11 +80,11 @@
     
 }
 .bg-cyan{
-    background-color: #369dc5 !important;
+    background-color: #97ddf5 !important;
     transition: 300ms;
 }
 .bg-cyan:hover{
-    background-color: #97ddf5 !important;
+    background-color: #369dc5 !important;
 }
 .bg-lightGray{
     background-color: #5f5f5f !important;
@@ -164,6 +164,7 @@
     margin-bottom: -10px;
     font-size: 50px;
     font-weight: bolder;
+    text-align: center;
 }
 .headline{
     font-size: 30px;

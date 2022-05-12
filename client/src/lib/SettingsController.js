@@ -15,7 +15,6 @@ class Settings {
     setPageThemes(layout, theme) {
         json.pageLayout = layout
         json.colorTheme = theme
-        //this.setStyle("--font-family", family) set somehow color theme
         this.saveJson()
     }  
     setFontAttributes(size, family) {
