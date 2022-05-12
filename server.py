@@ -13,7 +13,7 @@ loggedUsers = []
 # Path for our main Svelte page
 @app.route("/")
 def base():
-    myConnection = sqlite3.connect('tkinter/database.sqlite')
+    myConnection = sqlite3.connect('database.sqlite')
     myCursor = myConnection.cursor()
     myCursor.execute("SELECT * FROM settings")
     settings = myCursor.fetchall()
@@ -46,7 +46,7 @@ def logIn():
     login = request.form["login"]
     password = request.form["password"]
     print(f"User '{login}' is trying to log in.")
-    myConnection = sqlite3.connect('tkinter/database.sqlite')
+    myConnection = sqlite3.connect('database.sqlite')
     myCursor = myConnection.cursor()
     myCursor.execute("SELECT * FROM users")
     users = myCursor.fetchall()
@@ -63,7 +63,7 @@ def logIn():
 @app.route("/signUp", methods=["POST"])
 def signUp():
     contains = False
-    myConnection = sqlite3.connect('tkinter/database.sqlite')
+    myConnection = sqlite3.connect('database.sqlite')
     myCursor = myConnection.cursor()
     myCursor.execute("SELECT * FROM users")
     users = myCursor.fetchall()
@@ -86,7 +86,7 @@ def signUp():
 def getUserType():
     login = request.form["login"]
     print(login)
-    myConnection = sqlite3.connect('tkinter/database.sqlite')
+    myConnection = sqlite3.connect('database.sqlite')
     myCursor = myConnection.cursor()
     myCursor.execute("SELECT * FROM users")
     users = myCursor.fetchall()
@@ -109,7 +109,7 @@ def isLogged():
 def updateLogin():
     login = request.form["login"]
     newLogin = request.form["newLogin"]
-    myConnection = sqlite3.connect('tkinter/database.sqlite')
+    myConnection = sqlite3.connect('database.sqlite')
     myCursor = myConnection.cursor()
     myCursor.execute("SELECT * FROM users")
     users = myCursor.fetchall()
@@ -130,7 +130,7 @@ def updateLogin():
 def updatePassword():
     login = request.form["login"]
     newPassword = request.form["newPassword"]
-    myConnection = sqlite3.connect('tkinter/database.sqlite')
+    myConnection = sqlite3.connect('database.sqlite')
     myCursor = myConnection.cursor()
     myCursor.execute("SELECT * FROM users")
     users = myCursor.fetchall()
@@ -147,7 +147,7 @@ def updatePassword():
 def updatePermissions():
     login = request.form["login"]
     newPermissions = request.form["newPermissions"]
-    myConnection = sqlite3.connect('tkinter/database.sqlite')
+    myConnection = sqlite3.connect('database.sqlite')
     myCursor = myConnection.cursor()
     myCursor.execute("SELECT * FROM users")
     users = myCursor.fetchall()
@@ -163,7 +163,7 @@ def updatePermissions():
 @app.route("/deleteUser", methods=["POST"])
 def deleteUser():
     login = request.form["login"]
-    myConnection = sqlite3.connect('tkinter/database.sqlite')
+    myConnection = sqlite3.connect('database.sqlite')
     myCursor = myConnection.cursor()
     myCursor.execute(f"DELETE FROM users WHERE login = '{login}'")
     myConnection.commit()
@@ -180,7 +180,25 @@ def logOut():
 
 @app.route("/getUsers", methods=["POST"])
 def getUsers():
-    myConnection = sqlite3.connect('tkinter/database.sqlite')
+    myConnection = sqlite3.connect('database.sqlite')
+    myCursor = myConnection.cursor()
+    myCursor.execute("SELECT * FROM users")
+    users = myCursor.fetchall()
+    myConnection.close()
+    return json.dumps(users, separators=(',', ':')) 
+
+@app.route("/getSettings", methods=["POST"])
+def getSettings():
+    myConnection = sqlite3.connect('database.sqlite')
+    myCursor = myConnection.cursor()
+    myCursor.execute("SELECT * FROM settings")
+    settings = myCursor.fetchall()
+    myConnection.close()
+    return json.dumps(settings, separators=(',', ':')) 
+
+@app.route("/updateSettings", methods=["POST"])
+def updateSettings():
+    myConnection = sqlite3.connect('database.sqlite')
     myCursor = myConnection.cursor()
     myCursor.execute("SELECT * FROM users")
     users = myCursor.fetchall()

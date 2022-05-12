@@ -97,6 +97,7 @@ def addUser(login,password,permissions):
         print(users)
         info = 'User is updated'
         jest = False
+        
 def openAddUsersPage():
     add = Tk()
     add.title("Addition Page")
@@ -233,7 +234,6 @@ def deleteUserData(login,password,permissions):
 
 
 def saveData(newLogin,newPassword,newPermissions,oldLogin):
-
     myConnection = sqlite3.connect('database.sqlite')
     myCursor = myConnection.cursor()
     myCursor.execute("SELECT * FROM users")
@@ -256,6 +256,5 @@ Label(main,text="Password").grid(row=2,column=0)
 password = Entry(main)
 password.grid(row=3,column=0)
 Button(main,text="Log in",command=lambda: adminCheck(login.get(),password.get())).grid(row=4,column=0)
-
 
 main.mainloop()

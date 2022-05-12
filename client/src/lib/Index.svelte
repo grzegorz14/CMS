@@ -29,6 +29,8 @@
 
     let settings = new SettingsController()
     let settingsJson = settings.getJson()
+    let set = settings.getSettings()
+    console.log(set)
 
     if (settingsJson == null) {
         localStorage.setItem("settingsJson", JSON.stringify(json))

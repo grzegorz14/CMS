@@ -94,6 +94,14 @@ class Settings {
         // console.log(settingsJson)
         return settingsJson
     }
+
+    getSettings() {
+        let response = await fetch("./getSettings", { method: "POST" })
+        response = await response.text()
+        let set = JSON.parse(response)
+        console.log(set)
+        return set
+    }
 }
 
 export default Settings
