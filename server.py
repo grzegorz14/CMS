@@ -193,17 +193,33 @@ def getSettings():
     myCursor = myConnection.cursor()
     myCursor.execute("SELECT * FROM settings")
     settings = myCursor.fetchall()
+    print(settings)
     myConnection.close()
     return json.dumps(settings, separators=(',', ':')) 
 
 @app.route("/updateSettings", methods=["POST"])
 def updateSettings():
+    newJson = json.loads(request.form["newJson"])
     myConnection = sqlite3.connect('database.sqlite')
     myCursor = myConnection.cursor()
-    myCursor.execute("SELECT * FROM users")
-    users = myCursor.fetchall()
+    myCursor.execute("SELECT * FROM settings")
+    settingsTable = myCursor.fetchall()
+    settings = settingsTable[0]
+    
+    settingsArray = []
+    for field in settings:
+        settingsArray.append(field)
+    counter = 0
+    for field in newJson:
+        if field != settingsArray[counter]:
+            settingsArray[counter] = field
+            print("Change: " + str(field))
+        counter += 1
+    
+    myCursor.execute(f"UPDATE settings SET pageName = '{settingsArray[0]}',pageLayout = '{settingsArray[1]}',colorTheme = '{settingsArray[2]}',fontSize = '{settingsArray[3]}',fontFamily = '{settingsArray[4]}',menuVariant = '{settingsArray[5]}',galleryDisplay = '{settingsArray[6]}',imagesSize = '{settingsArray[7]}',links = '{settingsArray[8]}',slides = '{settingsArray[9]}',articles = '{settingsArray[10]}'")
+    myConnection.commit()
     myConnection.close()
-    return json.dumps(users, separators=(',', ':')) 
+    return "ok"
 
 if __name__ == "__main__":
     app.run(debug=True)

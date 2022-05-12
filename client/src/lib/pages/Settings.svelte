@@ -15,7 +15,6 @@
 
     let settings = new SettingsController()
     let colorTheme = settings.getJson().colorTheme
-    console.log(colorTheme)
 
     const routes = {
         "/subPage/settings": HomeSettings,

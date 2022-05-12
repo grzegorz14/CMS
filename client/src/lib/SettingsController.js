@@ -26,10 +26,10 @@ class Settings {
     }  
 
     //Menu settings
-    setPageName(name) {
-        json.pageName = name
-        this.saveJson()
+    async setPageName(name) {
+        await this.updateSetting("pageName", name)
     } 
+
     setMenuVariant(variant) {
         json.menuVariant = variant
         this.saveJson()
@@ -95,12 +95,68 @@ class Settings {
         return settingsJson
     }
 
-    getSettings() {
+    //get/update settings in database.sqlite
+    async getSettings() {
         let response = await fetch("./getSettings", { method: "POST" })
         response = await response.text()
-        let set = JSON.parse(response)
-        console.log(set)
-        return set
+        response = JSON.parse(response)
+        return response[0]
+    }
+
+    async getSetting(settingName) {
+        let settings = await this.getSettings()
+        let index = this.getArrayIndex(settingName)
+        return settings[index]
+    }
+
+    async updateSettings(json) {
+        let response = await fetch("./updateSettings", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({
+                "newJson": JSON.stringify(json)
+            }),
+        })
+        response = await response.text()
+    }
+
+    async updateSetting(settingName, value) {
+        let settings = await this.getSettings()
+        let index = this.getArrayIndex(settingName)
+        settings[index] = value
+        await this.updateSettings(settings)
+    }
+
+    getArrayIndex(field) {
+        switch(field) {
+            case "pageName": 
+                return 0
+            case "pageLayout": 
+                return 1 
+            case "colorTheme": 
+                return 2
+            case "fontSize": 
+                return 3
+            case "fontFamily": 
+                return 4
+            case "menuVariant": 
+                return 5
+            case "galleryDisplay": 
+                return 6
+            case "imagesSize": 
+                return 7
+            case "links": 
+                return 8
+            case "slides": 
+                return 9
+            case "articles": 
+                return 10
+            default:
+                console.log("error!")
+                return -1  
+        }
     }
 }
 

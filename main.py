@@ -27,7 +27,7 @@ try:
                        slides text,
                        articles text
                        )""")
-    myCursor.execute(f"INSERT INTO settings (pageName,pageLayout,colorTheme,fontSize,fontFamily,menuVariant,galleryDisplay,imagesSize,links,slides,articles) VALUES ('CMS', 'classic', 'Light','17','Arial, Helvetica, sans-serif','1','Row','300','','','')")
+    myCursor.execute(f"INSERT INTO settings (pageName,pageLayout,colorTheme,fontSize,fontFamily,menuVariant,galleryDisplay,imagesSize,links,slides,articles) VALUES ('CMS', 'classic', 'Light','17','Arial, Helvetica, sans-serif','1','Row','300','[]','[]','[]')")
     myConnection.commit()
 except:
     print("Database already exist")

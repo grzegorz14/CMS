@@ -29,31 +29,29 @@
 
     let settings = new SettingsController()
     let settingsJson = settings.getJson()
-    let set = settings.getSettings()
-    console.log(set)
 
     if (settingsJson == null) {
         localStorage.setItem("settingsJson", JSON.stringify(json))
     }
     else {
         //set all of the fields
-        json.pageName = settingsJson.pageName
-        settings.setPageName(settingsJson.pageName)
-        json.pageLayout = settingsJson.pageLayout
-        json.colorTheme = settingsJson.colorTheme
-        settings.setPageThemes(settingsJson.pageLayout, settingsJson.colorTheme)
-        json.fontSize = settingsJson.fontSize
-        json.fontFamily = settingsJson.fontFamily
-        settings.setFontAttributes(settingsJson.fontSize, settingsJson.fontFamily)
-        json.menuVariant = settingsJson.menuVariant
-        settings.setMenuVariant(settingsJson.menuVariant)
-        json.imagesSize = settingsJson.imagesSize
-        json.galleryDisplay = settingsJson.galleryDisplay
-        settings.setGalleryParameters(settingsJson.galleryDisplay, settingsJson.imagesSize)  
-        json.links = settingsJson.links
-        json.slides = settingsJson.slides
-        json.articles = settingsJson.articles
-        settings.saveJson()
+        // json.pageName = settingsJson.pageName
+        // settings.setPageName(settingsJson.pageName)
+        // json.pageLayout = settingsJson.pageLayout
+        // json.colorTheme = settingsJson.colorTheme
+        // settings.setPageThemes(settingsJson.pageLayout, settingsJson.colorTheme)
+        // json.fontSize = settingsJson.fontSize
+        // json.fontFamily = settingsJson.fontFamily
+        // settings.setFontAttributes(settingsJson.fontSize, settingsJson.fontFamily)
+        // json.menuVariant = settingsJson.menuVariant
+        // settings.setMenuVariant(settingsJson.menuVariant)
+        // json.imagesSize = settingsJson.imagesSize
+        // json.galleryDisplay = settingsJson.galleryDisplay
+        // settings.setGalleryParameters(settingsJson.galleryDisplay, settingsJson.imagesSize)  
+        // json.links = settingsJson.links
+        // json.slides = settingsJson.slides
+        // json.articles = settingsJson.articles
+        // settings.saveJson()
     }
 
     let colorTheme = settings.getJson().colorTheme

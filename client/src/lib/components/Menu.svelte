@@ -3,11 +3,14 @@
     import SettingsController from "./../SettingsController"  
     
     let settings = new SettingsController()
-    let json =  settings.getJson()
-    let pageName = json.pageName
-    let menuVariant = json.menuVariant
-    let colorTheme = json.colorTheme
-    let links = json.links
+    let pageName = settings.getSetting("pageName").then(name => pageName = name)
+    //let menuVariant = settings.getSetting("menuVariant").then(variant => menuVariant = variant)
+    //let colorTheme = settings.getSetting("colorTheme").then(theme => colorTheme = theme)
+    //let links = settings.getSetting("links").then(linksList => links = linksList)
+    let menuVariant = settings.getJson().menuVariant
+    let colorTheme = settings.getJson().colorTheme
+    let links = settings.getJson().links
+    
 
     let logged = isLogged()
 

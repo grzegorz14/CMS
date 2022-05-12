@@ -12,7 +12,7 @@
     let links = json.links
 
     //inputs
-    let pageNameInput = json.pageName
+    let pageNameInput = settings.getSetting("pageName").then(value => pageNameInput = value)
     let menuVariantInput = json.menuVariant
 
     function changePageName() {
@@ -21,7 +21,8 @@
             alert("New page name is empty!")
             return
         }
-        settings.setPageName(newPageName)
+        //settings.setPageName(newPageName)
+        settings.updateSetting("pageName", newPageName)
         window.location.reload()
     }   
 
