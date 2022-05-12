@@ -10,8 +10,7 @@
         let text = document.getElementById("newComment").value
         // text = text.replace(/\n\r?/g, '<br />')
         let textHtml = document.createElement('div');
-        textHtml.innerHTML = text
-        console.log(textHtml);
+        
         const username = localStorage.getItem('login')
         var today = new Date();
         var dd = String(today.getDate()).padStart(2, '0');
@@ -20,9 +19,16 @@
         let time = mm + '.' + dd + '.' + yyyy;
 
         let comment = {username:username,time:time,text:text}
+        let textCopy = text
+        textCopy = textCopy.replace(/ /g,'')
+        textCopy = textCopy.replace(/[\r\n]/gm, '')
+        console.log(textCopy);
+        if(textCopy != ""){
+            comments = [...comments, comment]
+            console.log(comments);
+        }
+        document.getElementById("newComment").value = ''
         
-        comments = [...comments, comment]
-        console.log(comments);
     }
 </script>
 
