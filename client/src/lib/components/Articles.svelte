@@ -55,7 +55,7 @@ import SettingsController from "./../SettingsController"
         <div class="col mb-5" style="max-width: 50%; max-height: 250px">
           <h3 class="mb-3">{article.header}</h3>
           <p>{article.content}</p>
-          <p><a class="btn {colorTheme == "Light" ? 'bg-cyan t-black':  (colorTheme == "Dark" ? 'bg-indygo t-white' : "bg-yellow t-black")}" href="/#/subPage/article" role="button">Read article »</a></p>
+          <p><a class="btn {colorTheme == "Light" ? 'bg-cyan t-black':  (colorTheme == "Dark" ? 'bg-indygo t-white' : "bg-yellow t-black")}" href={"/#/subPage/article/" + article.header} role="button">Read article »</a></p>
         </div>
       {/each}
     </div>

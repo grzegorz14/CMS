@@ -3,6 +3,7 @@
 
     import Menu from "./components/Menu.svelte";
     import Home from './pages/Home.svelte';
+    import ArticlePage from './pages/ArticlePage.svelte';
     import Article from './pages/Article.svelte';
     import Gallery from './pages/Gallery.svelte';
     import Settings from './pages/Settings.svelte';
@@ -12,6 +13,7 @@
         "/subPage/settings/:page/:parameter": Settings,
         "/subPage/settings/:page": Settings,
         "/subPage/settings": Settings,
+        "/subPage/article/:page": ArticlePage,
         "/subPage/article": Article,
         "/subPage/gallery": Gallery,
         "/": Home,

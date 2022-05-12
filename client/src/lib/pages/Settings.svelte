@@ -11,6 +11,12 @@
     import MenuSettings from "../settings/MenuSettings.svelte";
     import SliderSettings from "../settings/SliderSettings.svelte";
 
+    import SettingsController from "./../SettingsController"
+
+    let settings = new SettingsController()
+    let colorTheme = settings.getJson().colorTheme
+    console.log(colorTheme)
+
     const routes = {
         "/subPage/settings": HomeSettings,
         "/subPage/settings/home": HomeSettings,
