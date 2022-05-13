@@ -1,5 +1,9 @@
 <script>
     import { push } from "svelte-spa-router";
+    import SettingsController from "./../SettingsController";
+
+    let settings = new SettingsController()
+    let colorTheme = settings.getJson().colorTheme
 
     let login = localStorage.getItem("login")
     let userType = getUserType()
@@ -107,7 +111,7 @@
     }
 </script>
 
-<div class="d-flex flex-column justify-content-center">
+<div class="d-flex flex-column justify-content-center {colorTheme == "Light" ? ' t-black ' :  (colorTheme == "Dark" ? ' t-white' : "t-yellow")}">
     <p class="mainHeadline">My Account</p>
 
     <hr>

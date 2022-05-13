@@ -48,41 +48,41 @@
     
 </script>
 
-<div class="wrapper ">
-    <nav id="sidebar">
+<div class="wrapper">
+    <nav id="sidebar" class="{colorTheme == "Light" ? 'bg-lightBlue t-white ' :  (colorTheme == "Dark" ? 'bg-darkBlue t-white' : "bg-yellow t-black")}">
         <div class="sidebar-header">
             <h3>Settings</h3>
         </div>
 
-        <ul class="list-unstyled">
+        <ul class="list-unstyled ">
             {#if userType == "admin"}
                 <li>
-                    <a class="settingsNavText" href="#/subPage/settings/home" >Home</a>
+                    <a class="settingsNavText {colorTheme == "Light" ? 'bg-whiteBlue t-white ' :  (colorTheme == "Dark" ? 'bg-darkBlue t-white' : "bg-yellow t-black")}" href="#/subPage/settings/home" >Home</a>
                 </li>
                 <li>
-                    <a class="settingsNavText" href="#/subPage/settings/menu" >Menu</a>            
+                    <a class="settingsNavText {colorTheme == "Light" ? 'bg-whiteBlue t-white' :  (colorTheme == "Dark" ? 'bg-darkBlue t-white' : "bg-yellow t-black")}" href="#/subPage/settings/menu" >Menu</a>            
                 </li>
                 <li>
-                    <a class="settingsNavText" href="#/subPage/settings/slider" >Slider</a>            
+                    <a class="settingsNavText {colorTheme == "Light" ? 'bg-whiteBlue t-white' :  (colorTheme == "Dark" ? 'bg-darkBlue t-white' : "bg-yellow t-black")}" href="#/subPage/settings/slider" >Slider</a>            
                 </li>
                 <li>
-                    <a class="settingsNavText" href="#/subPage/settings/articles" >Articles</a>              
+                    <a class="settingsNavText {colorTheme == "Light" ? 'bg-whiteBlue t-white' :  (colorTheme == "Dark" ? 'bg-darkBlue t-white' : "bg-yellow t-black")}" href="#/subPage/settings/articles" >Articles</a>              
                 </li>
                 <li>
-                    <a class="settingsNavText" href="#/subPage/settings/gallery" >Gallery</a>            
+                    <a class="settingsNavText {colorTheme == "Light" ? 'bg-whiteBlue t-white' :  (colorTheme == "Dark" ? 'bg-darkBlue t-white' : "bg-yellow t-black")}" href="#/subPage/settings/gallery" >Gallery</a>            
                 </li>
                 <li>
-                    <a class="settingsNavText" href="#/subPage/settings/users" >Users</a>            
+                    <a class="settingsNavText {colorTheme == "Light" ? 'bg-whiteBlue t-white' :  (colorTheme == "Dark" ? 'bg-darkBlue t-white' : "bg-yellow t-black")}" href="#/subPage/settings/users" >Users</a>            
                 </li>
                 <li>
-                    <a class="settingsNavText" href="#/subPage/settings/myAccount" >My Account</a>            
+                    <a class="settingsNavText {colorTheme == "Light" ? 'bg-whiteBlue t-white' :  (colorTheme == "Dark" ? 'bg-darkBlue t-white' : "bg-yellow t-black")}" href="#/subPage/settings/myAccount" >My Account</a>            
                 </li>
             {:else}
                 <li>
-                    <a class="settingsNavText" href="#/subPage/settings/myAccount" >My Account</a>            
+                    <a class="settingsNavText {colorTheme == "Light" ? 'bg-whiteBlue t-white' :  (colorTheme == "Dark" ? 'bg-darkBlue t-white' : "bg-yellow t-black")}" href="#/subPage/settings/myAccount" >My Account</a>            
                 </li>
                 <li>
-                    <a class="settingsNavText" href="#/subPage/settings/articles" >Articles</a>              
+                    <a class="settingsNavText {colorTheme == "Light" ? 'bg-whiteBlue t-white' :  (colorTheme == "Dark" ? 'bg-darkBlue t-white' : "bg-yellow t-black")}" href="#/subPage/settings/articles" >Articles</a>              
                 </li>
             {/if}
         </ul>

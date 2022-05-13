@@ -99,7 +99,7 @@
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-2 ">
                 <a class="d-flex align-items-center col-md-2 mb-2 mb-md-0  {colorTheme == "Light" ? ' t-white':  (colorTheme == "Dark" ? ' t-white' : " t-yellow")} " style="font-size: 150%;" href="#/">{pageName}</a>
         
-                <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+                <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0 ">
                     <li class="nav-item me-1">
                         <a class="nav-link active {colorTheme == "Light" ? ' t-white':  (colorTheme == "Dark" ? ' t-white' : " t-yellow")} " style="font-size: 120%;" aria-current="page" href="#/">Home</a>
                     </li>
@@ -116,13 +116,13 @@
                     {/each}
                 </ul>
         
-                <div class="col-md-2 text-end d-flex align-items-center">
+                <div class="col-md-2 text-end d-flex align-items-center ">
                     {#if logged == "false"}
-                        <a href="#/logIn" type="button" class="btn btn-outline-dark me-2">Log in</a>
-                        <a href="#/signUp" type="button" class="btn signUp text-light">Sign up</a>
+                        <a href="#/logIn" type="button" class="btn btn-outline-dark me-2 {colorTheme == "Light" ? ' t-white ' :  (colorTheme == "Dark" ? ' t-white' : "t-yellow")}">Log in</a>
+                        <a href="#/signUp" type="button" class="btn signUp text-light {colorTheme == "Light" ? ' t-white ' :  (colorTheme == "Dark" ? ' t-white' : "t-yellow")}">Sign up</a>
                     {:else}
-                        <a href="#/subPage/settings" type="button" class="text-dark me-4 hover d-flex align-content-center"><i style="font-size: 160%;" class="fa-solid fa-gear"></i></a> 
-                        <button on:click={logOut} class="btn btn-outline-dark me-2">Log out</button>
+                        <a href="#/subPage/settings" type="button" class="text-dark me-4 hover d-flex align-content-center "><i style="font-size: 160%;" class="fa-solid fa-gear {colorTheme == "Light" ? ' t-white ' :  (colorTheme == "Dark" ? ' t-white' : "t-yellow")}"></i></a> 
+                        <button on:click={logOut} class="btn btn-outline-dark me-2 {colorTheme == "Light" ? 'bg-cyan t-black ' :  (colorTheme == "Dark" ? 'bg-indygo t-white' : "bg-yellow t-black")}">Log out</button>
                     {/if}
                 </div>
             </div>

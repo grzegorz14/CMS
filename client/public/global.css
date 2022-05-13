@@ -62,6 +62,9 @@
 .bg-yellow:hover{
     background-color: #fdff8f;
 }
+.bg-yellow2{
+    background-color: #fbff00 !important;
+}
 .bg-lightCyan{
     background-color: #8cdeff;
 }
@@ -279,7 +282,7 @@ a:focus {
 }
 
 .settingsNavText:hover{
-	color: #cf8c85 !important;
+	color: black !important;
 }
 
 .wrapper {
@@ -291,7 +294,7 @@ a:focus {
 #sidebar {
     min-width: 250px;
     max-width: 250px;
-    background: #cf8c85;
+    
     color: #fff;
     transition: all 0.3s;
 }
@@ -299,7 +302,7 @@ a:focus {
 #sidebar .sidebar-header {
     padding: 20px;
     padding-bottom: 15px;
-    background: #c27167;
+    
 }
 
 #sidebar ul li a {

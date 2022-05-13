@@ -23,7 +23,7 @@
 
     <p class="headline">Users</p>
     <div class="table-responsive w-50 ms-3">
-        <table class="table">
+        <table class="table {colorTheme == "Light" ? ' t-black ' :  (colorTheme == "Dark" ? ' t-white' : "bg-yellow t-black")}">
             <thead>
                 <tr>
                     <th>Counter</th>

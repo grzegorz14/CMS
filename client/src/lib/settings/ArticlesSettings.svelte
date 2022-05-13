@@ -45,7 +45,7 @@
     }
 </script>
 
-<div class="d-flex flex-column justify-content-center ">
+<div class="d-flex flex-column justify-content-center {colorTheme == "Light" ? ' t-black ' :  (colorTheme == "Dark" ? ' t-white' : "t-yellow")}">
     <p class="mainHeadline">Article settings</p>
 
     <hr>
