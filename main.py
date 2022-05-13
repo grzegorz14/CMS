@@ -156,7 +156,7 @@ def setSetting(pageName, pageLayout, colorTheme, fontSize, fontFamily, menuVaria
             sett[i] = settings[0][i]
     print(sett)
 
-    myCursor.execute(f"UPDATE settings SET pageName = '{sett[0]}', pageLayout = '{sett[1]}', colorTheme = '{sett[2]}',fontSize = '{sett[3]}',fontFamily='{sett[4]}',menuVariant='{sett[5]}',galleryDisplay='{sett[6]}',imagesSize='{sett[7]}'  ")
+    myCursor.execute(f"UPDATE settings SET pageName = '{sett[0]}', pageLayout = '{sett[1]}', colorTheme = '{sett[2]}', fontSize = '{sett[3]}', fontFamily='{sett[4]}', menuVariant='{sett[5]}', galleryDisplay='{sett[6]}', imagesSize='{sett[7]}'")
     myConnection.commit()
 
 
@@ -165,7 +165,7 @@ def openDialog():
     main.destroy()
     dialog = Tk()
     dialog.title("Edition Page")
-    dialog.geometry("400x300")
+    dialog.geometry("420x300")
     Label(dialog, text="Users: ").grid(row=0, column=0)
     Button(dialog, text="Edit Users", command=openRoot).grid(row=0, column=1)
     Button(dialog, text="Delete Users", command=openDeleteRoot).grid(row=0, column=2)
@@ -178,7 +178,7 @@ def openDialog():
     Label(dialog, text="Page Layout: ").grid(row=2, column=0)
     variable1 = StringVar(dialog)
     variable1.set("classic")
-    OptionMenu(dialog, variable1, "classic", "2").grid(row=2, column=1)
+    OptionMenu(dialog, variable1, "classic", "imageLover","newsFirst","middleSlider","gifsFan","reverse").grid(row=2, column=1)
 
     Label(dialog, text="Color Theme: ").grid(row=3, column=0)
     variable2 = StringVar(dialog)
@@ -190,8 +190,9 @@ def openDialog():
     entry2.grid(row=4, column=1)
 
     Label(dialog, text="Font Family: ").grid(row=5, column=0)
-    entry3 = Entry(dialog)
-    entry3.grid(row=5, column=1)
+    entry3 = StringVar(dialog)
+    entry3.set("Arial, Helvetica, sans-serif")
+    OptionMenu(dialog, entry3,"Arial, Helvetica, sans-serif","'Courier New', Courier, monospace", "'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif","'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif","'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans'").grid(row=5, column=1)
 
     Label(dialog, text="Menu Variant: ").grid(row=6, column=0)
     variable3 = StringVar(dialog)
@@ -201,7 +202,7 @@ def openDialog():
     Label(dialog, text="Gallery Display: ").grid(row=7, column=0)
     variable4 = StringVar(dialog)
     variable4.set("Row")
-    OptionMenu(dialog, variable4, "Row", "2").grid(row=7, column=1)
+    OptionMenu(dialog, variable4, "Row", "Column").grid(row=7, column=1)
 
     Label(dialog, text="Images Size: ").grid(row=8, column=0)
     entry4 = Entry(dialog)
