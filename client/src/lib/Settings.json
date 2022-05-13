@@ -7,7 +7,7 @@
     "menuVariant": "1",
     "galleryDisplay": "Row",
     "imagesSize": 300,
-    "links": [],
-    "slides": [],
-    "articles": []
+    "links": "[]",
+    "slides": "[]",
+    "articles": "[]"
 }

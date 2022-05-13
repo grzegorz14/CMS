@@ -2,7 +2,16 @@
     import SettingsController from "./../SettingsController"  
 
     let settings = new SettingsController()
-    let slides =  settings.getJson().slides
+    let slideObjects =  settings.stringToArray(settings.getJson().slides)
+    let slides = []
+    for(let i = 0; i < slideObjects.length; i += 4) {
+        slides.push({ 
+            "image": slideObjects[i],
+            "header": slideObjects[i + 1],
+            "content": slideObjects[i + 2],
+            "transition": slideObjects[i + 3],
+        })
+    }
     let colorTheme = settings.getJson().colorTheme
 </script>
 

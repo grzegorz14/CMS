@@ -7,7 +7,7 @@
     let imagesSize = json.imagesSize
     let displayType = json.galleryDisplay
     let colorTheme = json.colorTheme
-    let slides = json.slides
+    let slides = settings.stringToArray(json.slides)
 
     let sliderImages = []
     slides.forEach(slide => {

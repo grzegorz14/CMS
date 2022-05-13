@@ -2,10 +2,21 @@
     import SettingsController from "./../SettingsController"  
 
     let settings = new SettingsController()
-    let slides =  settings.getJson().slides
+    let slideObjects =  settings.stringToArray(settings.getJson().slides)
+    let slides = []
+    for(let i = 0; i < slideObjects.length; i += 4) {
+        slides.push({ 
+            "image": slideObjects[i],
+            "header": slideObjects[i + 1],
+            "content": slideObjects[i + 2],
+            "transition": slideObjects[i + 3],
+        })
+    }
+
+
     let colorTheme = settings.getJson().colorTheme
 
-    function addSlide() {
+    async function addSlide() {
         //let image = document.getElementById("slideImage").files[0]
         let image = document.getElementById("image").value
         let header = document.getElementById("slideHeader").value
@@ -28,18 +39,18 @@
             return
         }
         else {
-            settings.addSlide(image, header, content, transition)
+            await settings.addSlide(image, header, content, transition)
             window.location.reload()
         }
     }
 
-    function deleteSlide() {
+    async function deleteSlide() {
         let slide = document.getElementById("slideToDelete").value
         if (isEmptyOrWhiteSpace(slide)) {
             return
         }
         if (confirm("Do you want to delete slide \"" + slide + "\"?")) {
-            settings.deleteSlide(slide)
+            await settings.deleteSlide(slide)
             window.location.reload()
         }
     }

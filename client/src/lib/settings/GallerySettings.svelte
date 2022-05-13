@@ -13,18 +13,20 @@
     //inputs
     let imagesSizeInput = json.imagesSize
     let displayTypeInput = json.galleryDisplay
+    
+    let colorTheme = json.colorTheme
 
-    function save() {
+    async function save() {
         let displayType = document.getElementById("displayType").value
         let imagesSize = document.getElementById("imagesSize").value
         if (imagesSize > 800) {
             alert("Maximum images size is 800!")
             return
         }
-        settings.setGalleryParameters(displayType, imagesSize)
+        await settings.updateSetting("galleryDisplay", displayType)
+        await settings.updateSetting("imagesSize", imagesSize)
         window.location.reload()
     }
-    let colorTheme = settings.getJson().colorTheme
 </script>
 
 <div class="d-flex flex-column justify-content-center {colorTheme == "Light" ? 'bg-white t-black':  (colorTheme == "Dark" ? 'bg-dark t-white' : "bg-black t-yellow")}">

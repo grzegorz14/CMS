@@ -9,47 +9,46 @@
         { value: "1", content: "Variant 1 (default)" },
         { value: "2", content: "Variant 2 (contentCenter)" }
     ]
-    let links = json.links
+    let links = settings.stringToArray(json.links)
 
     //inputs
-    let pageNameInput = settings.getSetting("pageName").then(value => pageNameInput = value)
+    let pageNameInput = json.pageName
     let menuVariantInput = json.menuVariant
 
-    function changePageName() {
+    async function changePageName() {
         let newPageName = document.getElementById("pageName").value
         if (isEmptyOrWhiteSpace(newPageName)) {
             alert("New page name is empty!")
             return
         }
-        //settings.setPageName(newPageName)
-        settings.updateSetting("pageName", newPageName)
+        await settings.updateSetting("pageName", newPageName)
         window.location.reload()
     }   
 
-    function changeMenuVariant() {
-        settings.setMenuVariant(document.getElementById("menuVariant").value)
+    async function changeMenuVariant() {
+        await settings.updateSetting("menuVariant", document.getElementById("menuVariant").value)
         window.location.reload()
     }
 
-    function addLink() {
+    async function addLink() {
         let link = document.getElementById("linkText").value
         if (isEmptyOrWhiteSpace(link)){
             alert("Your link is empty!")
             return
         }
         else {
-            settings.addLink(link)
+            await settings.addLink(link)
             window.location.reload()
         }
     }
 
-    function deleteLink() {
+    async function deleteLink() {
         let link = document.getElementById("linkToDelete").value
         if (isEmptyOrWhiteSpace(link)) {
             return
         }
         if (confirm("Do you want to delete link \"" + link + "\"?")) {
-            settings.deleteLink(link)
+            await settings.deleteLink(link)
             window.location.reload()
         }
     }

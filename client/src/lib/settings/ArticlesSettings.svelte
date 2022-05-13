@@ -3,9 +3,16 @@
     
     let settings = new SettingsController()
     let colorTheme = settings.getJson().colorTheme
-    let articles = settings.getJson().articles
+    let articleObjects =  settings.stringToArray(settings.getJson().articles)
+    let articles = []
+    for(let i = 0; i < articleObjects.length; i += 2) {
+        articles.push({ 
+            "header": articleObjects[i],
+            "content": articleObjects[i + 1],
+        })
+    }
 
-    function addArticle() {
+    async function addArticle() {
         let header = document.getElementById("articleHeader").value
         let content = document.getElementById("articleContent").value
         if (isEmptyOrWhiteSpace(header)){
@@ -17,18 +24,18 @@
             return
         }
         else {
-            settings.addArticle(header, content)
+            await settings.addArticle(header, content)
             window.location.reload()
         }
     }
 
-    function deleteArticle() {
+    async function deleteArticle() {
         let article = document.getElementById("articleToDelete").value
         if (isEmptyOrWhiteSpace(article)) {
             return
         }
         if (confirm("Do you want to delete article \"" + article + "\"?")) {
-            settings.deleteArticle(article)
+            await settings.deleteArticle(article)
             window.location.reload()
         }
     }

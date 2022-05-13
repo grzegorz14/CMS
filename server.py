@@ -13,11 +13,6 @@ loggedUsers = []
 # Path for our main Svelte page
 @app.route("/")
 def base():
-    myConnection = sqlite3.connect('database.sqlite')
-    myCursor = myConnection.cursor()
-    myCursor.execute("SELECT * FROM settings")
-    settings = myCursor.fetchall()
-    print(settings)
     return send_from_directory('client/public', 'index.html')
 
 # Path for all the static files (compiled JS/CSS, etc.)
@@ -85,7 +80,6 @@ def signUp():
 @app.route("/getUserType", methods=["POST"])
 def getUserType():
     login = request.form["login"]
-    print(login)
     myConnection = sqlite3.connect('database.sqlite')
     myCursor = myConnection.cursor()
     myCursor.execute("SELECT * FROM users")
@@ -93,7 +87,7 @@ def getUserType():
     myConnection.close()
     for user in users:
         if user[0] == login:
-            print(user)
+            print("Get user type: " + str(user))
             return user[2]  
     return "none"  
 
@@ -193,7 +187,7 @@ def getSettings():
     myCursor = myConnection.cursor()
     myCursor.execute("SELECT * FROM settings")
     settings = myCursor.fetchall()
-    print(settings)
+    print("Get Settings: " + str(settings))
     myConnection.close()
     return json.dumps(settings, separators=(',', ':')) 
 
@@ -216,8 +210,12 @@ def updateSettings():
             print("Change: " + str(field))
         counter += 1
     
-    myCursor.execute(f"UPDATE settings SET pageName = '{settingsArray[0]}',pageLayout = '{settingsArray[1]}',colorTheme = '{settingsArray[2]}',fontSize = '{settingsArray[3]}',fontFamily = '{settingsArray[4]}',menuVariant = '{settingsArray[5]}',galleryDisplay = '{settingsArray[6]}',imagesSize = '{settingsArray[7]}',links = '{settingsArray[8]}',slides = '{settingsArray[9]}',articles = '{settingsArray[10]}'")
+    myCursor.execute(f'UPDATE settings SET pageName = "{settingsArray[0]}",pageLayout = "{settingsArray[1]}",colorTheme = "{settingsArray[2]}",fontSize = "{settingsArray[3]}",fontFamily = "{settingsArray[4]}",menuVariant = "{settingsArray[5]}",galleryDisplay = "{settingsArray[6]}",imagesSize = {settingsArray[7]},links = "{settingsArray[8]}",slides = "{str(settingsArray[9])}",articles = "{settingsArray[10]}"')
     myConnection.commit()
+    myCursor.execute("SELECT * FROM settings")
+    settingsTable = myCursor.fetchall()
+    settings = settingsTable[0]
+    print("updated settings: " + str(settings))
     myConnection.close()
     return "ok"
 

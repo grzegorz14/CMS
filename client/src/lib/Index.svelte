@@ -26,41 +26,59 @@
     import SettingsController from './SettingsController';
 
     //localStorage.setItem("settingsJson", null)
-
     let settings = new SettingsController()
     let settingsJson = settings.getJson()
+    let colorTheme
 
-    if (settingsJson == null) {
-        localStorage.setItem("settingsJson", JSON.stringify(json))
-    }
-    else {
-        //set all of the fields
-        // json.pageName = settingsJson.pageName
-        // settings.setPageName(settingsJson.pageName)
-        // json.pageLayout = settingsJson.pageLayout
-        // json.colorTheme = settingsJson.colorTheme
-        // settings.setPageThemes(settingsJson.pageLayout, settingsJson.colorTheme)
-        // json.fontSize = settingsJson.fontSize
-        // json.fontFamily = settingsJson.fontFamily
-        // settings.setFontAttributes(settingsJson.fontSize, settingsJson.fontFamily)
-        // json.menuVariant = settingsJson.menuVariant
-        // settings.setMenuVariant(settingsJson.menuVariant)
-        // json.imagesSize = settingsJson.imagesSize
-        // json.galleryDisplay = settingsJson.galleryDisplay
-        // settings.setGalleryParameters(settingsJson.galleryDisplay, settingsJson.imagesSize)  
-        // json.links = settingsJson.links
-        // json.slides = settingsJson.slides
-        // json.articles = settingsJson.articles
-        // settings.saveJson()
-    }
+    async function code() {
+        let databaseSettings = await settings.getSettingsJson()
+        console.log("DB Settings:")
+        console.log(databaseSettings)
 
-    let colorTheme = settings.getJson().colorTheme
+        localStorage.setItem("settingsJson", JSON.stringify(databaseSettings))
+
+        colorTheme = databaseSettings.colorTheme
+        settings.setStyle("--font-size", databaseSettings.fontSize + "px")
+        settings.setStyle("--font-family", databaseSettings.fontFamily)
+
+        // if (settingsJson == null) {
+        //     localStorage.setItem("settingsJson", JSON.stringify(databaseSettings))
+        //     databaseSettings = await settings.getSettingsJson()
+        //     settings.setStyle("--font-size", databaseSettings.fontSize)
+        //     settings.setStyle("--font-family", databaseSettings.fontFamily)
+        // }
+        // else {
+        //     //set json fields
+        //     let updateJson = []
+        //     updateJson[settings.getArrayIndex("pageName")] = settingsJson.pageName
+        //     updateJson[settings.getArrayIndex("pageLayout")] = settingsJson.pageLayout
+        //     updateJson[settings.getArrayIndex("colorTheme")] = settingsJson.colorTheme
+        //     updateJson[settings.getArrayIndex("fontSize")] = settingsJson.fontSize
+        //     updateJson[settings.getArrayIndex("fontFamily")] = settingsJson.fontFamily
+        //     updateJson[settings.getArrayIndex("menuVariant")] = settingsJson.menuVariant
+        //     updateJson[settings.getArrayIndex("imagesSize")] = settingsJson.imagesSize
+        //     updateJson[settings.getArrayIndex("galleryDisplay")] = settingsJson.galleryDisplay
+        //     updateJson[settings.getArrayIndex("links")] = settingsJson.links
+        //     updateJson[settings.getArrayIndex("slides")] = settingsJson.slides
+        //     updateJson[settings.getArrayIndex("articles")] = settingsJson.articles
+
+        //     settings.updateJson(updateJson)
+        
+        //     settings.setStyle("--font-size", settingsJson.fontSize)
+        //     settings.setStyle("--font-family", settingsJson.fontFamily)
+        // }
+    }
+    let promise = code()
 </script>
 
-<a name="top" href="/" style="visibility: collapse; position: absolute;">top</a>
+{#await promise}
+    Loading settings...
+{:then} 
+    <a name="top" href="/" style="visibility: collapse; position: absolute;">top</a>
 
-<Menu/>
+    <Menu/>
 
-<div class="{colorTheme == "Light" ? 'bg-white t-black' :  (colorTheme == "Dark" ? 'bg-dark t-white' : "bg-black text-yellow")}">
-    <Router {routes} />
-</div>
+    <div class="{colorTheme == "Light" ? 'bg-white t-black' :  (colorTheme == "Dark" ? 'bg-dark t-white' : "bg-black text-yellow")}">
+        <Router {routes} />
+    </div>
+{/await}

@@ -32,30 +32,36 @@
     let colorThemeInput = json.colorTheme
     let fontSizeInput = json.fontSize
     let fontFamilyInput = json.fontFamily
+    let colorTheme = json.colorTheme
 
-    function setThemes() {
+    async function setThemes() {
         let pageLayout = document.getElementById("pageLayout").value
         let colorTheme = document.getElementById("colorTheme").value
-        settings.setPageThemes(pageLayout, colorTheme)
+        await settings.updateSetting("pageLayout", pageLayout)
+        await settings.updateSetting("colorTheme", colorTheme)
         window.location.reload()
     }
 
-    function applyFontSettings() {
+    async function applyFontSettings() {
         let fontSize = document.getElementById("fontSize").value
         let fontFamily = document.getElementById("fontFamily").value
-        settings.setFontAttributes(fontSize, fontFamily)
+        await settings.updateSetting("fontSize", fontSize)
+        settings.setStyle("--font-size", fontSize)
+        await settings.updateSetting("fontFamily", fontFamily)
+        window.location.reload()
     }
     
-    function defaultSettings() {
+    async function defaultSettings() {
         document.getElementById("pageLayout").value = "classic"
         document.getElementById("colorTheme").value = "Light"
         document.getElementById("fontSize").value = "17"
         document.getElementById("fontFamily").value = "Arial, Helvetica, sans-serif"
-        settings.setPageThemes("classic", "Light")
-        settings.setFontAttributes("17", "Arial, Helvetica, sans-serif")
+        await settings.updateSetting("pageLayout", "classic")
+        await settings.updateSetting("colorTheme", "Light")
+        await settings.updateSetting("fontSize", 17)
+        await settings.updateSetting("fontFamily", "Arial, Helvetica, sans-serif")
         window.location.reload()
     }
-    let colorTheme = settings.getJson().colorTheme
 </script>
 
 <div class="d-flex flex-column justify-content-center {colorTheme == "Light" ? 'bg-white t-black':  (colorTheme == "Dark" ? 'bg-dark t-white' : "bg-black t-yellow")}">

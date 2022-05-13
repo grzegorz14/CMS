@@ -5,7 +5,14 @@
     
     let settings = new SettingsController()
     let colorTheme = settings.getJson().colorTheme
-    let articles = settings.getJson().articles
+    let articleObjects =  settings.stringToArray(settings.getJson().articles)
+    let articles = []
+    for(let i = 0; i < articleObjects.length; i += 2) {
+        articles.push({ 
+            "header": articleObjects[i],
+            "content": articleObjects[i + 1],
+        })
+    }
 
     let articleName = window.location.href.split("/")[window.location.href.split("/").length - 1].replaceAll("%20", " ")
 
