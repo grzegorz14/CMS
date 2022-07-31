@@ -1,35 +1,37 @@
-# CMS system using Svelte.js + Flask server
+# CMS system using Svelte.js and Python Flask server
 
-Należy otworzyć plik server.py oraz sprawdzić czy moduł flask jest pobrany. 
+This is a simple CMS web app with some interesting facts and beautiful images. Loging in as an admin allows us to manipulate the content, links, users and look of the site.    
 
-Jeśli jest pobrany, proszę wykonać poniższe:
-- otworzyć terminal i wykonać po kolei polecenia:
-   1. cd client
-   2. npm install
-- otworzyć drugi terminal i wykonać polecenie: python server.py
-- wejść w link do strony utworzony w terminalu
+Admin login and password: admin
 
-Jeśli nie jest pobrany, proszę wykonać poniższe:
-- otworzyć terminal i wykonać po kolei polecenia:
-   1. cd client
-   2. npm install
-- otworzyć drugi terminal i wykonać po kolei polecenia:
-   1. skopiować ścieżkę do projektu w eksplorerze plików
-   2. python -m venv skopiowanaŚcieżka\venv
-   3. & skopiowanaŚcieżka/venv/Scripts/Activate.ps1
-   4. pip install flask-bs4
-   5. python server.py
-- wejść w link do strony utworzony w terminalu
+## Run locally
 
-Po uruchomieniu aplikacji możemy się zalogować. Po zalogowaniu na stronę w prawym górnym rogu ekranu pojawia się zębatka po naciśnięciu, której przenosi nas na stronę z ustawieniami.  
-Istnieją 2 wersje strony:  
-- dla administratora w której można edytować wszystko co znajduje się na stronie  
-(navbar, kolorystyka, template, slider, artykuły i użytkowników) 
-- dla użytkowników w której można dodawać artykuły i swoje konto 
+Client side - installing node modules.
 
-Konto administratora: 
-- login: admin 
-- hasło: admin 
+```bash
+  git clone --link--
+  cd client
+  npm install
+  cd ../
+```
 
-Tkinter: 
-- należy uruchomić plik main.py i zalogować się z użyciem konta administratora. Po zalogowaniu mamy dostęp do edycji ustawień na stronie. 
+Server side - installing flask-bs4 package.
+
+```bash
+  python -m venv copiedPathToProject\venv
+  & copiedPathToProject/venv/Scripts/Activate.ps1
+  pip install flask-bs4
+  python server.py
+```
+
+Open link created by the terminal. 
+
+## Tech Stack
+
+**Client:** Svelte, HTML, CSS, Bootstrap, JavaScript
+
+**Server:** Python, Flask, SQLite
+
+## Tkinter desktop app
+
+Run main.py to test it. This small app allows to edit page settings (which also can be done in web app settings). My teammate was mainly responsible for that part of the project. 
