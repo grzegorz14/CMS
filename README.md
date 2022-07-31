@@ -35,3 +35,13 @@ Open link created by the terminal.
 ## Tkinter desktop app
 
 Run main.py to test it. This small app allows to edit page settings (which also can be done in web app settings). My teammate was mainly responsible for that part of the project. 
+
+## Screenshots
+
+![Screenshot_1](https://user-images.githubusercontent.com/92259597/182004029-e594acb2-c127-408d-a4d2-2b4eb86db0b9.png)
+![Screenshot_2](https://user-images.githubusercontent.com/92259597/182004031-e748eadd-e30e-4d7f-86da-b09e17bad13c.png)
+![Screenshot_3](https://user-images.githubusercontent.com/92259597/182004032-4dae6733-4007-4017-a10d-83be4a34216d.png)
+![Screenshot_4](https://user-images.githubusercontent.com/92259597/182004034-d2f0e918-b2f4-4ece-9a73-10105d77e342.png)
+![Screenshot_5](https://user-images.githubusercontent.com/92259597/182004035-4a2a79f7-8e75-4d3f-81c7-528ef0a36983.png)
+![Screenshot_6](https://user-images.githubusercontent.com/92259597/182004039-2aae71c4-1b5d-4b45-89c4-2a0b70b8f1ab.png)
+
